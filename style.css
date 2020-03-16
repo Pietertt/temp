@@ -20,12 +20,12 @@
       display: table;
   }
   
-  [class="col-"] {
+  [class*="col-"] {
       width: 100%;
-      float: left;
   }
   
   @media only screen and (min-width: 720px) {
+
       /* For tablets */
       .col-s-1 {width: 8.33%;}
       .col-s-2 {width: 16.66%;}
@@ -42,6 +42,11 @@
       }
   
     @media only screen and (min-width: 1143px) {
+
+      [class*="col"] {
+            float: left;
+      }
+
       /* For desktop */
       .col-1 {width: 8.33%;}
       .col-2 {width: 16.66%;}
