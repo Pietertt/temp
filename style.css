@@ -10,7 +10,15 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
-  
+  .row {
+
+  }
+
+  .row::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
   
   [class="col-"] {
       width: 100%;
