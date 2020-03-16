@@ -26,6 +26,10 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
+  body {
+      background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));
+  }
+
 /* --------------------------------------------------------------
                               Rows & columns
 -------------------------------------------------------------- */
@@ -117,6 +121,10 @@ input {
       background-color: var(--hs-blue);
 }
 
+.white {
+      background-color: #FFFFFF;
+}
+
 
 /* --------------------------------------------------------------
                               Text
@@ -130,4 +138,14 @@ input {
       color: var(--hs-light-gray);
 }
 
+/* --------------------------------------------------------------
+                              Utilities
+-------------------------------------------------------------- */
 
+.rounded {
+      border-radius: 5px;
+}
+
+.centered {
+      text-align: center;
+}
