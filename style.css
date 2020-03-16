@@ -1,0 +1,99 @@
+:root {
+      --blue: #2e5296;
+      --red: #ef4135;
+}
+
+* {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+      margin: 0;
+      padding: 0;
+}
+
+[class*="wide"]{
+      width: 100%;
+}
+
+[class*="column"]{
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+}
+
+.row {
+      padding-top: 10px;
+      padding-bottom: 10px;
+}
+
+.row::after {
+      content: "";
+      clear: both;
+      display: table;
+}
+
+.container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+      .container {
+            
+      }
+
+      [class*="column"] {
+            float: left;
+            padding-top: 0px;
+            padding-bottom: 0px;
+      }
+
+      [class*="one wide"] { width: 8.33%; }
+      [class*="two wide"] { width: 16.66%; }
+      [class*="three wide"] { width: 25%; }
+      [class*="four wide"] { width: 33.33%; }
+      [class*="five wide"] { width: 41.66%; }
+      [class*="six wide"] { width: 50%; }
+      [class*="seven wide"] { width: 58.33%; }
+      [class*="eight wide"] { width: 66.67%; }
+      [class*="nine wide"] { width: 75%; }
+      [class*="ten wide"] { width: 83.33%; }
+      [class*="eleven wide"] { width: 91.67%; }
+      [class*="twelve wide"] { width: 100%; }
+}
+
+.button {
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 13.33px;
+      padding-bottom: 13.33px;
+      border: none;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+}
+
+input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid rgba(155, 155, 155, 0.3);
+      border-radius: 5px;
+}
+
+.red {
+      background-color: var(--red);
+      color: #FFFFFF;
+}
+
+.blue {
+      background-color: var(--blue);
+      color: #FFFFFF;
+}
+
