@@ -4,48 +4,39 @@
             <link rel="stylesheet" href="../style.css">
       </header>
       <body>
-            <div class="row">
-                  <div class="container">
-                        <div class="row">
-                              <div class="col-3">
-                                    <h3>Inloggen</h3>
-                              </div>
-                              <div class="col-3">
-                                    <h3>Registreren</h3>
-                              </div>
+
+            <div class="four wide container">
+                  <div class="row">
+                        <div class="four wide column">
+                              <h3 class="selected">Inloggen</h3>
+                        </div>
+                        <div class="four wide column">
+                              <h3 class="deselected">Registreren</h3>
                         </div>
                   </div>
-                  <div class="container">
-                        <form action="post">
-                              <div class="row">
-                                    <div class="col-4">
-                                          <label for="email">E-mailadres</label>
-                                    </div>
+            </div>
+            <div class="four wide container">
+                  <form action="post">
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <label for="email">E-mailadres</label>
+                                    <input id="email" name="email" type="email" required>
                               </div>
-                              <div class="row">
-                                    <div class="col-4">
-                                          <input id="email" name="email" type="email" required>
-                                    </div>
-                              </div>
+                        </div>
 
-                              <div class="row">
-                                    <div class="col-4">
-                                          <label for="password">Wachtwoord</label>
-                                    </div>
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <label for="password">Wachtwoord</label>
+                                    <input id="password" name="password" type="password" required>
                               </div>
-                              <div class="row">
-                                    <div class="col-4">
-                                          <input id="password" name="password" type="password" required>
-                                    </div>
-                              </div>
+                        </div>
 
-                              <div class="row">
-                                    <div class="col-4">
-                                          <button class="blue button">Versturen</button>
-                                    </div>
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <button class="blue button">Versturen</button>
                               </div>
-                        </form>
-                  </div>
+                        </div>
+                  </form>
             </div>
       </body>
 </html>
