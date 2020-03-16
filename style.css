@@ -3,7 +3,8 @@
       1. Root
       2. Rows & columns
       3. Forms
-      4. Colors
+      4. Buttons
+      5. Colors
 
 -------------------------------------------------------------- */
 
@@ -27,9 +28,8 @@
                               Rows & columns
 -------------------------------------------------------------- */
   
-  .row {
-
-  }
+.row {
+}
 
   .row::after {
       content: "";
@@ -84,7 +84,28 @@
 -------------------------------------------------------------- */
 
 input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid rgba(155, 155, 155, 0.3);
+      border-radius: 5px;
+}
 
+/* --------------------------------------------------------------
+                              Buttons
+-------------------------------------------------------------- */
+.button {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 13.33px;
+      padding-bottom: 13.33px;
+      border: none;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
 }
 
 /* --------------------------------------------------------------
