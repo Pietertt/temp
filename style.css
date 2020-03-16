@@ -5,6 +5,7 @@
       3. Forms
       4. Buttons
       5. Colors
+      6. Text
 
 -------------------------------------------------------------- */
 
@@ -15,6 +16,7 @@
 :root {
       --hs-blue: #2e5296;
       --hs-red: #ef4135;
+      --hs-light-gray: rgba(180, 180, 180, 0.6);
   }
   
   /* variabelen uit :root kunnen aangeroepen worden door bijvoorbeeld te zeggen: background-color: var(--hs-red); */
@@ -29,54 +31,49 @@
 -------------------------------------------------------------- */
   
 .row {
+      padding-bottom: 20px;
 }
 
-  .row::after {
+.row::after {
       content: "";
       clear: both;
       display: table;
-  }
-  
-  [class*="col-"] {
+}
+
+[class*="col-"] {
       width: 100%;
-  }
+}
   
-  @media only screen and (min-width: 720px) {
+@media only screen and (min-width: 1143px) {
 
-      /* For tablets */
-      .col-s-1 {width: 8.33%;}
-      .col-s-2 {width: 16.66%;}
-      .col-s-3 {width: 25%;}
-      .col-s-4 {width: 33.33%;}
-      .col-s-5 {width: 41.66%;}
-      .col-s-6 {width: 50%;}
-      .col-s-7 {width: 58.33%;}
-      .col-s-8 {width: 66.66%;}
-      .col-s-9 {width: 75%;}
-      .col-s-10 {width: 83.33%;}
-      .col-s-11 {width: 91.66%;}
-      .col-s-12 {width: 100%;}
-      }
-  
-    @media only screen and (min-width: 1143px) {
-
-      [class*="col"] {
+      [class*="column"] {
             float: left;
+            padding-top: 0px;
+            padding-bottom: 0px;
       }
 
       /* For desktop */
-      .col-1 {width: 8.33%;}
-      .col-2 {width: 16.66%;}
-      .col-3 {width: 25%;}
-      .col-4 {width: 33.33%;}
-      .col-5 {width: 41.66%;}
-      .col-6 {width: 50%;}
-      .col-7 {width: 58.33%;}
-      .col-8 {width: 66.66%;}
-      .col-9 {width: 75%; }
-      .col-10 {width: 83.33%;}
-      .col-11 {width: 91.66%;}
-      .col-12 {width: 100%;}
+      [class*="one wide"] { width: 8.33%; }
+      [class*="two wide"] { width: 16.66%; }
+      [class*="three wide"] { width: 25%; }
+      [class*="four wide"] { width: 33.33%; }
+      [class*="five wide"] { width: 41.66%; }
+      [class*="six wide"] { width: 50%; }
+      [class*="seven wide"] { width: 58.33%; }
+      [class*="eight wide"] { width: 66.67%; }
+      [class*="nine wide"] { width: 75%; }
+      [class*="ten wide"] { width: 83.33%; }
+      [class*="eleven wide"] { width: 91.67%; }
+      [class*="twelve wide"] { width: 100%; }
+
+      .container {
+            margin: 0 auto;
+            display: block;
+      }
+
+      [class*="col-"]{
+            float: left;
+      }
   }
 
 /* --------------------------------------------------------------
@@ -119,3 +116,18 @@ input {
 .blue {
       background-color: var(--hs-blue);
 }
+
+
+/* --------------------------------------------------------------
+                              Text
+-------------------------------------------------------------- */
+
+.selected {
+      color: #000000;
+}
+
+.deselected {
+      color: var(--hs-light-gray);
+}
+
+
