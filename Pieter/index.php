@@ -18,27 +18,25 @@
                   </div>
 
                   <div class="ten wide container">
-                        <form action="post">
-                              <div class="row">
-                                    <div class="twelve wide column">
-                                          <label for="email">E-mailadres</label>
-                                          <input id="email" name="email" type="email" id="email" required>
-                                    </div>
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <label for="email">E-mailadres</label>
+                                    <input id="email" name="email" type="email" id="email">
                               </div>
+                        </div>
 
-                              <div class="row">
-                                    <div class="twelve wide column">
-                                          <label for="password">Wachtwoord</label>
-                                          <input id="password" name="password" type="password" required>
-                                    </div>
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <label for="password">Wachtwoord</label>
+                                    <input id="password" name="password" type="password" id="password">
                               </div>
+                        </div>
 
-                              <div class="row">
-                                    <div class="twelve wide column">
-                                          <button class="twelve wide blue button">Versturen</button>
-                                    </div>
+                        <div class="row">
+                              <div class="twelve wide column">
+                                    <button class="twelve wide blue button" id="submit">Versturen</div></button>
                               </div>
-                        </form>
+                        </div>
                   </div>
 
             </div>
