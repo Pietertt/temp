@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html> d
+<html>
       <header>
             <link rel="stylesheet" href="../style.css">
       </header>
       <body>
             <div class="five wide white rounded container">
+
                   <div class="ten wide container">
-                        <div class="row">
-                              <div class="four wide column">
-                                    <h2 class="selected">Inloggen</h2>
+                        <div class="padded row">
+                              <div class="six wide centered column">
+                                    <button class="ten wide blue button">Inloggen</button>
                               </div>
-                              <div class="four wide column">
-                                    <h2 class="deselected">Registreren</h2>
+                              <div class="six wide centered column">
+                                    <button class="ten wide blue inverted button">Registreren</button>
                               </div>
                         </div>
                   </div>
+
                   <div class="ten wide container">
                         <form action="post">
                               <div class="row">
@@ -38,6 +40,7 @@
                               </div>
                         </form>
                   </div>
+
             </div>
       </body>
 </html>
