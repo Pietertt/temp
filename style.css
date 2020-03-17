@@ -17,18 +17,18 @@
       --hs-blue: #2e5296;
       --hs-red: #ef4135;
       --hs-light-gray: rgba(180, 180, 180, 0.6);
-  }
+}
   
   /* variabelen uit :root kunnen aangeroepen worden door bijvoorbeeld te zeggen: background-color: var(--hs-red); */
   
-  * {
+* {
       box-sizing: border-box;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+}
 
-  body {
+body {
       background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));
-  }
+}
 
 /* --------------------------------------------------------------
                               Rows & columns
@@ -38,16 +38,17 @@
       padding-bottom: 20px;
 }
 
+[class*="padded row"] {
+      padding-top: 30px;
+      padding-bottom: 30px;
+}
+
 .row::after {
       content: "";
       clear: both;
       display: table;
 }
 
-[class*="col-"] {
-      width: 100%;
-}
-  
 @media only screen and (min-width: 1143px) {
 
       [class*="column"] {
@@ -56,29 +57,29 @@
             padding-bottom: 0px;
       }
 
-      /* For desktop */
-      [class*="one wide"] { width: 8.33%; }
-      [class*="two wide"] { width: 16.66%; }
-      [class*="three wide"] { width: 25%; }
-      [class*="four wide"] { width: 33.33%; }
-      [class*="five wide"] { width: 41.66%; }
-      [class*="six wide"] { width: 50%; }
-      [class*="seven wide"] { width: 58.33%; }
-      [class*="eight wide"] { width: 66.67%; }
-      [class*="nine wide"] { width: 75%; }
-      [class*="ten wide"] { width: 83.33%; }
-      [class*="eleven wide"] { width: 91.67%; }
-      [class*="twelve wide"] { width: 100%; }
+      [class*="centered column"] {
+            display: block;
+            text-align: center;
+      }
+
+      [class*="one wide"]     {     width: 8.33%;     }
+      [class*="two wide"]     {     width: 16.66%;    }
+      [class*="three wide"]   {     width: 25%;       }
+      [class*="four wide"]    {     width: 33.33%;    }
+      [class*="five wide"]    {     width: 41.66%;    }
+      [class*="six wide"]     {     width: 50%;       }
+      [class*="seven wide"]   {     width: 58.33%;    }
+      [class*="eight wide"]   {     width: 66.67%;    }
+      [class*="nine wide"]    {     width: 75%;       }
+      [class*="ten wide"]     {     width: 83.33%;    }
+      [class*="eleven wide"]  {     width: 91.67%;    }
+      [class*="twelve wide"]  {     width: 100%;      }
 
       .container {
             margin: 0 auto;
             display: block;
       }
-
-      [class*="col-"]{
-            float: left;
-      }
-  }
+}
 
 /* --------------------------------------------------------------
                               Forms
@@ -107,6 +108,10 @@ input {
       font-weight: bold;
       font-size: 16px;
       cursor: pointer;
+}
+
+[class*="inverted button"] {
+      color: var();
 }
 
 /* --------------------------------------------------------------
@@ -144,8 +149,4 @@ input {
 
 .rounded {
       border-radius: 5px;
-}
-
-.centered {
-      text-align: center;
 }
