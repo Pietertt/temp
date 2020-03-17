@@ -110,10 +110,6 @@ input {
       cursor: pointer;
 }
 
-[class*="inverted button"] {
-      color: var();
-}
-
 /* --------------------------------------------------------------
                               Colors
 -------------------------------------------------------------- */
@@ -130,6 +126,10 @@ input {
       background-color: #FFFFFF;
 }
 
+.inverted {
+      background-color: #FFFFFF;
+      color: var(--hs-light-gray);
+}
 
 /* --------------------------------------------------------------
                               Text
