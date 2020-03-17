@@ -22,7 +22,7 @@
                               <div class="row">
                                     <div class="twelve wide column">
                                           <label for="email">E-mailadres</label>
-                                          <input id="email" name="email" type="email" required>
+                                          <input id="email" name="email" type="email" id="email" required>
                                     </div>
                               </div>
 
@@ -42,5 +42,7 @@
                   </div>
 
             </div>
+
+            <script src="binding.js"></script>
       </body>
 </html>
