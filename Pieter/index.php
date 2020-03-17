@@ -17,7 +17,7 @@
                         </div>
                   </div>
 
-                  <div class="ten wide container">
+                  <div id="container" class="ten wide container">
                         <div class="row">
                               <div class="twelve wide column">
                                     <label for="email">E-mailadres</label>

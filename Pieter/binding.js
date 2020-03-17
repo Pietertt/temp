@@ -2,7 +2,8 @@
 var data = {
   email: '',
   password: '',
-  waiting: false
+  waiting: false,
+  error: false
 };
 
 var emailField = document.getElementById('email');
@@ -33,6 +34,26 @@ watch(data, 'password', function(newValue) {
       passwordField.value = newValue;
 });
 
+watch(data, 'error', function(newValue) {
+      if (!document.getElementById("error_message")){
+            var container = document.getElementById('container');
+            var row = document.createElement("DIV");
+            row.id = "error_message";
+            row.classList.add('row');
+
+            var column = document.createElement("DIV");
+            column.classList.add("twelve");
+            column.classList.add("wide");
+            column.classList.add("rounded");
+            column.classList.add("error");
+            column.classList.add("column");
+            column.innerHTML = newValue;
+
+            row.appendChild(column);
+            container.appendChild(row);
+      }
+});
+
 watch(data, 'waiting', function(newValue){
       if(newValue){
             button.innerHTML = '';
@@ -58,7 +79,7 @@ button.addEventListener('click', function(){
       xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                   data.waiting = false;
-                  console.log(this.responseText);
+                  data.error = this.responseText;
             }
       }
       xhttp.open("POST", "validate.php", true);
