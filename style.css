@@ -17,6 +17,10 @@
       --hs-blue: #2e5296;
       --hs-red: #ef4135;
       --hs-light-gray: rgba(180, 180, 180, 0.6);
+
+      --error-dark-red: #942C2D;
+      --error-light-red: #FFF6F6;
+      --error-rose: #E2B4B4;
 }
   
   /* variabelen uit :root kunnen aangeroepen worden door bijvoorbeeld te zeggen: background-color: var(--hs-red); */
@@ -160,6 +164,13 @@ input {
       -webkit-animation: spin 1s linear infinite; /* Safari */
       animation: spin 1s linear infinite;
       margin: 0 auto;
+}
+
+.error {
+      background-color: var(--error-light-red);
+      border: 2px solid var(--error-rose);
+      color: var(--error-dark-red);
+      padding: 20px;
 }
     
 /* Safari */
