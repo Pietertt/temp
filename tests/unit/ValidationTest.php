@@ -10,8 +10,8 @@
                    $this->validation = new validation("pieter-boersma@telfort.nl", "test123");
             }
 
-            public function testSanitize(){
-                  $this->assertTrue($this->validation->sanitize(), true);
+            public function testLength(){
+                  $this->assertTrue($this->validation->filter_length($this->validation->email), true);
             }
 
             protected function tearDown() : void {
