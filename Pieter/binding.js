@@ -3,7 +3,7 @@ var data = {
   email: '',
   password: '',
   waiting: false,
-  error: false
+  error: ''
 };
 
 var emailField = document.getElementById('email');
@@ -79,10 +79,14 @@ button.addEventListener('click', function(){
       xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                   data.waiting = false;
-                  data.error = this.responseText;
+                  if(this.responseText == "true"){
+
+                  } else {
+                        data.error = JSON.parse(this.responseText);
+                  }
             }
       }
-      xhttp.open("POST", "validate.php", true);
+      xhttp.open("POST", "validation.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send("email=" + data.email + "&password=" + data.password);
 })

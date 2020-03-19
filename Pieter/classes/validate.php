@@ -27,7 +27,7 @@
                   if(preg_match($pattern, $string)){
                         return true;
                   } else {
-                        array_push($this->errors, "Je invoer mag alleen maar letters, cijfers of de tekens '@', '.', '-', '_' bevatten");
+                        array_push($this->errors, "Je invoer mag alleen maar letters, cijfers of de tekens .', '-', '_' bevatten");
                         return false;
                   }
             }
@@ -36,6 +36,7 @@
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
                   } else {
+                        array_push($this->errors, "Het ingevoerde e-mailadres is niet geldig");
                         return false;
                   }
             }
@@ -57,13 +58,15 @@
                   if($rows == 1){
                         return true;
                   } else {
+                        array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
                         return false;
                   }
 
                   return $rows;
             }
-      }
 
-      $validation = new validation("thomas@ziggo.nl", "293829382");
-      print_r($validation->validate());
+            public function get_errors() : string {
+                  return json_encode($this->errors);
+            }
+      }
 ?>
