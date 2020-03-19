@@ -1,4 +1,5 @@
 <?php
+      require 'database.php';
 
       class validation {
             public $email;
@@ -38,5 +39,14 @@
                         return false;
                   }
             }
+
+            public function validate($username, $password){
+                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
+                  $database->connect();
+                  
+            }
       }
+
+      $validation = new validation("d", "d");
+      $validation->validate("d", "d");
 ?>
