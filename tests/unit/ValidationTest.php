@@ -1,5 +1,5 @@
 <?php
-      require '/Applications/XAMPP/xamppfiles/htdocs/temp/Pieter/validate.php';
+      include_once('/Applications/XAMPP/xamppfiles/htdocs/temp/Pieter/validate.php');
 
       use PHPUnit\Framework\TestCase;
 
@@ -7,7 +7,7 @@
             private $validation;
 
             protected function setUp() : void {
-                   $this->validation = new validation("pieter_boersma-1@telfort.nl", "Test123._-");
+                  $this->validation = new validation("thomas@ziggo.nl", "293829382");
             }
 
             public function test_filter_length(){
@@ -19,7 +19,11 @@
             }
 
             public function test_validate_email(){
-                  $this->assertTrue($this->validation->validate_email($this->validation->email), true);
+                  $this->assertTrue($this->validation->validate_email($this->validation->email), 1);
+            }
+
+            public function test_validation(){
+                  $this->assertTrue($this->validation->validate(), true);
             }
 
             protected function tearDown() : void {

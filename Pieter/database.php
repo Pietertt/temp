@@ -13,8 +13,16 @@
                   $this->database = $database;
             }
 
-            public function connect(){
+            public function connect() {
                   $this->connection = new mysqli($this->server, $this->username, $this->password, $this->database);
+            }
+
+            public function get_connection() {
+                  return $this->connection;
+            }
+
+            public function disconnect(){
+                  $this->connection->close();
             }
       }
 ?>

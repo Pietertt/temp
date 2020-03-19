@@ -1,5 +1,5 @@
 <?php
-      require 'database.php';
+      include_once('database.php');
 
       class validation {
             public $email;
@@ -22,7 +22,7 @@
                   }
             }
 
-            public function filter_characters($string) : bool{
+            public function filter_characters($string) : bool {
                   $pattern = "'^[a-zA-Z0-9.|_|-]{1,}$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -40,13 +40,30 @@
                   }
             }
 
-            public function validate($username, $password){
+            public function validate(){
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
+                  $stmt = $database->get_connection()->prepare("SELECT email, BSN FROM `user` WHERE ((email = ?) AND (BSN = ?))");
+                  $stmt->bind_param("ss", $e, $p);
+                  $e = $this->email;
+                  $p = $this->password;
+                  $stmt->execute();
+
+                  $rows = $stmt->get_result()->num_rows;
+
+                  $database->disconnect();
+
+                  if($rows == 1){
+                        return true;
+                  } else {
+                        return false;
+                  }
+
+                  return $rows;
             }
       }
 
-      $validation = new validation("d", "d");
-      $validation->validate("d", "d");
+      $validation = new validation("thomas@ziggo.nl", "293829382");
+      print_r($validation->validate());
 ?>
