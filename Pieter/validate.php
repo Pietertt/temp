@@ -12,7 +12,8 @@
             }
 
             public function filter_length($string) : bool {
-                  if(preg_match("'^.{0,50}$'", $string)){
+                  $pattern = "'^.{1,50}$'";
+                  if(preg_match($pattern, $string)){
                         return true;
                   } else {
                         array_push($this->errors, "Je invoer moet tussen de 0 en 50 karakter bevatten");
@@ -20,20 +21,12 @@
                   }
             }
 
-            public function filter_alphanumeric($string) : bool {
-                  if(preg_match("", $string)){
-                        return true;
-                  } else {
-                        array_push($this->errors, "Je invoer mag ");
-                  }
-            }
-
             public function filter_characters($string) : bool{
-                  $pattern = "'[a-zA-Z0-9|@.-]'";
+                  $pattern = "'^[a-zA-Z0-9.|_|-]{1,}$'";
                   if(preg_match($pattern, $string)){
                         return true;
                   } else {
-                        array_push($this->errors, "Je invoer mag alleen maar ");
+                        array_push($this->errors, "Je invoer mag alleen maar letters, cijfers of de tekens '@', '.', '-', '_' bevatten");
                         return false;
                   }
             }
