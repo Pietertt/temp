@@ -7,11 +7,15 @@
             private $validation;
 
             protected function setUp() : void {
-                   $this->validation = new validation("pieter-boersma@telfort.nl", "test123");
+                   $this->validation = new validation("pieterboersma@telfort.nl", "test123");
             }
 
-            public function testLength(){
+            public function test_filter_length(){
                   $this->assertTrue($this->validation->filter_length($this->validation->email), true);
+            }
+
+            public function test_filter_characters(){
+                  $this->assertTrue($this->validation->filter_characters($this->validation->password), true);
             }
 
             protected function tearDown() : void {
