@@ -47,10 +47,13 @@ watch(data, 'error', function(newValue) {
             column.classList.add("rounded");
             column.classList.add("error");
             column.classList.add("column");
+            column.id = "error_message_value";
             column.innerHTML = newValue;
 
             row.appendChild(column);
             container.appendChild(row);
+      } else {
+            document.getElementById("error_message_value").innerHTML = newValue;
       }
 });
 
@@ -83,6 +86,7 @@ button.addEventListener('click', function(){
 
                   } else {
                         data.error = JSON.parse(this.responseText);
+                        console.log(JSON.parse(this.responseText));
                   }
             }
       }
