@@ -68,6 +68,18 @@ class popup {
             subscription.innerHTML = this.subscription;
             row5.appendChild(subscription);
 
+            var row6 = document.createElement("DIV");
+            row6.classList.add("row");
+            cont2.appendChild(row6);
+
+            var dot1 = document.createElement("DIV");
+            dot1.classList.add("dot", "selected");
+            row6.appendChild(dot1);
+
+            var dot2 = document.createElement("DIV");
+            dot2.classList.add("dot");
+            row6.appendChild(dot2);
+
             popup.appendChild(cont1);
             popup.appendChild(overlay);
             return popup;
