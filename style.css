@@ -6,6 +6,7 @@
       4. Buttons
       5. Colors
       6. Text
+      7. Popups
 
 -------------------------------------------------------------- */
 
@@ -191,4 +192,22 @@ input {
 @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------
+                              Popups
+-------------------------------------------------------------- */
+
+.overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+}
+
+.popup {
+      z-index: 100;
 }
