@@ -96,7 +96,7 @@ button.addEventListener('click', function(){
 });
 
 function animate(){
-      pop = new popup("Check!", "Je wordt doorgestuurd");
+      pop = new popup("Twee-factor authenticatie nodig", "Er is een code naar je e-mailadres gestuurd. Gelieve deze code hier in te voeren om verder te gaan" ,"Versturen");
       document.body.appendChild(pop.generate());
 }
 
