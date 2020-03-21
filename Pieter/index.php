@@ -4,7 +4,7 @@
             <link rel="stylesheet" href="../style.css">
       </header>
       <body>
-            <div class="five wide white rounded container">
+            <div class="five wide white rounded container" >
 
                   <div class="ten wide container">
                         <div class="padded row">
@@ -40,7 +40,7 @@
                   </div>
 
             </div>
-
+            <script src="popup/popup.js"></script>
             <script src="binding.js"></script>
       </body>
 </html>

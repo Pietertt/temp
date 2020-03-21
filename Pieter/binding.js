@@ -83,7 +83,7 @@ button.addEventListener('click', function(){
             if(this.readyState == 4 && this.status == 200){
                   data.waiting = false;
                   if(this.responseText == "true"){
-
+                        animate();
                   } else {
                         data.error = JSON.parse(this.responseText);
                         console.log(JSON.parse(this.responseText));
@@ -93,6 +93,11 @@ button.addEventListener('click', function(){
       xhttp.open("POST", "validation.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send("email=" + data.email + "&password=" + data.password);
-})
+});
+
+function animate(){
+      pop = new popup("Check!", "Je wordt doorgestuurd");
+      document.body.appendChild(pop.generate());
+}
 
 
