@@ -1,0 +1,273 @@
+/* --------------------------------------------------------------
+
+      1. Root
+      2. Rows & columns
+      3. Forms
+      4. Buttons
+      5. Colors
+      6. Text
+
+-------------------------------------------------------------- */
+
+/* --------------------------------------------------------------
+                              Root
+-------------------------------------------------------------- */
+
+:root {
+      --hs-blue: #2e5296;
+      --hs-red: #ef4135;
+      --hs-light-gray: rgba(180, 180, 180, 0.6);
+}
+  
+  /* variabelen uit :root kunnen aangeroepen worden door bijvoorbeeld te zeggen: background-color: var(--hs-red); */
+  
+* {
+      box-sizing: border-box;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+      background-color: white;
+      /*background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));*/
+      margin: 0px;
+      box-sizing: border-box;
+}
+
+a {
+      text-decoration: none;
+}
+
+/* --------------------------------------------------------------
+                           Navigation
+-------------------------------------------------------------- */
+
+
+/* Navbar fullscreen menu */
+.overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: var(--hs-blue);
+      overflow-x: hidden;
+      transition: 0.5s;
+}
+
+.overlay-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+}
+
+.overlay a {
+      padding: 8px;
+      font-size: 25px;
+      color: #f1f1f1;
+      display: block;
+      transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+      color: #dbdbdb;
+}
+
+.overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+}
+
+#openNav {
+      font-size:30px;
+      cursor:pointer
+}
+/* END */
+.navbar-logo {
+      float: left;
+      height: 100%;
+      width: auto;
+      padding-left: 3%;
+}
+
+.navbar-menu-wrapper {
+      height: 100px;
+      line-height: 100px;
+}
+
+/* start navigation bar styling */
+nav {
+      text-align: center;
+      border-bottom: 0.3px solid rgba(255,255,255,.2);
+      box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+      background-color: white;
+      position: relative;
+      z-index: 100;
+      height: 100px;
+}
+
+nav ul {
+      margin: auto;
+      padding-right: 3%;
+      height: 100%;
+      float: right;
+}
+
+nav li {
+      list-style-type: none;
+      display: inline-block;
+      padding-left: 25px;
+      padding-right: 25px;
+}
+
+.nav-links, .social-icons {
+      display: none;
+      padding: 0;
+}
+
+.nav-links a {
+      color: black;
+}
+
+.navbar-menu-wrapper {
+      line-height: 100px;
+      float:right;
+      padding-right: 5%;
+}
+/* end navigation bar styling */
+
+/* --------------------------------------------------------------
+                              Rows & columns
+-------------------------------------------------------------- */
+  
+.row {
+      padding-bottom: 20px;
+}
+
+[class*="padded row"] {
+      padding-top: 30px;
+      padding-bottom: 30px;
+}
+
+.row::after {
+      content: "";
+      clear: both;
+      display: table;
+}
+
+@media only screen and (min-width: 1143px) {
+
+      [class*="column"] {
+            float: left;
+            padding-top: 0px;
+            padding-bottom: 0px;
+      }
+
+      [class*="centered column"] {
+            display: block;
+            text-align: center;
+      }
+
+      [class*="one wide"]     {     width: 8.33%;     }
+      [class*="two wide"]     {     width: 16.66%;    }
+      [class*="three wide"]   {     width: 25%;       }
+      [class*="four wide"]    {     width: 33.33%;    }
+      [class*="five wide"]    {     width: 41.66%;    }
+      [class*="six wide"]     {     width: 50%;       }
+      [class*="seven wide"]   {     width: 58.33%;    }
+      [class*="eight wide"]   {     width: 66.67%;    }
+      [class*="nine wide"]    {     width: 75%;       }
+      [class*="ten wide"]     {     width: 83.33%;    }
+      [class*="eleven wide"]  {     width: 91.67%;    }
+      [class*="twelve wide"]  {     width: 100%;      }
+
+      .container {
+            margin: 0 auto;
+            display: block;
+      }
+
+      .nav-links {
+            line-height: 100px;
+            color: white;
+            font-size: 22px;
+            display: block;
+      }
+      .navbar-menu-wrapper {
+            display: none;
+      }
+}
+
+/* --------------------------------------------------------------
+                              Forms
+-------------------------------------------------------------- */
+
+input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid rgba(155, 155, 155, 0.3);
+      border-radius: 5px;
+}
+
+/* --------------------------------------------------------------
+                              Buttons
+-------------------------------------------------------------- */
+.button {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 13.33px;
+      padding-bottom: 13.33px;
+      border: none;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+}
+
+/* --------------------------------------------------------------
+                              Colors
+-------------------------------------------------------------- */
+
+.red {
+      background-color: var(--hs-red);
+}
+
+.blue {
+      background-color: var(--hs-blue);
+}
+
+.white {
+      background-color: #FFFFFF;
+}
+
+.inverted {
+      background-color: #FFFFFF;
+      color: var(--hs-light-gray);
+}
+
+/* --------------------------------------------------------------
+                              Text
+-------------------------------------------------------------- */
+
+.selected {
+      color: #000000;
+}
+
+.deselected {
+      color: var(--hs-light-gray);
+}
+
+/* --------------------------------------------------------------
+                              Utilities
+-------------------------------------------------------------- */
+
+.rounded {
+      border-radius: 5px;
+}
+

@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-      <header>
-            <link rel="stylesheet" href="../style.css">
-      </header>
-      <body>
+<?php require ('../includes/navbar.php');?>
+
             <div class="five wide white rounded container" >
 
                   <div class="ten wide container">
