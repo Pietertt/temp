@@ -3,6 +3,7 @@
 $nameErr = $emailErr = "";
 $name = $email = $message = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["name"])) {
         echo $nameErr = "Name is required";
@@ -53,5 +54,6 @@ function form_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
 
 ?>
