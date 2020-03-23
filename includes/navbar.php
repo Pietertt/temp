@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ritsema Banck</title>
-    <link rel='icon' href='' type='image/x-icon'/>
+    <link rel='icon' href='../img/ritsemabanck-favicon.png' type='image/x-icon'/>
     <link type="text/css" rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
