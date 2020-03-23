@@ -87,9 +87,6 @@ class popup {
             this.subscription.innerHTML = this.subscriptionText;
       }
 
-
-
-
       close(){
             document.getElementById("wrapper").remove();
             document.getElementById("overlay").remove();

@@ -10,27 +10,27 @@ class contactvalidation_Test extends TestCase
 
     protected function setUp(): void
     {
-        $this->validation = new validation("thomas@ziggo.nl", "293829382");
+        $this->validation = new validation();
     }
 
     public function test_filter_length()
     {
-        $this->assertTrue($this->validation->filter_length($this->validation->password), true);
+        $this->assertTrue($this->validation->filter_length("Testpassword"), true);
     }
 
     public function test_filter_characters()
     {
-        $this->assertTrue($this->validation->filter_characters($this->validation->password), true);
+        $this->assertTrue($this->validation->filter_characters("Alleenmaartgeldigekarakters.-_"), true);
     }
 
     public function test_validate_email()
     {
-        $this->assertTrue($this->validation->validate_email($this->validation->email), 1);
+        $this->assertTrue($this->validation->validate_email("test@test.com"), 1);
     }
 
     public function test_validation()
     {
-        $this->assertTrue($this->validation->validate(), true);
+        $this->assertTrue($this->validation->validate_user("thomas@ziggo.nl", "293829382"), true);
     }
 
     protected function tearDown(): void
