@@ -85,6 +85,7 @@ button.addEventListener('click', function(){
                   if(this.responseText == "true"){
                         animate();
                   } else {
+                        console.log(this.responseText);
                         data.error = JSON.parse(this.responseText);
                         console.log(JSON.parse(this.responseText));
                   }
@@ -96,9 +97,13 @@ button.addEventListener('click', function(){
 });
 
 function animate(){
-      pop = new popup("Twee-factor authenticatie nodig", "Er is een code naar je e-mailadres gestuurd. Gelieve deze code hier in te voeren om verder te gaan" ,"Versturen", "Verstuur code opnieuw");
-      pop.action("close");
-      document.body.appendChild(pop.generate());
+      pop = new popup("Twee-factor authenticatie nodig", "Er is een code naar je e-mailadres gestuurd. Gelieve deze code hier in te voeren om verder te gaan." ,"Versturen", "Verstuur code opnieuw");
+      //pop.action("fade");
+      pop.generate();
+      pop.button.addEventListener("click", function(){
+            pop.update("Twee-factor authenticatie nodig", "Er is een code naar je telefoon gestuurd. Gelieve deze code hier in te voeren om verder te gaan.", "Versturen", "Verstuur code opnieuw");
+            pop.fade();
+      });
 }
 
 

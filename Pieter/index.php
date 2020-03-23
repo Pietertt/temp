@@ -17,14 +17,14 @@
                         <div class="row">
                               <div class="twelve wide column">
                                     <label for="email">E-mailadres</label>
-                                    <input id="email" name="email" type="email" id="email">
+                                    <input id="email" name="email" type="email" id="email" placeholder="Voer je e-mail in">
                               </div>
                         </div>
 
                         <div class="row">
                               <div class="twelve wide column">
                                     <label for="password">Wachtwoord</label>
-                                    <input id="password" name="password" type="password" id="password">
+                                    <input id="password" name="password" type="password" id="password" placeholder="Voer je wachtwoord in">
                               </div>
                         </div>
 

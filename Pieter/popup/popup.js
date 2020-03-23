@@ -1,12 +1,12 @@
 class popup {
 
       constructor(title, description, button, subscription){
-            this.title = title;
-            this.description = description;
+            this.titleText = title;
+            this.descriptionText = description;
             this.buttonText = button;
-            this.subscription = subscription
+            this.subscriptionText = subscription
 
-            this.button = document.createElement("BUTTON");
+            this.button;
       }
 
       set image(image){
@@ -14,90 +14,50 @@ class popup {
       }
 
       generate(){
-            var popup = document.createElement("DIV");
-
             var overlay = document.createElement("DIV");
             overlay.classList.add("popup_overlay");
-            this.overlay = overlay;
 
-            var cont1 = document.createElement("DIV");
-            cont1.classList.add("four", "wide", "white", "rounded", "popup", "container");
-            this.container = cont1;
+            var popup = document.createElement("DIV");
 
-            var cont2 = document.createElement("DIV");
-            cont2.classList.add("ten", "wide", "white", "rounded", "container");
-            cont1.appendChild(cont2);
+            var wrapper = document.createElement("DIV");
+            wrapper.classList.add("four", "wide", "white", "rounded", "popup", "container");
 
-            var row1 = document.createElement("DIV");
-            row1.classList.add("row");
-            cont2.appendChild(row1);
+            var container = document.createElement("DIV");
+            container.classList.add("ten", "wide", "white", "rounded", "container");
 
-            var header = document.createElement("H2");
-            header.classList.add("lighter", "header");
-            header.innerHTML = this.title;
-            row1.appendChild(header);
+            var elements = [["H2", ["header"], "popup_header", this.titleText], ["DIV", ["lighter"], "popup_description", this.descriptionText], ["BUTTON", ["twelve", "wide", "blue", "button"], "popup_button", this.buttonText], ["DIV", ["lighter"], "popup_subscription", this.subscriptionText]];
+            
+            for(var i = 0; i < elements.length; i++){
+                  var row = document.createElement("DIV");
+                  row.classList.add("row");
 
-            var row2 = document.createElement("DIV");
-            row2.classList.add("row");
-            cont2.appendChild(row2);
+                  var element = document.createElement(elements[i][0]);
+                  element.id = elements[i][2];
+                  element.innerHTML = elements[i][3];
+                  for(var j = 0; j < elements[i][1].length; j++){
+                        element.classList.add(elements[i][1][j]);
+                  }
+                  row.appendChild(element);
+                  container.appendChild(row);
+            }
+            wrapper.appendChild(container);
+            popup.appendChild(wrapper);
+            document.body.appendChild(overlay);
+            document.body.appendChild(popup);
 
-            var body = document.createElement("DIV");
-            body.classList.add("lighter");
-            body.innerHTML = this.description;
-            row2.appendChild(body);
-
-            var row3 = document.createElement("DIV");
-            row3.classList.add("row");
-            cont2.appendChild(row3);
-
-            var input = document.createElement("INPUT");
-            input.placeholder = "Code...";
-            row3.appendChild(input);
-
-            var row4 = document.createElement("DIV");
-            row4.classList.add("row");
-            cont2.appendChild(row4);
-
-            this.button.classList.add("twelve", "wide", "blue", "button");
-            this.button.innerHTML = this.buttonText;
-            row4.appendChild(this.button);
-
-            var row5 = document.createElement("DIV");
-            row5.classList.add("row");
-            cont2.appendChild(row5);
-
-            var subscription = document.createElement("A");
-            subscription.classList.add("lighter");
-            subscription.innerHTML = this.subscription;
-            row5.appendChild(subscription);
-
-            var row6 = document.createElement("DIV");
-            row6.classList.add("row");
-            cont2.appendChild(row6);
-
-            var dot1 = document.createElement("DIV");
-            dot1.classList.add("dot", "selected");
-            row6.appendChild(dot1);
-
-            var dot2 = document.createElement("DIV");
-            dot2.classList.add("dot");
-            row6.appendChild(dot2);
-
-            popup.appendChild(cont1);
-            popup.appendChild(overlay);
-
-            return popup;
+            this.header = document.getElementById("popup_header");
+            this.description = document.getElementById("popup_description");
+            this.button = document.getElementById("popup_button");
+            this.subscription = document.getElementById("popup_subscription");
       }
 
       action(action){
             switch(action){
                   case "fade":
-                        this.fade();
+                        this.button.addEventListener("click", this.fade);
                         break;
                   case "close":
-                        this.button.addEventListener("click", function(){
-                              alert("Close");
-                        });
+                        this.button.addEventListener("click", this.close);
                         break;
                   default:
                         alert("Default");
@@ -105,9 +65,25 @@ class popup {
             }
       }
 
+      update(title, description, button, subscription){
+            this.titleText = title;
+            this.descriptionText = description;
+            this.buttonText = button;
+            this.subscriptionText = subscription;
+      }
+
+      fade(){
+            this.header.innerHTML = this.titleText;
+            this.description.innerHTML = this.descriptionText;
+            this.button.innerHTML = this.buttonText;
+            this.subscription.innerHTML = this.subscriptionText;
+      }
 
 
-      fade(direction){
-            alert("Faded");
+
+
+      close(){
+            this.overlay.remove();
+            this.container.remove();
       }
 }
