@@ -35,8 +35,12 @@
             $validation = new validation();
             if($validation->filter_length($code)){
                   if($validation->filter_characters($code)){
-                        if($validation->validate_code($code)){
-                              print("true");
+                        if($validation->filter_alphanumeric($code)){
+                              if($validation->validate_code($code)){
+                                    print("true");
+                              } else {
+                                    print_r($validation->get_errors());
+                              }
                         } else {
                               print_r($validation->get_errors());
                         }

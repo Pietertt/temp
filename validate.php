@@ -29,6 +29,16 @@
                   }
             }
 
+            public function filter_alphanumeric($string) : bool {
+                  $pattern = "'^[0-9]+$'";
+                  if(preg_match($pattern, $string)){
+                        return true;
+                  } else {
+                        array_push($this->errors, "Je invoer mag alleen maar cijfers bevatten");
+                        return false;
+                  }
+            }
+
             public function validate_email($email){
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
@@ -38,7 +48,7 @@
                   }
             }
 
-            public function validate_user($email, $password){
+            public function validate_user($email, $password) : bool {
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
@@ -62,7 +72,7 @@
                   return $rows;
             }
 
-            public function validate_code($code){
+            public function validate_code($code) : bool {
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
