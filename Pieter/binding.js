@@ -2,6 +2,7 @@
 var data = {
   email: '',
   password: '',
+  code: '',
   waiting: false,
   error: ''
 };
@@ -32,6 +33,11 @@ watch(data, 'email', function(newValue) {
 
 watch(data, 'password', function(newValue) {
       passwordField.value = newValue;
+});
+
+watch(data, 'code', function(newValue) {
+      document.getElementById('popup_input').value = newValue;
+      console.log(data.code);
 });
 
 watch(data, 'error', function(newValue) {
@@ -76,6 +82,15 @@ passwordField.addEventListener('input', function() {
       data.password = passwordField.value;
 });
 
+document.addEventListener('input', test);
+
+function test(event){
+      var element = event.target;
+      if(element.tagName == 'INPUT' && element.id == "popup_input"){
+            data.code = document.getElementById("popup_input").value;
+        }
+}
+
 button.addEventListener('click', function(){
       data.waiting = true;
       var xhttp = new XMLHttpRequest();
@@ -101,9 +116,22 @@ function animate(){
       //pop.action("fade");
       pop.generate();
       pop.button.addEventListener("click", function(){
-            pop.update("Twee-factor authenticatie nodig", "Er is een code naar je telefoon gestuurd. Gelieve deze code hier in te voeren om verder te gaan.", "Versturen", "Verstuur code opnieuw");
-            pop.swipe();
-            pop.button.addEventListener("click", pop.close);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                  if(this.readyState == 4 && this.status == 200){
+                        if(this.responseText == "true"){
+                              pop.update("Twee-factor authenticatie nodig", "Er is een code naar je telefoon gestuurd. Gelieve deze code hier in te voeren om verder te gaan.", "Versturen", "Verstuur code opnieuw");
+                              pop.swipe();
+                              pop.button.addEventListener("click", function(){
+                                    pop.close();
+                                    document.location = "../jmh/home.php";
+                              });
+                        }
+                  }
+            }
+            xhttp.open("POST", "validation.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("code=" + data.code);
       });
 }
 
