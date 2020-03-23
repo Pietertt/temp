@@ -11,6 +11,7 @@
       9. Text
       10. Navigation
       11. Footer
+      12. Animations
 
 -------------------------------------------------------------- */
 
@@ -398,3 +399,45 @@ footer li {
       margin-bottom: 5px;
 }
 
+/* --------------------------------------------------------------
+                        Animations
+-------------------------------------------------------------- */
+
+.popup {
+      animation-duration: 1s;
+      animation-name: test;  
+      animation-direction: alternate;
+      animation-iteration-count: 1; 
+      transform: translateY(0px);
+     
+}
+
+@keyframes test {
+      0% {
+            transform: translateY(0px);
+      }
+
+      15% {
+            transition: translateY(-50px);
+      }
+
+      30% {
+            transform: translateY(0px);
+      }
+
+      45% {
+            transform: translateY(-30px);
+      }
+
+      60% {
+            transform: translateY(0px);
+      }
+
+      75% {
+            transform: translateY(-10px);
+      }
+
+      100% {
+            transform: translateY(0px);
+      }
+}
