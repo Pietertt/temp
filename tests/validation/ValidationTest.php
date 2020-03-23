@@ -18,6 +18,10 @@
                   $this->assertTrue($this->validation->filter_characters("EenHeleHoop.Karakters_-"), true);
             }
 
+            public function test_filter_alphanumeric(){
+                  $this->assertTrue($this->validation->filter_alphanumeric("1234567891011"), true);
+            }
+
             public function test_validate_email(){
                   $this->assertTrue($this->validation->validate_email("pietertje@gmail.com"), 1);
             }
