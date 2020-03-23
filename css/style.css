@@ -57,10 +57,6 @@ a {
       padding-bottom: 20px;
 }
 
-[class="row nopad"] {
-      padding: 0px;
-}
-
 [class*="padded row"] {
       padding-top: 30px;
       padding-bottom: 30px;
@@ -127,7 +123,7 @@ a {
                               Forms
 -------------------------------------------------------------- */
 
-input {
+input, textarea {
       width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
@@ -208,6 +204,14 @@ input {
 @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+}
+
+.nopad {
+      padding: 0px;
+}
+
+.toppad {
+      padding-top: 20px;
 }
 
 /* --------------------------------------------------------------

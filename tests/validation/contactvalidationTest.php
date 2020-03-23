@@ -1,6 +1,6 @@
 <?php
 
-include_once('C:/Xampp/htdocs/temp/jmh/contactvalidations.php');
+include_once('contactvalidations.php');
 
 use PHPUnit\Framework\TestCase;
 

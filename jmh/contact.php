@@ -1,7 +1,14 @@
 <?php require("../includes/navbar.php");
-require("../jmh/contactvalidations.php");
+require("../contactvalidations.php");
 ?>
 
+<div class="row toppad">
+    <div class="five wide centered container">
+        <div class="ten wide container">
+            <h3>Contactformulier</h3>
+        </div>
+    </div>
+</div>
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
@@ -23,7 +30,7 @@ require("../jmh/contactvalidations.php");
         <div class="row">
             <div class="twelve wide column">
                 <label for="message">Bericht</label>
-                <input id="message" name="message" type="text" placeholder="Typ hier uw bericht.." required>
+                <textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30" required></textarea>
             </div>
         </div>
 

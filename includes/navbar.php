@@ -11,7 +11,7 @@
 <div class="row nopad">
 <nav class="twelve wide centered container">
 
-    <a href="http://localhost/temp/jmh/index.php"><img class="navbar-logo" src="../img/Ritsema%20Banck%20logo.png"></a>
+    <a href="http://localhost/temp/jmh/home.php"><img class="navbar-logo" src="../img/Ritsema%20Banck%20logo.png"></a>
 
     <div class="navbar-menu-wrapper centered column">
         <span id="openNav">&#9776;</span>
@@ -20,7 +20,7 @@
     <div id="mobileNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="overlay-content">
-            <a href="http://localhost/temp/index.php">HOME</a>
+            <a href="http://localhost/temp/home.php">HOME</a>
             <a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>
             <a href="http://localhost/temp/contact.php">CONTACT</a>
         </div>
@@ -28,7 +28,7 @@
 
     <div class="nav-links">
         <ul>
-            <li><a href="http://localhost/temp/jmh/index.php">HOME</a></li>
+            <li><a href="http://localhost/temp/jmh/home.php">HOME</a></li>
             <li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li>
             <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
         </ul>
