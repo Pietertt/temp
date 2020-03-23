@@ -1,12 +1,29 @@
-<div class="row">
-        <div class="twelve wide container">
-    <footer class="twelve wide column">
-        <div class="">
-           <h1>Testing 123</h1>
+
+    <footer class="twelve wide container">
+        <div class="eight wide container">
+        <div class="row">
+        <div class="three wide column">
+            <h4>Sitemap </h4>
+            <ul>
+                <li><a href="http://localhost/temp/index.php">Home</a></li>
+                <li><a href="http://localhost/temp/login.php">Inloggen</a></li>
+                <li><a href="http://localhost/temp/contact.php">Contact</a></li>
+                <li><a href="http://localhost/temp/about.php">Over ons</a></li>
+            </ul>
+        </div>
+        <div class="three wide column">
+            <h4>Sitemap </h4>
+            <ul>
+                <li><a href="http://localhost/temp/index.php">Home</a></li>
+                <li><a href="http://localhost/temp/login.php">Inloggen</a></li>
+                <li><a href="http://localhost/temp/contact.php">Contact</a></li>
+                <li><a href="http://localhost/temp/about.php">Over ons</a></li>
+            </ul>
+        </div>
+        </div>
         </div>
     </footer>
-    </div>
-</div>
+
 
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../js/javascript.js"></script>

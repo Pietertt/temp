@@ -374,4 +374,18 @@ footer {
       background-color: var(--hs-blue);
       position: absolute;
       bottom: 0;
+      color: white;
 }
+
+footer a {
+      color: white;
+}
+
+footer ul {
+      list-style-type: none;
+}
+
+footer li {
+      margin-bottom: 5px;
+}
+

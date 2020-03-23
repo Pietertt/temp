@@ -38,5 +38,5 @@
             </div>
             <script src="popup/popup.js"></script>
             <script src="binding.js"></script>
-      </body>
-</html>
+
+<?php require('../includes/footer.php');?>

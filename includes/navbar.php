@@ -21,16 +21,16 @@
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="overlay-content">
             <a href="http://localhost/temp/index.php">HOME</a>
-            <a href="http://localhost/temp/login.php">INLOGGEN</a>
+            <a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>
             <a href="http://localhost/temp/contact.php">CONTACT</a>
         </div>
     </div>
 
     <div class="nav-links">
         <ul>
-            <li><a href="http://localhost/test/index.php">HOME</a></li>
-            <li><a href="http://localhost/test/login.php">INLOGGEN</a></li>
-            <li><a href="http://localhost/test/contact.php">CONTACT</a></li>
+            <li><a href="http://localhost/temp/jmh/index.php">HOME</a></li>
+            <li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li>
+            <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
         </ul>
     </div>
 </nav>
