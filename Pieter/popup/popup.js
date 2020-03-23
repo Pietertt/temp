@@ -5,6 +5,8 @@ class popup {
             this.description = description;
             this.buttonText = button;
             this.subscription = subscription
+
+            this.button = document.createElement("BUTTON");
       }
 
       set image(image){
@@ -56,11 +58,9 @@ class popup {
             row4.classList.add("row");
             cont2.appendChild(row4);
 
-            var button = document.createElement("BUTTON");
-            button.classList.add("twelve", "wide", "blue", "button");
-            button.innerHTML = this.buttonText;
-            row4.appendChild(button);
-            this.button = button;
+            this.button.classList.add("twelve", "wide", "blue", "button");
+            this.button.innerHTML = this.buttonText;
+            row4.appendChild(this.button);
 
             var row5 = document.createElement("DIV");
             row5.classList.add("row");
@@ -86,14 +86,28 @@ class popup {
             popup.appendChild(cont1);
             popup.appendChild(overlay);
 
-            button.addEventListener("click", function(){
-                  overlay.remove();
-                  cont1.remove();
-            });
-
             return popup;
       }
 
-      kill(){
-      } 
+      action(action){
+            switch(action){
+                  case "fade":
+                        this.fade();
+                        break;
+                  case "close":
+                        this.button.addEventListener("click", function(){
+                              alert("Close");
+                        });
+                        break;
+                  default:
+                        alert("Default");
+                        break;
+            }
+      }
+
+
+
+      fade(direction){
+            alert("Faded");
+      }
 }
