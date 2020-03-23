@@ -35,7 +35,7 @@
 }
 
 body {
-      background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));
+      background-color: white;
       margin: 0;
 }
 
@@ -358,3 +358,14 @@ nav li {
       padding-right: 5%;
 }
 /* end navigation bar styling */
+
+
+/* --------------------------------------------------------------
+                             Footer
+-------------------------------------------------------------- */
+
+footer {
+      background-color: var(--hs-blue);
+      position: absolute;
+      bottom: 0;
+}
