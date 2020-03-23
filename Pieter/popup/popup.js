@@ -3,7 +3,7 @@ class popup {
       constructor(title, description, button, subscription){
             this.title = title;
             this.description = description;
-            this.button = button;
+            this.buttonText = button;
             this.subscription = subscription
       }
 
@@ -16,9 +16,11 @@ class popup {
 
             var overlay = document.createElement("DIV");
             overlay.classList.add("popup_overlay");
+            this.overlay = overlay;
 
             var cont1 = document.createElement("DIV");
             cont1.classList.add("four", "wide", "white", "rounded", "popup", "container");
+            this.container = cont1;
 
             var cont2 = document.createElement("DIV");
             cont2.classList.add("ten", "wide", "white", "rounded", "container");
@@ -56,8 +58,9 @@ class popup {
 
             var button = document.createElement("BUTTON");
             button.classList.add("twelve", "wide", "blue", "button");
-            button.innerHTML = this.button;
+            button.innerHTML = this.buttonText;
             row4.appendChild(button);
+            this.button = button;
 
             var row5 = document.createElement("DIV");
             row5.classList.add("row");
@@ -82,6 +85,15 @@ class popup {
 
             popup.appendChild(cont1);
             popup.appendChild(overlay);
+
+            button.addEventListener("click", function(){
+                  overlay.remove();
+                  cont1.remove();
+            });
+
             return popup;
       }
+
+      kill(){
+      } 
 }
