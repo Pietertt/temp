@@ -10,6 +10,7 @@
       8. Shapes
       9. Text
       10. Navigation
+      11. Footer
 
 -------------------------------------------------------------- */
 
@@ -39,6 +40,14 @@ body {
       margin: 0;
 }
 
+a {
+      text-decoration: none;
+}
+
+.nav-links {
+      display: none;
+      padding: 0;
+}
 /* --------------------------------------------------------------
                               Rows & columns
 -------------------------------------------------------------- */
@@ -306,6 +315,7 @@ input {
       cursor:pointer
 }
 /* END */
+
 .navbar-logo {
       float: left;
       height: 100%;
@@ -343,10 +353,6 @@ nav li {
       padding-right: 25px;
 }
 
-.nav-links, .social-icons {
-      display: none;
-      padding: 0;
-}
 
 .nav-links a {
       color: black;
@@ -354,7 +360,7 @@ nav li {
 
 .navbar-menu-wrapper {
       line-height: 100px;
-      float:right;
+      float: right;
       padding-right: 5%;
 }
 /* end navigation bar styling */
