@@ -2,14 +2,11 @@
       include_once('database.php');
 
       class validation {
-            public $email;
-            public $password;
 
             private $errors = array();
 
-            public function __construct($email, $password){
-                  $this->email = $email;
-                  $this->password = $password;
+            public function __construct(){
+                  
             }
 
             public function filter_length($string) : bool {
@@ -41,14 +38,14 @@
                   }
             }
 
-            public function validate(){
+            public function validate_user($email, $password){
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
                   $stmt = $database->get_connection()->prepare("SELECT email, BSN FROM `user` WHERE ((email = ?) AND (BSN = ?))");
                   $stmt->bind_param("ss", $e, $p);
-                  $e = $this->email;
-                  $p = $this->password;
+                  $e = $email;
+                  $p = $password;
                   $stmt->execute();
 
                   $rows = $stmt->get_result()->num_rows;
@@ -63,6 +60,27 @@
                   }
 
                   return $rows;
+            }
+
+            public function validate_code($code){
+                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
+                  $database->connect();
+                  
+                  $stmt = $database->get_connection()->prepare("SELECT tnumber FROM `user` WHERE tnumber = ?");
+                  $stmt->bind_param("s", $t);
+                  $t = $code;
+                  $stmt->execute();
+
+                  $rows = $stmt->get_result()->num_rows;
+
+                  $database->disconnect();
+
+                  if($rows == 1){
+                        return true;
+                  } else {
+                        array_push($this->errors, "De code is niet juist");
+                        return false;
+                  }
             }
 
             public function get_errors() : string {
