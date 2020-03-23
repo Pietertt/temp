@@ -5,7 +5,11 @@
       3. Forms
       4. Buttons
       5. Colors
-      6. Text
+      6. Headers
+      7. Popups
+      8. Shapes
+      9. Text
+      10. Navigation
 
 -------------------------------------------------------------- */
 
@@ -17,6 +21,10 @@
       --hs-blue: #2e5296;
       --hs-red: #ef4135;
       --hs-light-gray: rgba(180, 180, 180, 0.6);
+
+      --error-dark-red: #942C2D;
+      --error-light-red: #FFF6F6;
+      --error-rose: #E2B4B4;
 }
   
   /* variabelen uit :root kunnen aangeroepen worden door bijvoorbeeld te zeggen: background-color: var(--hs-red); */
@@ -27,14 +35,225 @@
 }
 
 body {
-      background-color: white;
-      /*background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));*/
-      margin: 0px;
-      box-sizing: border-box;
+      background-image: linear-gradient(to right, rgba(21, 134, 203, 0.6) , rgba(21, 134, 203, 0.8));
+      margin: 0;
 }
 
-a {
-      text-decoration: none;
+/* --------------------------------------------------------------
+                              Rows & columns
+-------------------------------------------------------------- */
+  
+.row {
+      padding-bottom: 20px;
+}
+
+[class*="padded row"] {
+      padding-top: 30px;
+      padding-bottom: 30px;
+}
+
+.row::after {
+      content: "";
+      clear: both;
+      display: table;
+}
+
+[class*="column"] {
+      float: left;
+      padding-left: 20px;
+      padding-right: 20px;
+}
+
+[class*="wide"] {
+      width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+
+      [class*="column"] {
+            float: left;
+            padding: 0px;
+      }
+
+      [class*="centered column"] {
+            display: block;
+            text-align: center;
+      }
+
+      [class*="one wide"]     {     width: 8.33%;     }
+      [class*="two wide"]     {     width: 16.66%;    }
+      [class*="three wide"]   {     width: 25%;       }
+      [class*="four wide"]    {     width: 33.33%;    }
+      [class*="five wide"]    {     width: 41.66%;    }
+      [class*="six wide"]     {     width: 50%;       }
+      [class*="seven wide"]   {     width: 58.33%;    }
+      [class*="eight wide"]   {     width: 66.67%;    }
+      [class*="nine wide"]    {     width: 75%;       }
+      [class*="ten wide"]     {     width: 83.33%;    }
+      [class*="eleven wide"]  {     width: 91.67%;    }
+      [class*="twelve wide"]  {     width: 100%;      }
+
+      .container {
+            margin: 0 auto;
+            display: block;
+      }
+
+      .nav-links {
+            line-height: 100px;
+            color: white;
+            font-size: 22px;
+            display: block;
+      }
+      .navbar-menu-wrapper {
+            display: none;
+      }
+}
+
+/* --------------------------------------------------------------
+                              Forms
+-------------------------------------------------------------- */
+
+input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid rgba(155, 155, 155, 0.3);
+      border-radius: 5px;
+}
+
+/* --------------------------------------------------------------
+                              Buttons
+-------------------------------------------------------------- */
+.button {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 13.33px;
+      padding-bottom: 13.33px;
+      border: none;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+}
+
+/* --------------------------------------------------------------
+                              Colors
+-------------------------------------------------------------- */
+
+.red {
+      background-color: var(--hs-red);
+}
+
+.blue {
+      background-color: var(--hs-blue);
+}
+
+.white {
+      background-color: #FFFFFF;
+}
+
+.inverted {
+      background-color: #FFFFFF;
+      color: var(--hs-light-gray);
+}
+
+/* --------------------------------------------------------------
+                              Utilities
+-------------------------------------------------------------- */
+
+.rounded {
+      border-radius: 5px;
+}
+
+.loader {
+      border: 3px solid var(--hs-blue);
+      border-radius: 50%;
+      border-top: 3px solid white;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: spin 1s linear infinite; /* Safari */
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+}
+
+.error {
+      background-color: var(--error-light-red);
+      border: 2px solid var(--error-rose);
+      color: var(--error-dark-red);
+      padding: 20px;
+}
+    
+/* Safari */
+@-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+}
+    
+@keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------
+                              Headers
+-------------------------------------------------------------- */
+
+.lighter {
+      font-weight: lighter;
+}
+
+/* --------------------------------------------------------------
+                              Popups
+-------------------------------------------------------------- */
+
+.overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+}
+
+.popup {
+      position: absolute;
+      left: 0; 
+      right: 0; 
+      margin: auto; 
+      top: 100px;
+      opacity: 1;
+      z-index: 100;
+      text-align: center;
+}
+
+/* --------------------------------------------------------------
+                              Shapes
+-------------------------------------------------------------- */
+
+.dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 100%;
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+}
+
+/* --------------------------------------------------------------
+                              Text
+-------------------------------------------------------------- */
+
+.selected {
+      color: #000000;
+      background-color: rgba(0, 0, 0, 1);
+}
+
+.deselected {
+      color: var(--hs-light-gray);
 }
 
 /* --------------------------------------------------------------
@@ -139,135 +358,3 @@ nav li {
       padding-right: 5%;
 }
 /* end navigation bar styling */
-
-/* --------------------------------------------------------------
-                              Rows & columns
--------------------------------------------------------------- */
-  
-.row {
-      padding-bottom: 20px;
-}
-
-[class*="padded row"] {
-      padding-top: 30px;
-      padding-bottom: 30px;
-}
-
-.row::after {
-      content: "";
-      clear: both;
-      display: table;
-}
-
-@media only screen and (min-width: 1143px) {
-
-      [class*="column"] {
-            float: left;
-            padding-top: 0px;
-            padding-bottom: 0px;
-      }
-
-      [class*="centered column"] {
-            display: block;
-            text-align: center;
-      }
-
-      [class*="one wide"]     {     width: 8.33%;     }
-      [class*="two wide"]     {     width: 16.66%;    }
-      [class*="three wide"]   {     width: 25%;       }
-      [class*="four wide"]    {     width: 33.33%;    }
-      [class*="five wide"]    {     width: 41.66%;    }
-      [class*="six wide"]     {     width: 50%;       }
-      [class*="seven wide"]   {     width: 58.33%;    }
-      [class*="eight wide"]   {     width: 66.67%;    }
-      [class*="nine wide"]    {     width: 75%;       }
-      [class*="ten wide"]     {     width: 83.33%;    }
-      [class*="eleven wide"]  {     width: 91.67%;    }
-      [class*="twelve wide"]  {     width: 100%;      }
-
-      .container {
-            margin: 0 auto;
-            display: block;
-      }
-
-      .nav-links {
-            line-height: 100px;
-            color: white;
-            font-size: 22px;
-            display: block;
-      }
-      .navbar-menu-wrapper {
-            display: none;
-      }
-}
-
-/* --------------------------------------------------------------
-                              Forms
--------------------------------------------------------------- */
-
-input {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid rgba(155, 155, 155, 0.3);
-      border-radius: 5px;
-}
-
-/* --------------------------------------------------------------
-                              Buttons
--------------------------------------------------------------- */
-.button {
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 13.33px;
-      padding-bottom: 13.33px;
-      border: none;
-      color: #FFFFFF;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-}
-
-/* --------------------------------------------------------------
-                              Colors
--------------------------------------------------------------- */
-
-.red {
-      background-color: var(--hs-red);
-}
-
-.blue {
-      background-color: var(--hs-blue);
-}
-
-.white {
-      background-color: #FFFFFF;
-}
-
-.inverted {
-      background-color: #FFFFFF;
-      color: var(--hs-light-gray);
-}
-
-/* --------------------------------------------------------------
-                              Text
--------------------------------------------------------------- */
-
-.selected {
-      color: #000000;
-}
-
-.deselected {
-      color: var(--hs-light-gray);
-}
-
-/* --------------------------------------------------------------
-                              Utilities
--------------------------------------------------------------- */
-
-.rounded {
-      border-radius: 5px;
-}
-
