@@ -8,4 +8,6 @@ $(document).ready(function() {
         document.getElementById("mobileNav").style.width = "0%";
     })
     //END navigation full screen
+
+
 });

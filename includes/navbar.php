@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="row">
+<div class="row nopad">
 <nav class="twelve wide centered container">
 
     <a href="http://localhost/temp/jmh/index.php"><img class="navbar-logo" src="../img/Ritsema%20Banck%20logo.png"></a>

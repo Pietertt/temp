@@ -35,9 +35,10 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body {
+html, body {
       background-color: white;
       margin: 0;
+      height: 100%;
 }
 
 a {
@@ -54,6 +55,10 @@ a {
   
 .row {
       padding-bottom: 20px;
+}
+
+[class="row nopad"] {
+      padding: 0px;
 }
 
 [class*="padded row"] {
@@ -372,8 +377,8 @@ nav li {
 
 footer {
       background-color: var(--hs-blue);
-      position: absolute;
-      bottom: 0;
+      position: sticky;
+      top: 100%;
       color: white;
 }
 
