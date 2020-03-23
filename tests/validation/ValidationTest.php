@@ -1,5 +1,5 @@
 <?php
-      include_once('/Applications/XAMPP/xamppfiles/htdocs/temp/Pieter/classes/validate.php');
+      include_once('validate.php');
 
       use PHPUnit\Framework\TestCase;
 
