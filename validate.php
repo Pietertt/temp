@@ -93,6 +93,27 @@
                   }
             }
 
+            public function validate_number($number) : bool {
+                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
+                  $database->connect();
+                  
+                  $stmt = $database->get_connection()->prepare("SELECT income FROM `user` WHERE income = ?");
+                  $stmt->bind_param("s", $n);
+                  $n = $number;
+                  $stmt->execute();
+
+                  $rows = $stmt->get_result()->num_rows;
+
+                  $database->disconnect();
+
+                  if($rows == 1){
+                        return true;
+                  } else {
+                        array_push($this->errors, "De code is niet juist");
+                        return false;
+                  }
+            }
+
             public function get_errors() : string {
                   return json_encode($this->errors);
             }

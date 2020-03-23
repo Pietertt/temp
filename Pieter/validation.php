@@ -51,4 +51,27 @@
                   print_r($validation->get_errors());
             }
       }
+
+      if(isset($_POST["number"])){
+            $number = $_POST["number"];
+            
+            $validation = new validation();
+            if($validation->filter_length($number)){
+                  if($validation->filter_characters($number)){
+                        if($validation->filter_alphanumeric($number)){
+                              if($validation->validate_number($number)){
+                                    print("true");
+                              } else {
+                                    print_r($validation->get_errors());
+                              }
+                        } else {
+                              print_r($validation->get_errors());
+                        }
+                  } else {
+                        print_r($validation->get_errors());
+                  }
+            } else {
+                  print_r($validation->get_errors());
+            }
+      }
 ?>

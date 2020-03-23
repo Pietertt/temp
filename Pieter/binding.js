@@ -123,8 +123,18 @@ function animate(){
                               pop.update("Twee-factor authenticatie nodig", "Er is een code naar je telefoon gestuurd. Gelieve deze code hier in te voeren om verder te gaan.", "Versturen", "Verstuur code opnieuw");
                               pop.swipe();
                               pop.button.addEventListener("click", function(){
-                                    pop.close();
-                                    document.location = "../jmh/home.php";
+                                    var xhttp = new XMLHttpRequest();
+                                    xhttp.onreadystatechange = function(){
+                                          if(this.readyState == 4 && this.status == 200){
+                                                if(this.responseText == "true"){
+                                                      pop.close();
+                                                      document.location = "../jmh/home.php";
+                                                }
+                                          }
+                                    }
+                                    xhttp.open("POST", "validation.php", true);
+                                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                    xhttp.send("number=" + data.code);
                               });
                         }
                   }
