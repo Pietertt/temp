@@ -24,7 +24,7 @@ class popup {
             container.classList.add("ten", "wide", "white", "rounded", "container");
             container.id = "cont";
 
-            var elements = [["H2", ["header"], "popup_header", this.titleText], ["DIV", ["lighter"], "popup_description", this.descriptionText], ["BUTTON", ["twelve", "wide", "blue", "button"], "popup_button", this.buttonText], ["DIV", ["lighter"], "popup_subscription", this.subscriptionText]];
+            var elements = [["H2", ["bounce", "header"], "popup_header", this.titleText], ["DIV", ["bounce", "lighter"], "popup_description", this.descriptionText], ["BUTTON", ["twelve", "wide", "blue", "bounce", "button"], "popup_button", this.buttonText], ["DIV", ["bounce", "lighter"], "popup_subscription", this.subscriptionText]];
             
             for(var i = 0; i < elements.length; i++){
                   var row = document.createElement("DIV");
@@ -73,7 +73,7 @@ class popup {
       }
 
       fade(){
-            this.cont.classList.add("wrapper");
+            this.cont.classList.add("swipe_right");
             this.header.innerHTML = this.titleText;
             this.description.innerHTML = this.descriptionText;
             this.button.innerHTML = this.buttonText;

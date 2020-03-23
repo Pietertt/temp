@@ -253,7 +253,7 @@ input, textarea {
       opacity: 1;
 }
 
-.wrapper {
+.swipe_right {
       animation-duration: 0.5s;
       animation-name: swipe_right;  
       transform: translateY(0px);
@@ -415,6 +415,20 @@ footer li {
                         Animations
 -------------------------------------------------------------- */
 
+.bounce {
+      animation-duration: 1s;
+      animation-name: bounce;  
+      transform: translateY(0px);
+      opacity: 1;
+}
+
+.bouncier {
+      animation-duration: 0.75s;
+      animation-name: bounce;  
+      transform: translateY(0px);
+      opacity: 1;
+}
+
 @keyframes swipe_bottom {
       0% {
             opacity: 0;
@@ -435,6 +449,33 @@ footer li {
 
       40% {
             opacity: 0;
+      }
+
+      100% {
+            opacity: 1;
+            transform: translateX(0px);
+      }
+}
+
+@keyframes bounce {
+      0% {
+            opacity: 0;
+            transform: translateY(0px);
+      }
+
+      10% {
+            opacity: 0;
+            transform: translateY(-25px);
+      }
+
+      60% {
+            opacity: 0;
+            transform: translateY(0px);
+      }
+
+      75% {
+            opacity: 0.5;
+            transform: translateY(-10px);
       }
 
       100% {
