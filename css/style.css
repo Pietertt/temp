@@ -246,6 +246,18 @@ input, textarea {
       opacity: 1;
       z-index: 10000;
       text-align: center;
+
+      animation-duration: 0.5s;
+      animation-name: swipe_bottom;  
+      transform: translateY(0px);
+      opacity: 1;
+}
+
+.wrapper {
+      animation-duration: 0.5s;
+      animation-name: swipe_right;  
+      transform: translateY(0px);
+      opacity: 1;
 }
 
 /* --------------------------------------------------------------
@@ -403,41 +415,30 @@ footer li {
                         Animations
 -------------------------------------------------------------- */
 
-.popup {
-      animation-duration: 1s;
-      animation-name: test;  
-      animation-direction: alternate;
-      animation-iteration-count: 1; 
-      transform: translateY(0px);
-     
-}
-
-@keyframes test {
+@keyframes swipe_bottom {
       0% {
-            transform: translateY(0px);
-      }
-
-      15% {
-            transition: translateY(-50px);
-      }
-
-      30% {
-            transform: translateY(0px);
-      }
-
-      45% {
-            transform: translateY(-30px);
-      }
-
-      60% {
-            transform: translateY(0px);
-      }
-
-      75% {
-            transform: translateY(-10px);
+            opacity: 0;
+            transform: translateY(300px);
       }
 
       100% {
+            opacity: 1;
             transform: translateY(0px);
+      }
+}
+
+@keyframes swipe_right {
+      0% {
+            opacity: 0;
+            transform: translateX(-300px);
+      }
+
+      40% {
+            opacity: 0;
+      }
+
+      100% {
+            opacity: 1;
+            transform: translateX(0px);
       }
 }

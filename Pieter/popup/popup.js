@@ -5,8 +5,6 @@ class popup {
             this.descriptionText = description;
             this.buttonText = button;
             this.subscriptionText = subscription
-
-            this.button;
       }
 
       set image(image){
@@ -24,6 +22,7 @@ class popup {
 
             var container = document.createElement("DIV");
             container.classList.add("ten", "wide", "white", "rounded", "container");
+            container.id = "cont";
 
             var elements = [["H2", ["header"], "popup_header", this.titleText], ["DIV", ["lighter"], "popup_description", this.descriptionText], ["BUTTON", ["twelve", "wide", "blue", "button"], "popup_button", this.buttonText], ["DIV", ["lighter"], "popup_subscription", this.subscriptionText]];
             
@@ -49,6 +48,7 @@ class popup {
             this.description = document.getElementById("popup_description");
             this.button = document.getElementById("popup_button");
             this.subscription = document.getElementById("popup_subscription");
+            this.cont = document.getElementById("cont");
       }
 
       action(action){
@@ -73,6 +73,7 @@ class popup {
       }
 
       fade(){
+            this.cont.classList.add("wrapper");
             this.header.innerHTML = this.titleText;
             this.description.innerHTML = this.descriptionText;
             this.button.innerHTML = this.buttonText;
