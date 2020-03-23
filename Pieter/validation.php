@@ -1,5 +1,5 @@
 <?php
-      include_once("classes/validate.php");
+      include_once("../validate.php");
 
       $email = $_POST["email"];
       $password = $_POST["password"];
