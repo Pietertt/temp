@@ -1,7 +1,7 @@
 
     <footer class="twelve wide container">
         <div class="eight wide container">
-        <div class="row">
+        <div class="row nopad">
         <div class="three wide column">
             <h4>Sitemap </h4>
             <ul>
