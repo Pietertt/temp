@@ -14,17 +14,19 @@ class popup {
       generate(){
             var overlay = document.createElement("DIV");
             overlay.classList.add("popup_overlay");
+            overlay.id = "overlay";
 
             var popup = document.createElement("DIV");
 
             var wrapper = document.createElement("DIV");
             wrapper.classList.add("four", "wide", "white", "rounded", "popup", "container");
+            wrapper.id = "wrapper";
 
             var container = document.createElement("DIV");
             container.classList.add("ten", "wide", "white", "rounded", "container");
             container.id = "cont";
 
-            var elements = [["H2", ["bounce", "header"], "popup_header", this.titleText], ["DIV", ["bounce", "lighter"], "popup_description", this.descriptionText], ["BUTTON", ["twelve", "wide", "blue", "bounce", "button"], "popup_button", this.buttonText], ["DIV", ["bounce", "lighter"], "popup_subscription", this.subscriptionText]];
+            var elements = [["H2", ["bounce", "header"], "popup_header", this.titleText], ["DIV", ["bounce", "lighter"], "popup_description", this.descriptionText], ["INPUT", ["bounce"], "popup_input", "code", "Voer je code in"], ["BUTTON", ["twelve", "wide", "blue", "bounce", "button"], "popup_button", this.buttonText], ["DIV", ["bounce", "lighter"], "popup_subscription", this.subscriptionText]];
             
             for(var i = 0; i < elements.length; i++){
                   var row = document.createElement("DIV");
@@ -36,6 +38,11 @@ class popup {
                   for(var j = 0; j < elements[i][1].length; j++){
                         element.classList.add(elements[i][1][j]);
                   }
+                  if(elements[i][0] == "INPUT"){
+                        element.name = elements[i][3];
+                        element.placeholder = elements[i][4];
+                  }
+
                   row.appendChild(element);
                   container.appendChild(row);
             }
@@ -72,7 +79,7 @@ class popup {
             this.subscriptionText = subscription;
       }
 
-      fade(){
+      swipe(){
             this.cont.classList.add("swipe_right");
             this.header.innerHTML = this.titleText;
             this.description.innerHTML = this.descriptionText;
@@ -84,7 +91,7 @@ class popup {
 
 
       close(){
-            this.overlay.remove();
-            this.container.remove();
+            document.getElementById("wrapper").remove();
+            document.getElementById("overlay").remove();
       }
 }

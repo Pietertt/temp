@@ -102,7 +102,8 @@ function animate(){
       pop.generate();
       pop.button.addEventListener("click", function(){
             pop.update("Twee-factor authenticatie nodig", "Er is een code naar je telefoon gestuurd. Gelieve deze code hier in te voeren om verder te gaan.", "Versturen", "Verstuur code opnieuw");
-            pop.fade();
+            pop.swipe();
+            pop.button.addEventListener("click", pop.close);
       });
 }
 
