@@ -20,9 +20,9 @@
     <div id="mobileNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="overlay-content">
-            <a href="http://localhost/temp/home.php">HOME</a>
+            <a href="http://localhost/temp/jmh/home.php">HOME</a>
             <a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>
-            <a href="http://localhost/temp/contact.php">CONTACT</a>
+            <a href="http://localhost/temp/jmh/contact.php">CONTACT</a>
         </div>
     </div>
 
