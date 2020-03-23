@@ -15,7 +15,7 @@ class popup {
             var popup = document.createElement("DIV");
 
             var overlay = document.createElement("DIV");
-            overlay.classList.add("overlay");
+            overlay.classList.add("popup_overlay");
 
             var cont1 = document.createElement("DIV");
             cont1.classList.add("four", "wide", "white", "rounded", "popup", "container");

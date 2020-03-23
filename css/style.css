@@ -222,14 +222,14 @@ input {
                               Popups
 -------------------------------------------------------------- */
 
-.overlay {
+.popup_overlay {
       width: 100%;
       height: 100%;
       position: absolute;
       top: 0px;
       left: 0px;
       background-color: rgba(0, 0, 0, 0.5);
-      z-index: 10;
+      z-index: 1000;
 }
 
 .popup {
@@ -239,7 +239,7 @@ input {
       margin: auto; 
       top: 100px;
       opacity: 1;
-      z-index: 100;
+      z-index: 10000;
       text-align: center;
 }
 
