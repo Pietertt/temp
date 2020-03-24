@@ -1,5 +1,6 @@
 <?php
       include_once("../validate.php");
+      include_once("../token.php");
 
       if((isset($_POST["email"])) && (isset($_POST["password"]))){
             $email = $_POST["email"];
@@ -11,7 +12,8 @@
                         if($validation->filter_characters($password)){
                               if($validation->validate_email($email)){
                                     if($validation->validate_user($email, $password)){
-                                          print("true");
+                                          $token = new token($email, $password);
+                                          $token->generate();
                                     } else {
                                           print_r($validation->get_errors());
                                     }
