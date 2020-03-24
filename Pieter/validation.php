@@ -14,6 +14,8 @@
                                     if($validation->validate_user($email, $password)){
                                           $token = new token($email, $password);
                                           $token->generate();
+                                          setcookie("token", $token->get_token(), time() + 3600, "/");
+                                          print("true");
                                     } else {
                                           print_r($validation->get_errors());
                                     }
