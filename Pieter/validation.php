@@ -13,10 +13,10 @@
                         if($validation->filter_characters($password)){
                               if($validation->validate_email($email)){
                                     if($validation->validate_user($email, $password)){
-                                          $token = new token($email, $password);
-                                          $token->generate();
-                                          $cookie_setter = new Cookie("token", $token->get_token(), time() + 3600, "/");
-                                          $cookie_setter->set();
+                                          $token = new Token();
+                                          $token->encode($email, $password);
+                                          $cookie_setter = new Cookie("token");
+                                          $cookie_setter->set($token->get_token());
                                           print("true");
                                     } else {
                                           print_r($validation->get_errors());

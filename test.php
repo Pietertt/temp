@@ -1,5 +1,14 @@
 <?php
       require("cookie.php");
-      $cookie = new Cookie("test", "test", time(), "/");
-      print_r($cookie->check_expiration_date());
+      require("token.php");
+
+
+      $cookie = new Cookie("token");
+      $value = $cookie->get_value();
+      $token = new Token();
+      
+      $string = $token->decode($value);
+
+      print_r($string);
+
 ?>

@@ -2,26 +2,22 @@
       class Cookie {
             private $name;
             private $value;
-            private $time_stamp;
-            private $domain;
 
-            public function __construct($name, $value, $time_stamp, $domain){
+            public function __construct($name){
                   $this->name = $name;
+            }
+
+            public function set($value) : void {
                   $this->value = $value;
-                  $this->time_stamp = $time_stamp;
-                  $this->domain = $domain;
+                  setcookie($this->name, $this->value, time() + 86400, "/");
             }
 
-            public function set() : void {
-                  setcookie($this->name, $this->value, $this->time_stamp, $this->domain);
+            public function get_value() : string {
+                  return $_COOKIE[$this->name];
             }
 
-            public function check_expiration_date() : bool {
-                  if((time() - $this->time_stamp) < 300){
-                        return true;
-                  } else {
-                        return false;
-                  }
+            public function check_expiration_date() {
+                  return $_COOKIE[$this->name];
             }
 
       }
