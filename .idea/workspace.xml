@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a3b7a66-eb38-49c6-bc0d-b45b9504f804" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/classes/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/registration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/tests/test.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/tests/testEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/tests/testGeslacht.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diego/tests/testNaam.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diego/classes/wachtwoordValidation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,29 +98,34 @@
       <recent name="D:\Wordpress\Xampp\htdocs\temp\includes" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.testGeslacht">
-    <configuration name="testEmail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="testEmail" file="$PROJECT_DIR$/Diego/tests/testEmail.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.testWachtwoord">
+    <configuration name="testWachtwoord" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="testWachtwoord" file="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="testGeslacht" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="testGeslacht" file="$PROJECT_DIR$/Diego/tests/testGeslacht.php" scope="Class" />
+    <configuration name="testWachtwoord.testIf8OrMore" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="testWachtwoord" file="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" method="testIf8OrMore" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="testNaam" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="testNaam" file="$PROJECT_DIR$/Diego/tests/testNaam.php" scope="Class" />
+    <configuration name="testWachtwoord.testIfAtleast1Number" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="testWachtwoord" file="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" method="testIfAtleast1Number" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="testNaam.testGetFirstName" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="testNaam" file="$PROJECT_DIR$/Diego/tests/testNaam.php" method="testGetFirstName" scope="Method" />
+    <configuration name="testWachtwoord.testIfAtleast1SpecialCharacter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="testWachtwoord" file="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" method="testIfAtleast1SpecialCharacter" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testWachtwoord.testIfAtleast1UpperCase" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="testWachtwoord" file="$PROJECT_DIR$/Diego/tests/testWachtwoord.php" method="testIfAtleast1UpperCase" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.testGeslacht" />
-        <item itemvalue="PHPUnit.testEmail" />
-        <item itemvalue="PHPUnit.testNaam" />
-        <item itemvalue="PHPUnit.testNaam.testGetFirstName" />
+        <item itemvalue="PHPUnit.testWachtwoord" />
+        <item itemvalue="PHPUnit.testWachtwoord.testIfAtleast1SpecialCharacter" />
+        <item itemvalue="PHPUnit.testWachtwoord.testIfAtleast1Number" />
+        <item itemvalue="PHPUnit.testWachtwoord.testIfAtleast1UpperCase" />
+        <item itemvalue="PHPUnit.testWachtwoord.testIf8OrMore" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +143,7 @@
       <workItem from="1584356667864" duration="10213000" />
       <workItem from="1584442327811" duration="12307000" />
       <workItem from="1584958084693" duration="15666000" />
-      <workItem from="1585088799260" duration="1784000" />
+      <workItem from="1585088799260" duration="5074000" />
     </task>
     <servers />
   </component>
@@ -171,10 +171,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="667" y="130" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1585088943058" />
-    <state x="733" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585128892123">
+    <state x="733" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585129910172">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="733" y="343" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1585128892123" />
+    <state x="733" y="343" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1585129910172" />
     <state x="585" y="134" key="CommitChangelistDialog2" timestamp="1585128114262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -183,22 +183,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="533" y="394" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1585129204080" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1585129232503">
+    <state width="914" height="295" key="GridCell.Tab.0.bottom" timestamp="1585132507826">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585129232503" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1585129232503">
+    <state width="914" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585132507826" />
+    <state width="914" height="295" key="GridCell.Tab.0.center" timestamp="1585132507825">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585129232503" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1585129232502">
+    <state width="914" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585132507825" />
+    <state width="914" height="295" key="GridCell.Tab.0.left" timestamp="1585132507825">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585129232502" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1585129232503">
+    <state width="914" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585132507825" />
+    <state width="914" height="295" key="GridCell.Tab.0.right" timestamp="1585132507825">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585129232503" />
+    <state width="914" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585132507825" />
     <state x="794" y="463" key="NewPhpFileDialog" timestamp="1585127804755">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
