@@ -1,4 +1,5 @@
 <?php
-      $pattern = "'[a-zA-Z0-9]'";
-      print(preg_match($pattern, "Test123"));
+      require("cookie.php");
+      $cookie = new Cookie("test", "test", time(), "/");
+      print_r($cookie->check_expiration_date());
 ?>
