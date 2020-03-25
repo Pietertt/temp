@@ -1,4 +1,6 @@
-<?php require ('../includes/navbar.php');?>
+<?php
+require ('../includes/navbar.php');
+?>
 
     <div class="five wide white rounded container" >
 

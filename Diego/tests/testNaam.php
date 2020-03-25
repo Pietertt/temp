@@ -4,8 +4,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 {
     public function testGetFirstName()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $user->setFirstName("Diego");
 
@@ -14,8 +14,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testGetLastName()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $user->setLastName("Bencherif");
 
@@ -24,8 +24,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testGetFullName()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $user->setFirstName("Diego");
         $user->setLastName("Bencherif");
@@ -35,8 +35,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testIfTrimmed()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $user->setFirstName("  Diego     ");
         $user->setLastName("  Bencherif   ");
@@ -47,8 +47,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testIfOnlyLettersFirstName()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $this->assertFalse($user->checkOnlyLettersFirstName("di3go"));
 
@@ -58,8 +58,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testIfOnlyLettersLastName()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $this->assertFalse($user->checkOnlyLettersLastName("di3go"));
 
@@ -69,8 +69,8 @@ class testNaam extends \PHPUnit_Framework_TestCase
 
     public function testIfOnlyFirstLetterCapitalized()
     {
-        require_once __DIR__ . "/../classes/User.php";
-        $user = new classes\User;
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $user = new classes\naamValidation;
 
         $this->assertFalse($user->checkOnlyLettersFirstName("DiEgO"));
         $this->assertFalse($user->checkOnlyLettersLastName("BeNcHeRiF"));
