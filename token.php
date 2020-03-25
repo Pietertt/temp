@@ -1,17 +1,18 @@
 <?php
-      class token {
+      class Token {
             private $username;
             private $password;
             private $token;
 
-            public function __construct($username, $password){
-                  $this->username = $username;
-                  $this->password = $password;
+            public function __construct(){
+
             }
 
-            public function generate(): void {
+            public function encode($username, $password): void {
+                  $this->username = $username;
+                  $this->password = $password;
                   $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
-                  $payload = json_encode(['username' => $this->username, 'password' => $this->password, 'timestamp' => date('Ymdhisu')]);
+                  $payload = json_encode(['username' => $this->username, 'password' => $this->password, 'timestamp' => time()]);
                   
                   $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
                   $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
@@ -23,6 +24,10 @@
 
             public function get_token(): string {
                   return $this->token;
+            }
+
+            public function decode() {
+                  return (json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $this->token)[0])))));
             }
       }
 ?>

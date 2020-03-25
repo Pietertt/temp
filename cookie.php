@@ -1,24 +1,23 @@
 <?php
-      class CookieSetter {
+      class Cookie {
             private $name;
             private $value;
-            private $expire;
-            private $domain;
 
-            public function __construct($name, $value, $expire, $domain){
+            public function __construct($name){
                   $this->name = $name;
-                  $this->value = $value;
-                  $this->expire = $expire;
-                  $this->domain = $domain;
             }
 
-            public function set() : bool {
-                  setcookie("test", "test", time() + 3600, "/");
-                  if(isset($_COOKIE[$this->name])){
-                        return true;
-                  } else {
-                        return false;
-                  }
+            public function set($value) : void {
+                  $this->value = $value;
+                  setcookie($this->name, $this->value, time() + 86400, "/");
+            }
+
+            public function get_value() : string {
+                  return $_COOKIE[$this->name];
+            }
+
+            public function check_expiration_date() {
+                  return $_COOKIE[$this->name];
             }
 
       }
