@@ -1,6 +1,7 @@
 <?php
       include_once("../validate.php");
       include_once("../token.php");
+      include_once("../cookie.php");
 
       if((isset($_POST["email"])) && (isset($_POST["password"]))){
             $email = $_POST["email"];
@@ -14,7 +15,8 @@
                                     if($validation->validate_user($email, $password)){
                                           $token = new token($email, $password);
                                           $token->generate();
-                                          setcookie("token", $token->get_token(), time() + 3600, "/");
+                                          $cookie_setter = new Cookie("token", $token->get_token(), time() + 3600, "/");
+                                          $cookie_setter->set();
                                           print("true");
                                     } else {
                                           print_r($validation->get_errors());
