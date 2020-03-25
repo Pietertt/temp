@@ -26,8 +26,12 @@
                   return $this->token;
             }
 
-            public function decode() {
-                  return (json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $this->token)[0])))));
+            public function decode($string) {
+                  $encoded = explode('.', $string)[1];
+                  $base64 = str_replace(['-', '_', ''], ['+', '/', '='], $encoded);
+                  $payload = base64_decode($base64);
+
+                  return $payload;
             }
       }
 ?>
