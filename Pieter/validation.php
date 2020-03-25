@@ -6,17 +6,16 @@
       if((isset($_POST["email"])) && (isset($_POST["password"]))){
             $email = $_POST["email"];
             $password = $_POST["password"];
-
             $validation = new validation();
-            if($validation->filter_length($email)){
-                  if($validation->filter_length($password)){
-                        if($validation->filter_characters($password)){
-                              if($validation->validate_email($email)){
-                                    if($validation->validate_user($email, $password)){
-                                          $token = new Token();
-                                          $token->encode($email, $password);
-                                          $cookie_setter = new Cookie("token");
-                                          $cookie_setter->set($token->get_token());
+
+            if(validation::filter_length($email)){
+                  if(validation::filter_length($password)){
+                        if(validation::filter_characters($password)){
+                              if(validation::validate_email($email)){
+                                    if(validation::validate_user($email, $password)){
+                                          $token = new Token($email, $password);
+                                          $cookie = new Cookie("token");
+                                          $cookie->set($token->get_token());
                                           print("true");
                                     } else {
                                           print_r($validation->get_errors());
@@ -39,10 +38,10 @@
             $code = $_POST["code"];
             
             $validation = new validation();
-            if($validation->filter_length($code)){
-                  if($validation->filter_characters($code)){
-                        if($validation->filter_alphanumeric($code)){
-                              if($validation->validate_code($code)){
+            if(validation::filter_length($code)){
+                  if(validation::filter_characters($code)){
+                        if(validation::filter_alphanumeric($code)){
+                              if(validation::validate_code($code)){
                                     print("true");
                               } else {
                                     print_r($validation->get_errors());

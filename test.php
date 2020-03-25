@@ -4,11 +4,16 @@
 
 
       $cookie = new Cookie("token");
-      $value = $cookie->get_value();
-      $token = new Token();
       
-      $string = $token->decode($value);
+      $token = new Token("email", "password");
+      print_r($token);
+      $token->verify();
 
-      print_r($string);
+      print("<br>");
+      print_r($token);
+
+      print("<br>");
+
+      print_r($token->decode());
 
 ?>
