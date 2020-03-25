@@ -114,15 +114,6 @@
                   }
             }
 
-            public function does_cookie_exists() : bool {
-                  print_r($_COOKIE);
-                  if(count($_COOKIE) > 0){
-                        return true;
-                  } else {
-                        return false;
-                  }
-            }
-
             public function get_errors() : string {
                   return json_encode($this->errors);
             }
