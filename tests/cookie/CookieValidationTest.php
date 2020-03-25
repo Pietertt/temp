@@ -1,5 +1,5 @@
 <?php
-      include_once('validation.php');
+      include_once('validate.php');
 
       use PHPUnit\Framework\TestCase;
 
@@ -10,9 +10,9 @@
                   $this->validation = new validation();
             }
 
-            public function test_does_cookie_exists(){
-                  $this->assertTrue($this->validation->does_cookie_exists(), true);
-            }
+            // public function test_does_cookie_exists(){
+            //       $this->assertTrue($this->validation->does_cookie_exists(), true);
+            // }
 
             protected function tearDown() : void {
                   $this->validation = NULL;
