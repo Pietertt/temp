@@ -8,6 +8,8 @@ class Person
     public $last_name;
     public $Gender;
     public $Born_age;
+    public $Telephone;
+    public $Email;
 
     //validations for user
     public function getFirstName($first_name){
@@ -24,6 +26,14 @@ class Person
 
     public function getBornAge($Born_age){
         return $this->Born_age;
+    }
+
+    public function  getTelephone($Telephone){
+        return $this->Telephone;
+    }
+
+    public function getEmail($Email){
+        return $this->Email;
     }
 }
 
