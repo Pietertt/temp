@@ -5,5 +5,7 @@
 
       $cookie = new Cookie("token");
       
-      print_r($cookie->check_expiration_date($cookie->get_value()));
+
+      $cookie->create(Token::encode("test@test.nl", "password", time(), 0));
+      print_r(Token::decode($cookie->get_value()));
 ?>

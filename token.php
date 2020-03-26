@@ -27,18 +27,20 @@
                   return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
             }
 
-            public static function verify($json) : stdClass {
+            public static function verify($json) : string {
                   $json->verified = 1;
                   return $json;
             }
 
-            public static function decode($token) : stdClass {
+            public static function decode($token) : array {
                   $encoded = explode('.', $token)[1];
                   $replaced = str_replace(['-', '_', ''], ['+', '/', '='], $encoded);
                   $base64 = base64_decode($replaced);
                   $json = json_decode($base64);
 
-                  return $json;
+                  $token = array("username" => $json->username, "password" => $json->password, "timestamp" => $json->timestamp, "verified" => $json->verified);
+
+                  return $token;
             }
 
             public function get_time_stamp($string) : string {

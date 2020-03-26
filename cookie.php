@@ -1,13 +1,14 @@
 <?php
-      class Cookie {
+      class cookie {
             private $name;
             private $value;
 
             public function __construct($name){
                   $this->name = $name;
+                  $this->value = "";
             }
 
-            public function set($value) : void {
+            public function create($value) : void {
                   $this->value = $value;
                   setcookie($this->name, $this->value, time() + 86400, "/");
             }
@@ -20,12 +21,8 @@
                   return $_COOKIE[$this->name];
             }
 
-            public function encode(){
-
-            }
-
-            public function check_expiration_date($token) {
-                  if(time() - Token::decode($token)->timestamp > 300){
+            public function check_expiration_date($timestamp) {
+                  if(time() - $timestamp > 300){
                         return false;
                   } else {
                         return true;

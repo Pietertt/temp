@@ -6,21 +6,22 @@
 
       class cookie_test extends TestCase {
             private $cookie;
+            private $token;
 
             protected function setUp() : void {
-                  $cookie = new Cookie("test");
-                  $cookie->set(Token::encode("test@test.nl", "password", time(), 0));
+                  $this->cookie = new Cookie("test");
             }
 
-            /**
-            * @runInSeparateProcess
-            */
             public function test_check_expiration_date(){
-                  $this->assertTrue($this->cookie->check_expiration_date($this->cookie->get_value()), true);
+                  $cookie = $this->createMock(Cookie::class);
+                  $token = Token::encode("test", "test", time() - 250, 0);
+
+                  $timestamp = Token::decode($token)['timestamp'];
+                  $this->assertTrue($this->cookie->check_expiration_date($timestamp), true);
             }
 
             protected function tearDown() : void {
-                  $this->cookie->delete();
+
             }
       }
 ?>
