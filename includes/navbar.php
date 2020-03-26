@@ -32,6 +32,7 @@
                               <?php echo ($_SESSION["logged_in"] == false) ? '<li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li>' : ''; ?>
                               <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/index.php">DASHBOARD</a></li>' : ''; ?>
                               <li><a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a></li>
+                              <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/logout.php">UITLOGGEN</a></li>' : ''; ?>
                               <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
                         </ul>
                   </div> <!-- <li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li> -->
