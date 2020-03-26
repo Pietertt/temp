@@ -13,7 +13,7 @@ require("../jmh/contactvalidations.php");
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
-    <form method="post">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="row">
             <div class="twelve wide column">
                 <label for="name">Naam</label>
