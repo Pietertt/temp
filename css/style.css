@@ -195,6 +195,10 @@ input, textarea {
       color: var(--error-dark-red);
       padding: 20px;
 }
+
+.invisible {
+      display: none;
+}
     
 /* Safari */
 @-webkit-keyframes spin {
