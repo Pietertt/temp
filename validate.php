@@ -45,8 +45,8 @@
             }
 
             public function validate_user($email, $password) : bool {
-                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
-                  $database->connect();
+                  $database = new database();
+                  $database->connect("127.0.0.1", "root", "", "ritsemabanck");
                   
                   $stmt = $database->get_connection()->prepare("SELECT email, BSN FROM `user` WHERE ((email = ?) AND (BSN = ?))");
                   $stmt->bind_param("ss", $e, $p);
@@ -69,8 +69,8 @@
             }
 
             public function validate_code($code) : bool {
-                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
-                  $database->connect();
+                  $database = new database();
+                  $database->connect("127.0.0.1", "root", "", "ritsemabanck");
                   
                   $stmt = $database->get_connection()->prepare("SELECT tnumber FROM `user` WHERE tnumber = ?");
                   $stmt->bind_param("s", $t);
@@ -90,8 +90,8 @@
             }
 
             public function validate_number($number) : bool {
-                  $database = new database("127.0.0.1", "root", "", "ritsemabanck");
-                  $database->connect();
+                  $database = new database();
+                  $database->connect("127.0.0.1", "root", "", "ritsemabanck");
                   
                   $stmt = $database->get_connection()->prepare("SELECT income FROM `user` WHERE income = ?");
                   $stmt->bind_param("s", $n);

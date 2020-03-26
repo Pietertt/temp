@@ -3,11 +3,6 @@
 $nameErr = $emailErr = $messageErr = "";
 $name = $email = $message = "";
 
-if(isset($_POST["name"])){
-      print("working");
-} else {
-      print("Broken");
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
