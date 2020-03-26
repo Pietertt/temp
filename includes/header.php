@@ -4,13 +4,7 @@
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/token.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/cookie.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/tok.php");
-
-      $cookie = new Cookie("token");
-      if($cookie->validate_user($_COOKIE["token"])){
-            $_SESSION["logged_in"] = true;
-      } else {
-            $_SESSION["logged_in"] = false;
-      }
+      include($_SERVER['DOCUMENT_ROOT'] . "/temp/session.php");
 
 ?>    
 
