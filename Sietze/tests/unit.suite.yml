@@ -1,0 +1,14 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests.
+
+actor: UnitTester
+modules:
+  step_decorators: ~
+  enabled:
+    - Asserts
+    - \Helper\Unit
+    - Db:
+        dsn: "mysql:host=mariadb;dbname=ritsema_banck"
+        user: "admin"
+        password: "admin"
