@@ -35,7 +35,7 @@
                   }
             }
 
-            public static function validate_email($email){
+            public static function validate_email($email) : bool {
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
                   } else {

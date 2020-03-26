@@ -27,12 +27,12 @@
                   return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
             }
 
-            public static function verify($json){
+            public static function verify($json) : stdClass {
                   $json->verified = 1;
                   return $json;
             }
 
-            public static function decode($token){
+            public static function decode($token) : stdClass {
                   $encoded = explode('.', $token)[1];
                   $replaced = str_replace(['-', '_', ''], ['+', '/', '='], $encoded);
                   $base64 = base64_decode($replaced);
