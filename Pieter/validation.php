@@ -2,6 +2,7 @@
       include_once("../validate.php");
       include_once("../token.php");
       include_once("../cookie.php");
+      include_once("../tok.php");
 
       if((isset($_POST["email"])) && (isset($_POST["password"]))){
             $email = $_POST["email"];
@@ -68,7 +69,7 @@
                                     $token = $cookie->get_value();
                                     $decoded = Token::decode($token);
                                     $verified = Token::verify($decoded);
-                                    $decoded = Token::encode($verified["username"], $verified["password"], $verified["timestamp"], $verified["verified"]);
+                                    $decoded = Token::encode($verified->username, $verified->password, $verified->timestamp, $verified->verified);
                                     $cookie->create($decoded);
                                     print("true");
                               } else {

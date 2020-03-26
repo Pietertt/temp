@@ -1,5 +1,5 @@
 <?php
-      class cookie {
+      class Cookie {
             private $name;
             private $value;
 
@@ -20,12 +20,34 @@
                   return $_COOKIE[$this->name];
             }
 
-            public function check_expiration_date($timestamp) {
-                  if(time() - $timestamp > 300){
+            public function check_expiration_date($token) {
+                  $timestamp = Token::decode($token)->timestamp;
+                  if(time() - $timestamp > 3000){
                         return false;
                   } else {
                         return true;
                   }                  
+            }
+
+            public function verify($token){
+                  $decoded = Token::decode($token);
+                  if($decoded->verified == 1){
+                        return true;
+                  } else {
+                        return false;
+                  }
+            }
+
+            public function validate_user($value){
+                  if($this->check_expiration_date($value)){
+                        if($this->verify($value)){
+                              return true;
+                        } else {
+                              return false;
+                        }
+                  } else {
+                        return false;
+                  }
             }
       }
 ?>
