@@ -4,9 +4,12 @@ $nameErr = $emailErr = "";
 $name = $email = $message = "";
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     if (empty($_POST["name"])) {
-        echo $nameErr = "Name is required";
+        echo $nameErr =
+        '<script type="text/javascript">',
+        'createerror();',
+        '</script>';
     } else {
         $name = form_input($_POST["name"]);
         // check if name only contains letters and whitespace
@@ -44,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         header('Location: http://localhost/temp/jmh/contact.php');
     }
-}
+
 
 
 function form_input($data)

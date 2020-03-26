@@ -1,4 +1,4 @@
-document.getElementById("submit").addEventListener("click", createerror);
+//document.getElementById("submit").addEventListener("click", createerror);
 
 function createerror() {
     var xhttp = new XMLHttpRequest();
@@ -12,4 +12,3 @@ function createerror() {
     xhttp.send();
 
 };
-
