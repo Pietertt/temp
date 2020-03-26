@@ -27,8 +27,8 @@
                   return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
             }
 
-            public static function verify($json) : string {
-                  $json->verified = 1;
+            public static function verify($json) : array {
+                  $json["verified"] = 1;
                   return $json;
             }
 
