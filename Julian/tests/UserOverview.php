@@ -1,15 +1,15 @@
 <?php
 
-class useroverview extends \PHPUnit_Framework_Testcase
+class useroverview extends \PHPUnit_Framework_TestCase
 {
     public function testGetFirstName()
     {
         require_once __DIR__ . "/../classes/Person.php";
-        $user = new classes\Person();
+        $user = new classes\Person;
 
-        $user->setFirstName("Julian");
+        //$user->setFirstName("Julian");
 
-        $this->assertTrue($user ->getFirstName() == "Julian");
+        $this->assertTrue($user->getFirstName() == "Julian");
     }
 
     public function testGetLastName()

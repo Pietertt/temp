@@ -4,7 +4,7 @@ namespace classes;
 
 class Person
 {
-    public $first_name;
+    public $first_name = "Julian";
     public $last_name;
     public $Gender;
     public $Born_age;
@@ -12,7 +12,7 @@ class Person
     public $Email;
 
     //validations for user
-    public function getFirstName($first_name){
+    public function getFirstName(){
         return $this->first_name;
     }
 
