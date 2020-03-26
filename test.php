@@ -4,11 +4,11 @@
 
 
       $cookie = new Cookie("token");
-      $value = $cookie->get_value();
-      $token = new Token();
       
-      $string = $token->decode($value);
 
-      print_r($string);
+      $verified = Token::verify(Token::decode($cookie->get_value()));
+
+      print_r($verified);
+      
 
 ?>

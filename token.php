@@ -2,32 +2,48 @@
       class Token {
             private $username;
             private $password;
+            private $time_stamp;
+            private $verified;
+
             private $token;
 
-            public function __construct(){
-
-            }
-
-            public function encode($username, $password): void {
+            public function __construct($username, $password){
                   $this->username = $username;
                   $this->password = $password;
+                  $this->time_stamp = time();
+                  $this->verified = 0;
+                  $this->encode();
+            }
+
+            public static function encode($username, $password, $time_stamp, $verified): string {
                   $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
-                  $payload = json_encode(['username' => $this->username, 'password' => $this->password, 'timestamp' => time()]);
+                  $payload = json_encode(['username' => $username, 'password' => $password, 'timestamp' => $time_stamp, 'verified' => $verified]);
                   
                   $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
                   $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
                   
                   $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, 'fkdj54jgj!$&dfj', true);
                   $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
-                  $this->token = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+                  return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
             }
 
-            public function get_token(): string {
-                  return $this->token;
+            public static function verify($json) : stdClass {
+                  $json->verified = 1;
+                  return $json;
             }
 
-            public function decode() {
-                  return (json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $this->token)[0])))));
+            public static function decode($token) : stdClass {
+                  $encoded = explode('.', $token)[1];
+                  $replaced = str_replace(['-', '_', ''], ['+', '/', '='], $encoded);
+                  $base64 = base64_decode($replaced);
+                  $json = json_decode($base64);
+
+                  return $json;
+            }
+
+            public function get_time_stamp($string) : string {
+
+                  return $this->decode($string)->time_stamp;
             }
       }
 ?>

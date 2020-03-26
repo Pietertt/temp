@@ -6,17 +6,15 @@
       if((isset($_POST["email"])) && (isset($_POST["password"]))){
             $email = $_POST["email"];
             $password = $_POST["password"];
-
             $validation = new validation();
+
             if($validation->filter_length($email)){
                   if($validation->filter_length($password)){
                         if($validation->filter_characters($password)){
                               if($validation->validate_email($email)){
                                     if($validation->validate_user($email, $password)){
-                                          $token = new Token();
-                                          $token->encode($email, $password);
-                                          $cookie_setter = new Cookie("token");
-                                          $cookie_setter->set($token->get_token());
+                                          $cookie = new Cookie("token");
+                                          $cookie->set(Token::encode($email, $password, time(), 0));
                                           print("true");
                                     } else {
                                           print_r($validation->get_errors());
@@ -66,6 +64,12 @@
                   if($validation->filter_characters($number)){
                         if($validation->filter_alphanumeric($number)){
                               if($validation->validate_number($number)){
+                                    $cookie = new Cookie("token");
+                                    $token = $cookie->get_value();
+                                    $decoded = Token::decode($token);
+                                    $verified = Token::verify($decoded);
+                                    $decoded = Token::encode($verified->username, $verified->password, $verified->timestamp, $verified->verified);
+                                    $cookie->set($decoded);
                                     print("true");
                               } else {
                                     print_r($validation->get_errors());

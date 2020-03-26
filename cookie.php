@@ -16,9 +16,16 @@
                   return $_COOKIE[$this->name];
             }
 
-            public function check_expiration_date() {
-                  return $_COOKIE[$this->name];
+            public function encode(){
+                  
             }
 
+            // public function check_expiration_date($timestamp) {
+            //       if(time() - $timestamp > 300){
+            //             return "false";
+            //       } else {
+            //             return true;
+            //       }                  
+            // }
       }
 ?>

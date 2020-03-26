@@ -5,10 +5,6 @@
 
             private $errors = array();
 
-            public function __construct(){
-                  
-            }
-
             public function filter_length($string) : bool {
                   $pattern = "'^.{1,50}$'";
                   if(preg_match($pattern, $string)){
@@ -39,7 +35,7 @@
                   }
             }
 
-            public function validate_email($email){
+            public static function validate_email($email) : bool {
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
                   } else {
