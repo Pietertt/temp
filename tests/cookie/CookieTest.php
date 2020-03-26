@@ -14,12 +14,9 @@
 
             public function test_check_expiration_date(){
                   $cookie = $this->createMock(Cookie::class);
-                  $token = $this->createMock(Token::class);
+                  $token = Token::encode("test", "test", time() - 250, 0);
 
-                  $cookie->method('get_value')->willReturn('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC5ubCIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE1ODUyMzYwMDEsInZlcmlmaWVkIjowfQ.D4A-E82fRI5gkCZc7trC0sKjDkOUwild_di4y7o5YcM');
-                  $token->method('decode')->willReturn(array("username" => "test@test.nl", "password" => "password", "timestamp" => "1585235961", "verified" => 0));
-
-                  $timestamp = Token::decode($cookie->get_value())['timestamp'];
+                  $timestamp = Token::decode($token)['timestamp'];
                   $this->assertTrue($this->cookie->check_expiration_date($timestamp), true);
             }
 
