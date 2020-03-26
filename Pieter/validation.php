@@ -69,9 +69,8 @@
                                     $decoded = Token::decode($token);
                                     $verified = Token::verify($decoded);
                                     $decoded = Token::encode($verified->username, $verified->password, $verified->timestamp, $verified->verified);
-                                    print("true");
-
                                     $cookie->set($decoded);
+                                    print("true");
                               } else {
                                     print_r($validation->get_errors());
                               }
