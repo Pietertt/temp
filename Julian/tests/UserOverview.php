@@ -17,7 +17,7 @@ class useroverview extends \PHPUnit_Framework_TestCase
         require_once __DIR__ . "/../classes/Person.php";
         $user = new classes\Person();
 
-        $user->setLastName("Hulzebosch");
+        //$user->setLastName("Hulzebosch");
 
         $this->assertTrue($user ->getLastName() == "Hulzebosch");
     }
@@ -27,10 +27,38 @@ class useroverview extends \PHPUnit_Framework_TestCase
         require_once __DIR__ . "/../classes/Person.php";
         $user = new classes\Person();
 
-        $user->setFirstName("Julian");
-        $user->setLastName("Hulzebosch");
+       // $user->setFirstName("Julian");
+       //  $user->setLastName("Hulzebosch");
 
         $this->assertTrue($user ->getFullName() == "Julian Hulzebosch");
+    }
+
+    public function testGetGender(){
+        require_once __DIR__ . "/../classes/Person.php";
+        $user = new classes\Person();
+
+        $this->assertTrue($user -> getGender()== "Male");
+    }
+
+    public function testGetBornAge(){
+        require_once __DIR__ . "/../classes/Person.php";
+        $user = new classes\Person();
+
+        $this->assertTrue($user -> getBornAge()== "1997");
+    }
+
+    public function testGetTelephone(){
+        require_once __DIR__ . "/../classes/Person.php";
+        $user = new classes\Person();
+
+        $this->assertTrue($user -> getTelephone()== "06-21173334");
+    }
+
+    public function testGetEmail(){
+        require_once __DIR__ . "/../classes/Person.php";
+        $user = new classes\Person();
+
+        $this->assertTrue($user -> getEmail()== "julian-hulzebosch@live.nl");
     }
 
 }
