@@ -1,6 +1,7 @@
 <?php require("../includes/navbar.php");
-require("../contactvalidations.php");
+require("../jmh/contactvalidations.php");
 ?>
+
 
 <div class="row toppad">
     <div class="five wide centered container">
@@ -12,6 +13,7 @@ require("../contactvalidations.php");
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
+    <form method="post">
         <div class="row">
             <div class="twelve wide column">
                 <label for="name">Naam</label>
@@ -33,19 +35,21 @@ require("../contactvalidations.php");
             </div>
         </div>
 
-        <div id="errorfield" class="invisible error">
-        <div class="row">
-            <div class="twelve wide column">
-                <p id="errormessage">JE SHIT IS STUK</p>
-            </div>
-        </div>
-        </div>
-
         <div class="row">
             <div class="twelve wide column">
                 <button id="submit" class="twelve wide blue button">Versturen</button>
             </div>
         </div>
+
+    <div id="errorfield" class="invisible error">
+        <div class="row">
+            <div class="twelve wide column">
+                <p id="errormessage"></p>
+            </div>
+        </div>
+    </div>
+    </form>
+
 </div>
 </div>
 
