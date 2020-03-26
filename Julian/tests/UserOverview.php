@@ -7,8 +7,6 @@ class useroverview extends \PHPUnit_Framework_TestCase
         require_once __DIR__ . "/../classes/Person.php";
         $user = new classes\Person;
 
-        //$user->setFirstName("Julian");
-
         $this->assertTrue($user->getFirstName() == "Julian");
     }
 
@@ -17,8 +15,6 @@ class useroverview extends \PHPUnit_Framework_TestCase
         require_once __DIR__ . "/../classes/Person.php";
         $user = new classes\Person();
 
-        //$user->setLastName("Hulzebosch");
-
         $this->assertTrue($user ->getLastName() == "Hulzebosch");
     }
 
@@ -26,9 +22,6 @@ class useroverview extends \PHPUnit_Framework_TestCase
     {
         require_once __DIR__ . "/../classes/Person.php";
         $user = new classes\Person();
-
-       // $user->setFirstName("Julian");
-       //  $user->setLastName("Hulzebosch");
 
         $this->assertTrue($user ->getFullName() == "Julian Hulzebosch");
     }

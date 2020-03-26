@@ -4,24 +4,25 @@
 namespace classes;
 
 
+
 class Hypotheek
 {
 
-    public $application_date;
-    public $message;
+    public $application_date = "02-02-2020";
+    public $message = "testing";
     public $edit;
 
     //validations for Hypotheek
 
-    public function getApplication_date($application_date){
+    public function getApplication_date(){
         return $this->application_date;
     }
 
-    public function getMessage($message){
+    public function getMessage(){
         return $this->message;
     }
 
-    public function getEdit($edit){
+    public function getEdit(){
         return $this->edit;
     }
 
