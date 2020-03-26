@@ -7,10 +7,11 @@
             if($cookie->validate_user($_COOKIE["token"])){
                   $_SESSION["logged_in"] = true;
             } else {
+                  header("Location: Pieter/index.php");
                   $_SESSION["logged_in"] = false;
             }
       } else {
-            header("Location: ../Pieter/index.php");
+            header("Location: Pieter/index.php");
       }
 
       if(session::is_private("dashboard")){

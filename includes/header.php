@@ -6,14 +6,13 @@
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/tok.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/session.php");
 
-?>    
+      $cookie = new Cookie("token");
+      if($cookie->does_cookie_exist()){
+            if($cookie->validate_user($_COOKIE["token"])){
+                  $_SESSION["logged_in"] = true;
+            } else {
+                  $_SESSION["logged_in"] = false;
+            }
+      } 
 
-<!DOCTYPE html>
-<html lang="en">
-      <head>
-            <meta charset="UTF-8">
-            <title>Ritsema Banck</title>
-            <link rel='icon' href='http://localhost/temp/img/ritsemabanck-favicon.png' type='image/x-icon'/>
-            <link type="text/css" rel="stylesheet" href="http://localhost/temp/css/style.css"/>
-      </head>
-<body>
+?>    
