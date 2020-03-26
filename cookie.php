@@ -12,20 +12,24 @@
                   setcookie($this->name, $this->value, time() + 86400, "/");
             }
 
+            public function delete(){
+                  setcookie($this->value, "", time() - 3600, "/");
+            }
+
             public function get_value() : string {
                   return $_COOKIE[$this->name];
             }
 
             public function encode(){
-                  
+
             }
 
-            // public function check_expiration_date($timestamp) {
-            //       if(time() - $timestamp > 300){
-            //             return "false";
-            //       } else {
-            //             return true;
-            //       }                  
-            // }
+            public function check_expiration_date($token) {
+                  if(time() - Token::decode($token)->timestamp > 300){
+                        return false;
+                  } else {
+                        return true;
+                  }                  
+            }
       }
 ?>
