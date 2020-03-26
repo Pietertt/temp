@@ -5,10 +5,5 @@
 
       $cookie = new Cookie("token");
       
-
-      $verified = Token::verify(Token::decode($cookie->get_value()));
-
-      print_r($verified);
-      
-
+      print_r($cookie->check_expiration_date($cookie->get_value()));
 ?>
