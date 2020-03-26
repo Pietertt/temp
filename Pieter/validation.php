@@ -8,14 +8,13 @@
             $password = $_POST["password"];
             $validation = new validation();
 
-            if(validation::filter_length($email)){
-                  if(validation::filter_length($password)){
-                        if(validation::filter_characters($password)){
-                              if(validation::validate_email($email)){
-                                    if(validation::validate_user($email, $password)){
-                                          $token = new Token($email, $password);
+            if($validation->filter_length($email)){
+                  if($validation->filter_length($password)){
+                        if($validation->filter_characters($password)){
+                              if($validation->validate_email($email)){
+                                    if($validation->validate_user($email, $password)){
                                           $cookie = new Cookie("token");
-                                          $cookie->set($token->get_token());
+                                          $cookie->set(Token::encode($email, $password, time(), 0));
                                           print("true");
                                     } else {
                                           print_r($validation->get_errors());
@@ -38,10 +37,10 @@
             $code = $_POST["code"];
             
             $validation = new validation();
-            if(validation::filter_length($code)){
-                  if(validation::filter_characters($code)){
-                        if(validation::filter_alphanumeric($code)){
-                              if(validation::validate_code($code)){
+            if($validation->filter_length($code)){
+                  if($validation->filter_characters($code)){
+                        if($validation->filter_alphanumeric($code)){
+                              if($validation->validate_code($code)){
                                     print("true");
                               } else {
                                     print_r($validation->get_errors());
@@ -65,7 +64,14 @@
                   if($validation->filter_characters($number)){
                         if($validation->filter_alphanumeric($number)){
                               if($validation->validate_number($number)){
+                                    $cookie = new Cookie("token");
+                                    $token = $cookie->get_value();
+                                    $decoded = Token::decode($token);
+                                    $verified = Token::verify($decoded);
+                                    $decoded = Token::encode($verified->username, $verified->password, $verified->timestamp, $verified->verified);
                                     print("true");
+
+                                    $cookie->set($decoded);
                               } else {
                                     print_r($validation->get_errors());
                               }

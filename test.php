@@ -5,15 +5,10 @@
 
       $cookie = new Cookie("token");
       
-      $token = new Token("email", "password");
-      print_r($token);
-      $token->verify();
 
-      print("<br>");
-      print_r($token);
+      $verified = Token::verify(Token::decode($cookie->get_value()));
 
-      print("<br>");
-
-      print_r($token->decode());
+      print_r($verified);
+      
 
 ?>

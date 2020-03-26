@@ -5,7 +5,7 @@
 
             private $errors = array();
 
-            public static function filter_length($string) : bool {
+            public function filter_length($string) : bool {
                   $pattern = "'^.{1,50}$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -15,7 +15,7 @@
                   }
             }
 
-            public static function filter_characters($string) : bool {
+            public function filter_characters($string) : bool {
                   $pattern = "'^[a-zA-Z0-9.|_|-]{1,}$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -25,7 +25,7 @@
                   }
             }
 
-            public static function filter_alphanumeric($string) : bool {
+            public function filter_alphanumeric($string) : bool {
                   $pattern = "'^[0-9]+$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -44,7 +44,7 @@
                   }
             }
 
-            public static function validate_user($email, $password) : bool {
+            public function validate_user($email, $password) : bool {
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
@@ -68,7 +68,7 @@
                   return $rows;
             }
 
-            public static function validate_code($code) : bool {
+            public function validate_code($code) : bool {
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
@@ -89,7 +89,7 @@
                   }
             }
 
-            public static function validate_number($number) : bool {
+            public function validate_number($number) : bool {
                   $database = new database("127.0.0.1", "root", "", "ritsemabanck");
                   $database->connect();
                   
