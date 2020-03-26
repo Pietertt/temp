@@ -22,6 +22,7 @@
         <div class="overlay-content">
             <a href="http://localhost/temp/jmh/home.php">HOME</a>
             <a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>
+            <a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a>
             <a href="http://localhost/temp/jmh/contact.php">CONTACT</a>
         </div>
     </div>
@@ -30,6 +31,7 @@
         <ul>
             <li><a href="http://localhost/temp/jmh/home.php">HOME</a></li>
             <li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li>
+            <a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a>
             <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
         </ul>
     </div>
