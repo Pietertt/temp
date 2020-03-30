@@ -24,7 +24,7 @@
                     echo '<input id="name" name="name" type="text" placeholder="Uw naam" value="'.$name.'">';
                 }
                 else {
-                    echo '<input id="name" name="name" type="text" value="Test" placeholder="Uw naam">';
+                    echo '<input id="name" name="name" type="text" placeholder="Uw naam">';
                 }?>
             </div>
         </div>
