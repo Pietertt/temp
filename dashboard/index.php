@@ -85,7 +85,7 @@
                   <div class="swipe_right item">
                         <span><b>Telefoonnummer</b></span><br>
                         <span><?php print($user->phone_number); ?></span>
-                        <img id="phone_number" data-popup='{"inputs" : ["Telefoonnummer"] }' src="../img/pen.png">
+                        <img id="phone_number" data-popup='{"title" : "Verander je telefoonnummer", "inputs" : [{"description" : "Telefoonnummer", "name" : "phone_number"}], "button" : { "label" : "Verstuur", "id" : "button_change_phone_number" } }' src="../img/pen.png">
                   </div>
                   <div class="swipe_right item">
                         <span><b>E-mailadres</b></span><br>

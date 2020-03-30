@@ -4,6 +4,6 @@ var email_adress = document.getElementById("email_adress");
 
 phone_number.addEventListener("click", function(){
       var json = JSON.parse(phone_number.getAttribute("data-popup"));
-      var pop = new popup("Aanpassen", "Verander je telefoonnummer", "Verstuur", "");
+      var pop = new popup(json);
       pop.generate();
 });
