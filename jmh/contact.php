@@ -49,7 +49,7 @@
                     echo '<textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30">'.$message.'</textarea>';
                 }
                 else {
-                    echo '<textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.."></textarea>';
+                    echo '<textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30"></textarea>';
                 }?>
             </div>
         </div>
