@@ -13,7 +13,7 @@ require("../jmh/contactvalidations.php");
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
-    <form method="post" action="">
+    <form method="post">
         <div class="row">
             <div class="twelve wide column">
                 <label for="name">Naam</label>
@@ -37,18 +37,18 @@ require("../jmh/contactvalidations.php");
 
         <div class="row">
             <div class="twelve wide column">
-                <button id="submit" class="twelve wide blue button">Versturen</button>
+                <button id="submit" type="submit" name="submit" class="twelve wide blue button">Versturen</button>
             </div>
         </div>
+    </form>
 
-    <div id="errorfield" class="invisible error">
+    <div id="errorfield" class="">
         <div class="row">
             <div class="twelve wide column">
-                <p id="errormessage"></p>
+                <p id="errormessage"><?php print_r($errors, false) ?></p>
             </div>
         </div>
     </div>
-    </form>
 
 </div>
 </div>
