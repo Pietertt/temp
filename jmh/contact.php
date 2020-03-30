@@ -15,28 +15,43 @@
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form method="post" action="<?php echo htmlspecialchars("http://localhost/temp/jmh/contactvalidations.php");?>">
         <div class="row">
             <div class="twelve wide column">
                 <label for="name">Naam</label>
-                <input id="name" name="name" type="text" value="Test" placeholder="Uw naam">
-                <p><?php print($nameErr); ?></p>
+                <?php if(isset($_GET['name'])){
+                    $name = $_GET['name'];
+                    echo '<input id="name" name="name" type="text" placeholder="Uw naam" value="'.$name.'">';
+                }
+                else {
+                    echo '<input id="name" name="name" type="text" value="Test" placeholder="Uw naam">';
+                }?>
             </div>
         </div>
 
         <div class="row">
             <div class="twelve wide column">
                 <label for="email">E-mailadres</label>
-                <input id="email" name="email" type="text" placeholder="Uw email adres">
-                <p><?php print($emailErr); ?></p>
+                <?php if(isset($_GET['email'])){
+                    $email = $_GET['email'];
+                    echo '<input id="email" name="email" type="text" placeholder="Uw email adres" value="'.$email.'">';
+                }
+                else {
+                    echo '<input id="email" name="email" type="text" placeholder="Uw email adres">';
+                }?>
             </div>
         </div>
 
         <div class="row">
             <div class="twelve wide column">
                 <label for="message">Bericht</label>
-                <textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30"></textarea>
-                <p><?php print($messageErr); ?></p>
+                <?php if(isset($_GET['message'])){
+                    $message = $_GET['message'];
+                    echo '<textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30">'.$message.'</textarea>';
+                }
+                else {
+                    echo '<textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.."></textarea>';
+                }?>
             </div>
         </div>
 
@@ -46,6 +61,32 @@
             </div>
         </div>
     </form>
+
+    <?php
+    if (!isset($_GET['contact'])) {
+        exit();
+    }
+    else {
+        $contactCheck = $_GET['contact'];
+        $errorboxStart = "<div class='row'><div class='twelve wide column'><p class='error'>";
+        $errorboxEnd = "</p></div></div>";
+
+        if ($contactCheck == 'empty') {
+            echo
+            $errorboxStart . "You did not fill in all the fields" . $errorboxEnd;
+            exit();
+        } elseif ($contactCheck == 'char') {
+            echo
+                $errorboxStart . "You used invalid characters" . $errorboxEnd;
+            exit();
+        } elseif ($contactCheck == 'invalidemail') {
+            echo
+                $errorboxStart . "The e-mail you have used is invalid" . $errorboxEnd;
+            exit();
+        }
+    }
+    ?>
+
 </div>
 </div>
 
