@@ -1,5 +1,7 @@
-<?php require("../includes/navbar.php");
-require("../jmh/contactvalidations.php");
+<?php 
+      require("../includes/header.php");
+      require("../includes/navbar.php");
+      require("../jmh/contactvalidations.php");
 ?>
 
 
