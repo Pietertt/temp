@@ -13,5 +13,7 @@
             } else {
                   $_SESSION["logged_in"] = false;
             }
-      } 
+      } else {
+            $_SESSION["logged_in"] = false;
+      }
 ?>    

@@ -1,4 +1,7 @@
-<?php require('../includes/navbar.php');?>
+<?php 
+      require("../includes/header.php");
+      require('../includes/navbar.php');
+?>
 
 <div class="twelve wide container">
     <div class="row">
