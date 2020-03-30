@@ -1,21 +1,27 @@
 <?php
 
-$nameErr = $emailErr = $messageErr = "";
 $name = $email = $message = "";
-$errors = ['This is an error'];
+$nameErr = $emailErr = $messageErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    print 'it works';
+}
+    else {
+        print 'no it dont';
+}
 
 if (isset($_POST['submit'])) {
+
     if (empty($_POST["name"])) {
         $nameErr = "Please enter a name";
-        array_push($errors,$nameErr);
     } else {
         $name = form_input($_POST["name"]);
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
             $nameErr = "Only letters and white space allowed";
-            array_push($errors,$nameErr);
         }
     }
+
     if (empty($_POST["email"])) {
         $emailErr = "Email is required";
         array_push($errors,$emailErr);
@@ -27,6 +33,7 @@ if (isset($_POST['submit'])) {
             array_push($errors,$emailErr);
         }
     }
+
     if (empty($_POST["message"])) {
         $messageErr = "Please enter a message";
         array_push($errors,$messageErr);
@@ -34,8 +41,7 @@ if (isset($_POST['submit'])) {
         $message = form_input($_POST["message"]);
     }
 
-    print_r($errors, true);
-    if ($nameErr == "" && $emailErr == "" && $messageErr == "") {
+    if ($nameErr == null && $emailErr == null && $messageErr == null) {
 
         $to = "janminne@gmail.com"; // this is your Email address
         $subject = "Contact form: " . $name;
@@ -49,6 +55,7 @@ if (isset($_POST['submit'])) {
     } else {
         header('Location: http://localhost/temp/jmh/contact.php');
     }
+
 }
 
 
@@ -59,4 +66,3 @@ function form_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-

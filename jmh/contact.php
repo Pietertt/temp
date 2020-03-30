@@ -13,7 +13,7 @@ require("../jmh/contactvalidations.php");
 
 <div class="five wide white rounded container">
 <div class="ten wide container">
-    <form method="post">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="row">
             <div class="twelve wide column">
                 <label for="name">Naam</label>
@@ -40,7 +40,7 @@ require("../jmh/contactvalidations.php");
 
         <div class="row">
             <div class="twelve wide column">
-                <button id="submit" type="submit" name="submit" class="twelve wide blue button">Versturen</button>
+                <button id="submit" type="submit" name="submit" value="submit" class="twelve wide blue button">Versturen</button>
             </div>
         </div>
     </form>
@@ -50,4 +50,5 @@ require("../jmh/contactvalidations.php");
 
 <script src="error.js"></script>
 
-<?php require('../includes/footer.php');?>
+<?php
+require('../includes/footer.php');?>
