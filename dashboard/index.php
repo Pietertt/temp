@@ -1,6 +1,7 @@
 <?php
       include("../includes/navbar.php");
       include("../database.php");
+      include("../user.php");
 
       $cookie = new Cookie("token");
       if($cookie->does_cookie_exist()){
@@ -32,7 +33,21 @@
       $stmt->bind_param("s", $e);
       $e = $token->username;
       $stmt->execute();
-      $rows = $stmt->get_result()->fetch_assoc();
+      $row = $stmt->get_result()->fetch_assoc();
+
+      $user = new User();
+      $user->id = $row["id"];
+      $user->firstname = $row["firstname"];
+      $user->lastname = $row["lastname"];
+      $user->gender = $row["gender"];
+      $user->phone_number = $row["tnumber"];
+      $user->email = $row["email"];
+      $user->birth_date = $row["birth_date"];
+      $user->residence = $row["residence"];
+      $user->street = $row["street"];
+      $user->house_number = $row["house_number"];
+      $user->addition = $row["addition"];
+      $user->postal_code = $row["postal_code"];
 
       $database->disconnect();
 ?>
@@ -46,15 +61,34 @@
       <div class="row">
             <div class="three wide column">
                   <h3>Persoonlijke gegevens</h3>
-                  <p><b>Naam</b></p>
-                  <p><b>Geslacht</b></p>
-                  <p><b>Geboortedatum</b></p>
-                  <p><b>Woonadres</b></p>
+                  <p>
+                        <b>Naam</b><br>
+                        <?php print($user->firstname . " " . $user->lastname); ?>
+                  </p>
+                  <p>
+                        <b>Geslacht</b><br>
+                        <?php print($user->gender); ?>
+                  </p>
+                  <p>
+                        <b>Geboortedatum</b><br>
+                        <?php print($user->birth_date); ?>
+                  </p>
+                  <p>
+                        <b>Woonadres</b><br>
+                        <?php print($user->street . " " . $user->house_number . " " . $user->addition); ?><br>
+                        <?php print($user->postal_code . ", " . $user->residence); ?>
+                  </p>
             </div>
             <div class="three wide column">
                   <h3>Contactgegevens</h3>
-                  <p><b>Telefoonnummer</b></p>
-                  <p><b>E-mailadres</b></p>
+                  <p>
+                        <b>Telefoonnummer</b><br>
+                        <?php print($user->phone_number); ?>
+                  </p>
+                  <p>
+                        <b>E-mailadres</b><br>
+                        <?php print($user->email); ?>
+                  </p>
             </div>
       </div>
 </div>

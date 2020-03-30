@@ -1,12 +1,16 @@
 <?php
       class User {
-            $id;
-            $firstname;
-            $lastname;
-            $gender;
-            $birth_date;
-            $place;
-            $phone_number;
-            $email;            
+            public $id;
+            public $firstname;
+            public $lastname;
+            public $gender;
+            public $birth_date;
+            public $residence;
+            public $street;
+            public $house_number;
+            public $addition;
+            public $postal_code;
+            public $phone_number;
+            public $email;            
       }
 ?>
