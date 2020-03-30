@@ -4,7 +4,8 @@ $nameErr = $emailErr = $messageErr = "";
 $name = $email = $message = "";
 $errors = ['This is an error'];
 
-if (isset($_POST['submit'])) {
+if (isset($_POST["name"])) {
+      print("Submitted");
     if (empty($_POST["name"])) {
         $nameErr = "Please enter a name";
         array_push($errors,$nameErr);
