@@ -18,6 +18,7 @@ require("../jmh/contactvalidations.php");
             <div class="twelve wide column">
                 <label for="name">Naam</label>
                 <input id="name" name="name" type="text" placeholder="Uw naam">
+                <p><?php print $nameErr ?></p>
             </div>
         </div>
 
@@ -25,6 +26,7 @@ require("../jmh/contactvalidations.php");
             <div class="twelve wide column">
                 <label for="email">E-mailadres</label>
                 <input id="email" name="email" type="text" placeholder="Uw email adres">
+                <p><?php print $emailErr ?></p>
             </div>
         </div>
 
@@ -32,6 +34,7 @@ require("../jmh/contactvalidations.php");
             <div class="twelve wide column">
                 <label for="message">Bericht</label>
                 <textarea id="message" name="message" type="text" placeholder="Typ hier uw bericht.." rows="5" cols="30"></textarea>
+                <p><?php print $messageErr ?></p>
             </div>
         </div>
 
@@ -41,15 +44,6 @@ require("../jmh/contactvalidations.php");
             </div>
         </div>
     </form>
-
-    <div id="errorfield" class="">
-        <div class="row">
-            <div class="twelve wide column">
-                <p id="errormessage"><?php print_r($errors, false) ?></p>
-            </div>
-        </div>
-    </div>
-
 </div>
 </div>
 

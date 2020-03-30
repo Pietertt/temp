@@ -19,8 +19,7 @@
                         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                         <div class="overlay-content">
                               <a href="http://localhost/temp/jmh/home.php">HOME</a>
-                              <?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : ''; ?>
-                              <?php echo ($_SESSION["logged_in"] == true) ? '<a href="http://localhost/temp/index.php">DASHBOARD</a>' : ''; ?>
+                              <?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/index.php">DASHBOARD</a>'; ?>
                               <a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a>
                               <a href="http://localhost/temp/jmh/contact.php">CONTACT</a>
                         </div>
@@ -28,12 +27,11 @@
 
                   <div class="nav-links">
                         <ul>
-                              <li><a href="http://localhost/temp/jmh/home.php">HOME</a></li>
-                              <?php echo ($_SESSION["logged_in"] == false) ? '<li><a href="http://localhost/temp/pieter/index.php">INLOGGEN</a></li>' : ''; ?>
-                              <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/index.php">DASHBOARD</a></li>' : ''; ?>
-                              <li><a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a></li>
-                              <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/logout.php">UITLOGGEN</a></li>' : ''; ?>
-                              <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
+                            <li><a href="http://localhost/temp/jmh/home.php">HOME</a></li>
+                            <li><?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/index.php">DASHBOARD</a>'; ?></li>
+                            <li><a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a></li>
+                            <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/logout.php">UITLOGGEN</a></li>' : ''; ?>
+                            <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
                         </ul>
                   </div> 
             </nav>
