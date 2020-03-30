@@ -77,7 +77,7 @@
                               <span><b>Woonadres</b></span><br>
                               <span><?php print($user->street . " " . $user->house_number . " " . $user->addition); ?></span><br>
                               <span><?php print($user->postal_code . ", " . $user->residence); ?></span>
-                              <img src="../img/pen.png">
+                              <img id="residence" src="../img/pen.png">
                         </div>
             </div>
             <div class="three wide column">
@@ -85,16 +85,19 @@
                   <div class="swipe_right item">
                         <span><b>Telefoonnummer</b></span><br>
                         <span><?php print($user->phone_number); ?></span>
-                        <img src="../img/pen.png">
+                        <img id="phone_number" data-popup='{"inputs" : ["Telefoonnummer"] }' src="../img/pen.png">
                   </div>
                   <div class="swipe_right item">
                         <span><b>E-mailadres</b></span><br>
                         <span><?php print($user->email); ?></span>
-                        <img src="../img/pen.png">
+                        <img id="email_adress" src="../img/pen.png">
                   </div>
             </div>
       </div>
 </div>
+
+<script src="../Pieter/popup/popup.js"></script>
+<script src="dashboard.js"></script>
 
 <?php
       include("../includes/footer.php");
