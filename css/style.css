@@ -9,9 +9,10 @@
       7. Popups
       8. Shapes
       9. Text
-      10. Navigation
-      11. Footer
-      12. Animations
+      10. Items
+      11. Navigation
+      12. Footer
+      13. Animations
 
 -------------------------------------------------------------- */
 
@@ -78,6 +79,8 @@ a {
 [class*="wide"] {
       width: 100%;
 }
+
+
 
 @media only screen and (min-width: 800px) {
 
@@ -289,6 +292,26 @@ input, textarea {
 
 .deselected {
       color: var(--hs-light-gray);
+}
+
+/* --------------------------------------------------------------
+                              Items
+-------------------------------------------------------------- */
+
+.item {
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+}
+
+.item > img {
+      position: absolute;
+      top: 0px;
+      right: 20px;
+}
+
+.item > span {
+      float: left;
 }
 
 /* --------------------------------------------------------------

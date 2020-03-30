@@ -61,34 +61,37 @@
       <div class="row">
             <div class="three wide column">
                   <h3>Persoonlijke gegevens</h3>
-                  <p>
-                        <b>Naam</b><br>
-                        <?php print($user->firstname . " " . $user->lastname); ?>
-                  </p>
-                  <p>
-                        <b>Geslacht</b><br>
-                        <?php print($user->gender); ?>
-                  </p>
-                  <p>
-                        <b>Geboortedatum</b><br>
-                        <?php print($user->birth_date); ?>
-                  </p>
-                  <p>
-                        <b>Woonadres</b><br>
-                        <?php print($user->street . " " . $user->house_number . " " . $user->addition); ?><br>
-                        <?php print($user->postal_code . ", " . $user->residence); ?>
-                  </p>
+                        <div class="item">
+                              <span><b>Naam</b></span><br>
+                              <span><?php print($user->firstname . " " . $user->lastname); ?></span>
+                        </div>
+                        <div class="item">
+                              <span><b>Geslacht</b></span><br>
+                              <span><?php print($user->gender); ?></span>
+                        </div>
+                        <div class="item">
+                              <span><b>Geboortedatum</b></span><br>
+                              <span><?php print($user->birth_date); ?></span>
+                        </div>
+                        <div class="item">
+                              <span><b>Woonadres</b></span><br>
+                              <span><?php print($user->street . " " . $user->house_number . " " . $user->addition); ?></span><br>
+                              <span><?php print($user->postal_code . ", " . $user->residence); ?></span>
+                              <img src="../img/pen.png">
+                        </div>
             </div>
             <div class="three wide column">
                   <h3>Contactgegevens</h3>
-                  <p>
-                        <b>Telefoonnummer</b><br>
-                        <?php print($user->phone_number); ?>
-                  </p>
-                  <p>
-                        <b>E-mailadres</b><br>
-                        <?php print($user->email); ?>
-                  </p>
+                  <div class="item">
+                        <span><b>Telefoonnummer</b></span><br>
+                        <span><?php print($user->phone_number); ?></span>
+                        <img src="../img/pen.png">
+                  </div>
+                  <div class="item">
+                        <span><b>E-mailadres</b></span><br>
+                        <span><?php print($user->email); ?></span>
+                        <img src="../img/pen.png">
+                  </div>
             </div>
       </div>
 </div>
