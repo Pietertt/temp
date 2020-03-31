@@ -36,35 +36,11 @@
 
       if(isset($_POST["code"])){
             $code = $_POST["code"];
-            
             $validation = new validation();
             if($validation->filter_length($code)){
                   if($validation->filter_characters($code)){
                         if($validation->filter_alphanumeric($code)){
                               if($validation->validate_code($code)){
-                                    print("true");
-                              } else {
-                                    print_r($validation->get_errors());
-                              }
-                        } else {
-                              print_r($validation->get_errors());
-                        }
-                  } else {
-                        print_r($validation->get_errors());
-                  }
-            } else {
-                  print_r($validation->get_errors());
-            }
-      }
-
-      if(isset($_POST["number"])){
-            $number = $_POST["number"];
-            
-            $validation = new validation();
-            if($validation->filter_length($number)){
-                  if($validation->filter_characters($number)){
-                        if($validation->filter_alphanumeric($number)){
-                              if($validation->validate_number($number)){
                                     $cookie = new Cookie("token");
                                     $token = $cookie->get_value();
                                     $decoded = Token::decode($token);

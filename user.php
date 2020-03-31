@@ -13,8 +13,15 @@
             public $phone_number;
             public $email;     
             
-            public function update_phone_number($phone_number){
-                  return $phone_number;
+            public function update_phone_number($email, $phone_number) : bool {
+                  $database = new Database();
+                  $database->connect("localhost", "root", "", "ritsemabanck");
+
+                  if($database->update("UPDATE User SET tnumber = ? WHERE email = ?", array($phone_number, $email))){
+                        return true;
+                  } else {
+                        return false;
+                  }
             }
       }
 ?>

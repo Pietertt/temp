@@ -75,7 +75,6 @@
 
                         // binds the parameters to the prepared query
                         call_user_func_array( array($stmt, 'bind_param'), $args);
-                        
                         // executes the query and returns either true of false
                         if($stmt->execute()){
                               return true;
