@@ -7,7 +7,7 @@ require ('../includes/navbar.php');
         <div class="ten wide container">
             <div class="padded row">
                 <div class="six wide centered column">
-                    <a href="http://localhost:63342/temp/Pieter/index.php?_ijt=sc0o0m4s9thncrdssfroua4iiq"><button class="ten wide blue inverted button">Inloggen</button></a>
+                    <button class="ten wide blue inverted button"><a href="../Pieter/index.php">Inloggen</a></button>
                 </div>
                 <div class="six wide centered column">
                     <button class="ten wide blue button">Registreren</button>
