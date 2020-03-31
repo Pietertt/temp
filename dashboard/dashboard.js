@@ -17,7 +17,7 @@ phone_number.addEventListener("click", function(){
 
                   xhttp.open("POST", "../requests/user/update.php", true);
                   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                  xhttp.send("field=tnumber&value=" + pop.inputs[i].value);
+                  xhttp.send("field=phone&value=" + pop.inputs[i].value);
             }
       });
 });

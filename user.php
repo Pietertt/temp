@@ -13,6 +13,8 @@
             public $phone_number;
             public $email;     
             
-             
+            public function update_phone_number($phone_number){
+                  return $phone_number;
+            }
       }
 ?>
