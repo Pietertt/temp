@@ -1,52 +1,35 @@
 <?php
 
-$nameErr = $emailErr = $messageErr = "";
-$name = $email = $message = "";
 
+if (isset($_POST['submit'])) {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
 
-    if ($_POST["name"] == "") {
-        echo $nameErr = "Please enter a name";
-    } else {
-        $name = form_input($_POST["name"]);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-            echo $nameErr = "Only letters and white space allowed";
-        }
-    }
-    if ($_POST["email"] == "") {
-        echo $emailErr = "Email is required";
-    } else {
-        $email = form_input($_POST["email"]);
-        // check if e-mail address is well-formed
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo $emailErr = "Invalid email format";
-            exit();
-        }
-    }
-    if ($_POST["comment"] == "") {
-        echo $messageErr = "Please enter a message";
-    } else {
-        $message = form_input($_POST["comment"]);
-    }
-    if($nameErr == "" && $emailErr == "" && $messageErr == "") {
-
+if (empty($name) || empty($email) || empty($message)) {
+    header("Location: ../jmh/contact.php?contact=empty&name=$name&email=$email&message=$message");
+    exit();
+}
+elseif (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+    header("Location: ../jmh/contact.php?contact=char&name=$name&email=$email&message=$message");
+}
+elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: ../jmh/contact.php?contact=invalidemail&name=$name&email=$email&message=$message");
+    exit();
+}
+else {
         $to = "janminne@gmail.com"; // this is your Email address
         $subject = "Contact form: " . $name;
         $message = "Naam: " . $name . "\n" . "Emailadres: " . $email . "\n" . "Bericht:" . "\n\n" . $message;
         $headers = "From: " . $email;
-        mail($to,$subject,$message,$headers);
+        mail($to, $subject, $message, $headers);
         mail($email, "Kopie mail contactformulier", $message, "From: Ritsema Banck");
 
         header('Location: http://localhost/temp/jmh/index.php');
         exit();
     }
-    else {
-        header('Location: http://localhost/temp/jmh/contact.php');
-    }
 }
-
 
 function form_input($data)
 {
@@ -55,7 +38,3 @@ function form_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-
-?>
-
-

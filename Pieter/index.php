@@ -1,5 +1,4 @@
 <?php 
-      require('../includes/header.php');
       require('../includes/navbar.php');
 ?>
 
@@ -11,7 +10,7 @@
                                     <button class="ten wide blue button">Inloggen</button>
                               </div>
                               <div class="six wide centered column">
-                                    <button class="ten wide blue inverted button">Registreren</button>
+                                    <button class="ten wide blue inverted button"><a href="../Diego/registration.php">Registreren</a></button>
                               </div>
                         </div>
                   </div>

@@ -20,9 +20,17 @@
                   return $_COOKIE[$this->name];
             }
 
+            public function does_cookie_exist() : bool {
+                  if(isset($_COOKIE[$this->name])){
+                        return true;
+                  } else {
+                        return false;
+                  }
+            }
+
             public function check_expiration_date($token) {
                   $timestamp = Token::decode($token)->timestamp;
-                  if(time() - $timestamp > 300){
+                  if(time() - $timestamp > 30000000000){
                         return false;
                   } else {
                         return true;
@@ -39,14 +47,16 @@
             }
 
             public function validate_user($value){
-                  if($this->check_expiration_date($value)){
-                        if($this->verify($value)){
-                              return true;
+                  if($this->does_cookie_exist()){
+                        if($this->check_expiration_date($value)){
+                              if($this->verify($value)){
+                                    return true;
+                              } else {
+                                    return false;
+                              }
                         } else {
                               return false;
                         }
-                  } else {
-                        return false;
                   }
             }
       }

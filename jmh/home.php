@@ -1,8 +1,10 @@
-<?php require('../includes/navbar.php');?>
+<?php 
+      require('../includes/navbar.php');
+?>
 
 <div class="twelve wide container">
     <div class="row">
-        <img class="twelve wide column nopad" src="../../img/homepage-main.jpg">
+        <img class="twelve wide column nopad" src="../img/homepage-main.jpg">
     </div>
 </div>
 
