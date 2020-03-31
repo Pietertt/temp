@@ -15,6 +15,10 @@
                  User::update_phone_number(Token::decode($cookie->get_value())->username, $value);
             }
 
+            if($field == "email"){
+                  User::update_email(Token::decode($cookie->get_value())->username, $value);
+             }
+
             
       } else {
             print("Please post something");

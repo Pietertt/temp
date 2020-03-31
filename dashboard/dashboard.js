@@ -6,6 +6,7 @@ phone_number.addEventListener("click", function(){
       var json = JSON.parse(phone_number.getAttribute("data-popup"));
       var pop = new popup(json);
       pop.generate();
+
       pop.button.addEventListener("click", function(){
             for(var i = 0; i < pop.inputs.length; i++){
                   var xhttp = new XMLHttpRequest();
@@ -32,4 +33,19 @@ email_adress.addEventListener("click", function(){
       var json = JSON.parse(email_adress.getAttribute("data-popup"));
       var pop = new popup(json);
       pop.generate();
+
+      pop.button.addEventListener("click", function(){
+            for(var i = 0; i < pop.inputs.length; i++){
+                  var xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function(){
+                        if(this.readyState == 4 && this.status == 200){
+                              console.log(this.responseText);
+                        }
+                  }
+
+                  xhttp.open("POST", "../requests/user/update.php", true);
+                  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                  xhttp.send("field=email&value=" + pop.inputs[i].value);
+            }
+      });
 });

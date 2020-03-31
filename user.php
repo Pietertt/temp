@@ -23,5 +23,18 @@
                         return false;
                   }
             }
+
+            public function update_email($email, $value) : bool {
+                  $database = new Database();
+                  $database->connect("localhost", "root", "", "ritsemabanck");
+
+                  if($database->update("UPDATE User SET email = ? WHERE email = ?", array($value, $email))){
+                        return true;
+                  } else {
+                        return false;
+                  }
+            }
+
+            
       }
 ?>
