@@ -16,7 +16,7 @@ require ('../includes/navbar.php');
         </div>
 
         <div id="container" class="ten wide container">
-            <form>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
