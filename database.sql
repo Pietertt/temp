@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 30 mrt 2020 om 15:26
+-- Gegenereerd op: 31 mrt 2020 om 15:36
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 
@@ -117,7 +117,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`, `banknum`, `income`, `partner`, `residence`, `birth_date`, `house_number`, `postal_code`, `addition`, `street`) VALUES
-(1, 'thomas@ziggo.nl', 293829382, 'Thomas', 'de Groot', 'Mannelijk', '0645456937', 'NL66INGB2382485834', 39843, 43, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
+(1, 'pieter@boersma.nl', 293829382, 'dsdsdssdsddfdddfdfdf', 'de Groot', 'Mannelijk', '23', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
 
 --
 -- Indexen voor geëxporteerde tabellen
