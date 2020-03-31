@@ -11,6 +11,8 @@
             public $addition;
             public $postal_code;
             public $phone_number;
-            public $email;            
+            public $email;     
+            
+             
       }
 ?>

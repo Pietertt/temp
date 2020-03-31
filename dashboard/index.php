@@ -1,7 +1,5 @@
 <?php
       include("../includes/navbar.php");
-      include("../database.php");
-      include("../user.php");
 
       $cookie = new Cookie("token");
       if($cookie->does_cookie_exist()){
@@ -22,34 +20,6 @@
                   }
             }
       }
-
-      $database = new database();
-      $database->connect("127.0.0.1", "root", "", "ritsemabanck");
-
-      $cookie = new Cookie("token");
-      $token = Token::decode($cookie->get_value());
-
-      $stmt = $database->get_connection()->prepare("SELECT * FROM `user` WHERE email = ?");
-      $stmt->bind_param("s", $e);
-      $e = $token->username;
-      $stmt->execute();
-      $row = $stmt->get_result()->fetch_assoc();
-
-      $user = new User();
-      $user->id = $row["id"];
-      $user->firstname = $row["firstname"];
-      $user->lastname = $row["lastname"];
-      $user->gender = $row["gender"];
-      $user->phone_number = $row["tnumber"];
-      $user->email = $row["email"];
-      $user->birth_date = $row["birth_date"];
-      $user->residence = $row["residence"];
-      $user->street = $row["street"];
-      $user->house_number = $row["house_number"];
-      $user->addition = $row["addition"];
-      $user->postal_code = $row["postal_code"];
-
-      $database->disconnect();
 ?>
 
 <div class="ten wide container">

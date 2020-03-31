@@ -5,11 +5,32 @@
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/cookie.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/tok.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/session.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/temp/user.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/temp/database.php");
 
       $cookie = new Cookie("token");
       if($cookie->does_cookie_exist()){
             if($cookie->validate_user($_COOKIE["token"])){
                   $_SESSION["logged_in"] = true;
+                  $database = new Database();
+                  $database->connect("localhost", "root", "", "ritsemabanck");
+                  $cookie = new Cookie("token");
+                  $result = $database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username));
+                  
+                  $user = new User();
+                  $user->id = $result["id"];
+                  $user->firstname = $result["firstname"];
+                  $user->lastname = $result["lastname"];
+                  $user->gender = $result["gender"];
+                  $user->birth_date = $result["birth_date"];
+                  $user->residence = $result["residence"];
+                  $user->house_number = $result["house_number"];
+                  $user->addition = $result["addition"];
+                  $user->postal_code = $result["postal_code"];
+                  $user->phone_number = $result["tnumber"];
+                  $user->email = $result["email"];
+
+                  $_SESSION["user"] = $user;
             } else {
                   $_SESSION["logged_in"] = false;
             }
