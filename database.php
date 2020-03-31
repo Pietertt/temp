@@ -50,6 +50,40 @@
                   
             }
 
+            public function update($query, $values) : bool {
+                  // creates a new instance of the Cookie class
+                  $cookie = new Cookie("token");
+                  if($cookie->validate_user($cookie->get_value())){ // validates that the token stored in the cookie is verified
+                        
+                        // prepares the query
+                        $stmt = $this->get_connection()->prepare($query);
+                        
+                        // stores the types of the values to a string
+                        $type = "";
+                        for($i = 0; $i < count($values); $i++){
+                              $type = $type . substr(gettype($values[$i]), 0, 1);
+                        }
+
+                        // appends the values to the array
+                        $args = array(&$type);
+                        for ($i=0; $i < count($values); $i++){
+                              $args[] = &$values[$i];
+                        }
+
+                        // binds the parameters to the prepared query
+                        call_user_func_array( array($stmt, 'bind_param'), $args);
+                        
+                        // executes the query and returns either true of false
+                        if($stmt->execute()){
+                              return true;
+                        } else {
+                              return false;
+                        }
+                  } else {
+                        return false;
+                  }
+            }
+
             public function disconnect(){
                   $this->connection->close();
             }
