@@ -15,6 +15,6 @@ class testDatabase extends \PHPUnit_Framework_TestCase
         require_once __DIR__ . "/../classes/databaseValidation.php";
         $user = new classes\databaseValidation;
 
-        $this->assertTrue($user->insertIntoDB());
+        $this->assertTrue($user->insertIntoDB('diego.bencherif@student.nhlstenden.com', '123456789', 'test', 'tester', 'male', '0612345678'));
     }
 }
