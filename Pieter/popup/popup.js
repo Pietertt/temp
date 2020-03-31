@@ -2,6 +2,7 @@ class popup {
 
       constructor(json){
             this.json = json;
+            this.inputs = [];
       }
 
       set image(image){
@@ -40,7 +41,8 @@ class popup {
                   label.innerHTML = this.json.inputs[i].description;
 
                   var input = document.createElement("INPUT");
-                  input.name = this.json.inputs.length;
+                  input.name = this.json.inputs[i].name;
+                  input.id = this.json.inputs[i].id;
 
                   row.appendChild(label);
                   row.appendChild(input);
@@ -63,12 +65,10 @@ class popup {
             document.body.appendChild(overlay);
             document.body.appendChild(popup);
 
-            // this.header = document.getElementById("popup_header");
-            // this.description = document.getElementById("popup_description");
             this.button = document.getElementById(this.json.button.id);
-            // this.subscription = document.getElementById("popup_subscription");
-            // this.cont = document.getElementById("cont");
-            console.log(this.json);
+            for(var i = 0; i < this.json.inputs.length; i++){
+                  this.inputs.push(document.getElementById(this.json.inputs[i].id));
+            }
       }
 
       action(action){

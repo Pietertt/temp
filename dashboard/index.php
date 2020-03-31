@@ -77,7 +77,7 @@
                               <span><b>Woonadres</b></span><br>
                               <span><?php print($user->street . " " . $user->house_number . " " . $user->addition); ?></span><br>
                               <span><?php print($user->postal_code . ", " . $user->residence); ?></span>
-                              <img id="residence" src="../img/pen.png" data-popup='{"title" : "Verander je adres", "inputs" : [{"description" : "Straat", "name" : "street"}, {"description" : "Huisnummer", "name" : "house_number"}, {"description" : "Toevoeging", "name" : "addition"}, {"description" : "Postcode", "name" : "postal_code"}, {"description" : "Plaats", "name" : "residence"}], "button" : {"label" : "Verstuur", "id" : "button_change_street"}}'>
+                              <img id="residence" src="../img/pen.png" data-popup='{"title" : "Verander je adres", "inputs" : [{"description" : "Straat", "name" : "street", "id" : "input_street"}, {"description" : "Huisnummer", "name" : "house_number", "id" : "input_house_number"}, {"description" : "Toevoeging", "name" : "addition", "id" : "input_addition"}, {"description" : "Postcode", "name" : "postal_code", "id" : "input_postal_code"}, {"description" : "Plaats", "name" : "residence", "id" : "input_residence"}], "button" : {"label" : "Verstuur", "id" : "button_change_street"}}'>
                         </div>
             </div>
             <div class="three wide column">
@@ -85,12 +85,12 @@
                   <div class="swipe_right item">
                         <span><b>Telefoonnummer</b></span><br>
                         <span><?php print($user->phone_number); ?></span>
-                        <img id="phone_number" data-popup='{"title" : "Verander je telefoonnummer", "inputs" : [{"description" : "Telefoonnummer", "name" : "phone_number"}], "button" : { "label" : "Verstuur", "id" : "button_change_phone_number" }}' src="../img/pen.png">
+                        <img id="phone_number" data-popup='{"title" : "Verander je telefoonnummer", "inputs" : [{"description" : "Telefoonnummer", "name" : "phone_number", "id" : "input_phone_number"}], "button" : { "label" : "Verstuur", "id" : "button_change_phone_number" }}' src="../img/pen.png">
                   </div>
                   <div class="swipe_right item">
                         <span><b>E-mailadres</b></span><br>
                         <span><?php print($user->email); ?></span>
-                        <img id="email_adress" src="../img/pen.png" data-popup='{"title" : "Verander je e-mailadres", "inputs" : [{"description" : "E-mailadres", "name" : "email_address"}], "button" : {"label" : "Verstuur", "id" : "button_change_email"}}'>
+                        <img id="email_adress" src="../img/pen.png" data-popup='{"title" : "Verander je e-mailadres", "inputs" : [{"description" : "E-mailadres", "name" : "email_address", "id" : "input_email_adress"}], "button" : {"label" : "Verstuur", "id" : "button_change_email"}}'>
                   </div>
             </div>
       </div>
