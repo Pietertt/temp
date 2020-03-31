@@ -22,7 +22,31 @@
                   return $this->connection;
             }
 
-            public function select($query){
+            public function select($query, $values) {
+                  $cookie = new Cookie("token");
+                  if($cookie->validate_user($cookie->get_value())){
+                        $stmt = $this->get_connection()->prepare($query);
+                  
+                        $type = "";
+
+                        for($i = 0; $i < count($values); $i++){
+                              $type = $type . substr(gettype($values[$i]), 0, 1);
+                        }
+
+                        $args = array(&$type);
+
+                        for ($i=0; $i < count($values); $i++){
+                              $args[] = &$values[$i];
+                        }
+
+                        call_user_func_array( array($stmt, 'bind_param'), $args);
+                        
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        return $result->fetch_assoc();
+                  } else {
+                        return "Je bent niet ingelogd";
+                  }     
                   
             }
 
