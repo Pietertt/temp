@@ -89,7 +89,7 @@ a {
             padding: 0px;
       }
 
-      [class*="centered column"] {
+      [class*="centered"] {
             display: block;
             text-align: center;
       }
@@ -252,8 +252,6 @@ input, textarea {
       top: 100px;
       opacity: 1;
       z-index: 10000;
-      text-align: center;
-
       animation-duration: 0.5s;
       animation-name: swipe_bottom;  
       transform: translateY(0px);

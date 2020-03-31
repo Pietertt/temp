@@ -30,7 +30,7 @@
 
             public function check_expiration_date($token) {
                   $timestamp = Token::decode($token)->timestamp;
-                  if(time() - $timestamp > 30000){
+                  if(time() - $timestamp > 30000000000){
                         return false;
                   } else {
                         return true;

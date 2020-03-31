@@ -1,10 +1,7 @@
 class popup {
 
-      constructor(title, description, button, subscription){
-            this.titleText = title;
-            this.descriptionText = description;
-            this.buttonText = button;
-            this.subscriptionText = subscription
+      constructor(json){
+            this.json = json;
       }
 
       set image(image){
@@ -26,36 +23,52 @@ class popup {
             container.classList.add("ten", "wide", "white", "rounded", "container");
             container.id = "cont";
 
-            var elements = [["H2", ["bounce", "header"], "popup_header", this.titleText], ["DIV", ["bounce", "lighter"], "popup_description", this.descriptionText], ["INPUT", ["bounce"], "popup_input", "code", "Voer je code in"], ["BUTTON", ["twelve", "wide", "blue", "bounce", "button"], "popup_button", this.buttonText], ["DIV", ["bounce", "lighter"], "popup_subscription", this.subscriptionText]];
-            
-            for(var i = 0; i < elements.length; i++){
+            var row = document.createElement("DIV");
+            row.classList.add("centered", "row");
+
+            var title = document.createElement("H2");
+            title.innerHTML = this.json.title;
+            row.appendChild(title);
+
+            container.appendChild(row);
+
+            for(var i = 0; i < this.json.inputs.length; i++){
                   var row = document.createElement("DIV");
                   row.classList.add("row");
 
-                  var element = document.createElement(elements[i][0]);
-                  element.id = elements[i][2];
-                  element.innerHTML = elements[i][3];
-                  for(var j = 0; j < elements[i][1].length; j++){
-                        element.classList.add(elements[i][1][j]);
-                  }
-                  if(elements[i][0] == "INPUT"){
-                        element.name = elements[i][3];
-                        element.placeholder = elements[i][4];
-                  }
+                  var label = document.createElement("LABEL");
+                  label.innerHTML = this.json.inputs[i].description;
 
-                  row.appendChild(element);
+                  var input = document.createElement("INPUT");
+                  input.name = this.json.inputs.length;
+
+                  row.appendChild(label);
+                  row.appendChild(input);
                   container.appendChild(row);
             }
+
+            var row = document.createElement("DIV");
+            row.classList.add("row");
+
+            var button = document.createElement("BUTTON");
+            button.classList.add("twelve", "wide", "blue", "bounce", "button");
+            button.innerHTML = this.json.button.label;
+            button.id = this.json.button.id;
+
+            row.appendChild(button);
+            container.appendChild(row);
+
             wrapper.appendChild(container);
             popup.appendChild(wrapper);
             document.body.appendChild(overlay);
             document.body.appendChild(popup);
 
-            this.header = document.getElementById("popup_header");
-            this.description = document.getElementById("popup_description");
-            this.button = document.getElementById("popup_button");
-            this.subscription = document.getElementById("popup_subscription");
-            this.cont = document.getElementById("cont");
+            // this.header = document.getElementById("popup_header");
+            // this.description = document.getElementById("popup_description");
+            this.button = document.getElementById(this.json.button.id);
+            // this.subscription = document.getElementById("popup_subscription");
+            // this.cont = document.getElementById("cont");
+            console.log(this.json);
       }
 
       action(action){
