@@ -78,11 +78,23 @@
             $email = $_GET['email'];
             echo '<input id="email" name="email" type="text" placeholder="Uw email" value="'.$email.'">';
         }?>
-                    <img id="email" src="../img/pen.png" data-popup=\'{"title" : "Verander je e-mailadres", "inputs" : [{"description" : "E-mailadres", "name" : "email_address", "id" : "input_email_adress"}], "button" : {"label" : "Verstuur", "id" : "button_change_email"}}\'>
+                    <img id="email" src="../img/pen.png" data-popup='{"title" : "Verander je e-mailadres", "inputs" : [{"description" : "E-mailadres", "name" : "email_address", "id" : "input_email_adress"}], "button" : {"label" : "Verstuur", "id" : "button_change_email"}}\'>
 </div>
     </div>
         </form>
     </div>
+</div>
+
+<div class="row toppad">
+    <div class="five wide centered container">
+        <div class="ten wide container">
+            <h3>Hypotheekaanvragen</h3>
+        </div>
+    </div>
+</div>
+
+<div class="twelve wide column">
+
 </div>
 
 

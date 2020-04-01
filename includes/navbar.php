@@ -72,6 +72,7 @@
                             <li><?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/dashboard/index.php">OVERZICHT</a>'; ?></li>
                             <li><a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a></li>
                             <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/logout.php">UITLOGGEN</a></li>' : ''; ?>
+                            <li><a href="http://localhost/temp/Julian/overview.php">OVERZICHT</a> </li>
                             <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
                         </ul>
                   </div> 
