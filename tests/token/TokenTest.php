@@ -42,7 +42,7 @@
             }
 
             protected function tearDown() : void {
-                  $this->validation = NULL;
+                  
             }
       }
 ?>

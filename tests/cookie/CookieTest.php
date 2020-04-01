@@ -53,7 +53,7 @@
             }
 
             protected function tearDown() : void {
-
+                  $this->cookie = NULL;
             }
       }
 ?>

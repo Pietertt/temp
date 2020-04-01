@@ -6,6 +6,14 @@ document.getElementById("submit").addEventListener('click', function(){
                         animate();
                   } else {
                         console.log(this.responseText);
+                        var json = '{"title" : "$s", "button" : { "label" : "Sluiten", "id" : "button_code" }}'.replace('$s', this.responseText);
+                        console.log(json);
+                        pop = new popup(JSON.parse(json));
+                        pop.generate();
+
+                        pop.button.addEventListener("click", function(){
+                              pop.close();
+                        });
                   }
             }
       }

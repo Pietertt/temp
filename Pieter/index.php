@@ -35,13 +35,6 @@
                                     <button class="twelve wide blue button" id="submit">Versturen</div></button>
                               </div>
                         </div>
-
-                        <div class="row">
-                              <div class="twelve wide column">
-                                    <label for="password">Wachtwoord</label>
-                                    <input id="password" name="password" type="password" id="password" placeholder="Voer je wachtwoord in">
-                              </div>
-                        </div>
                   </div>
 
             </div>

@@ -10,7 +10,7 @@
                   if(preg_match($pattern, $string)){
                         return true;
                   } else {
-                        array_push($this->errors, "Je invoer moet tussen de 0 en 50 karakter bevatten");
+                        array_push($this->errors, "Je invoer moet tussen de 0 en 50 karakters bevatten");
                         return false;
                   }
             }
@@ -20,7 +20,7 @@
                   if(preg_match($pattern, $string)){
                         return true;
                   } else {
-                        array_push($this->errors, "Je invoer mag alleen maar letters, cijfers of de tekens .', '-', '_' bevatten");
+                        array_push($this->errors, "Je invoer mag geen special tekens bevatten");
                         return false;
                   }
             }
@@ -35,7 +35,7 @@
                   }
             }
 
-            public static function validate_email($email) : bool {
+            public function validate_email($email) : bool {
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
                   } else {
@@ -83,8 +83,8 @@
                   }
             }
 
-            public function get_errors() : string {
-                  return json_encode($this->errors);
+            public function get_errors() : array {
+                  return $this->errors;
             }
       }
 ?>

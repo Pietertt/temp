@@ -18,19 +18,19 @@
                                           $cookie->create(Token::encode($email, $password, time(), 0));
                                           print("true");
                                     } else {
-                                          print_r($validation->get_errors());
+                                          print($validation->get_errors()[0]);
                                     }
                               } else {
-                                    print_r($validation->get_errors());
+                                    print($validation->get_errors()[0]);
                               }
                         } else {
-                              print_r($validation->get_errors());
+                              print($validation->get_errors()[0]);
                         }
                   } else {
-                        print_r($validation->get_errors());
+                        print($validation->get_errors()[0]);
                   }
             } else {
-                  print_r($validation->get_errors());
+                  print($validation->get_errors()[0]);
             }
       }
 
