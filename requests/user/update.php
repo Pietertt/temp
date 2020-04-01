@@ -12,11 +12,19 @@
             $cookie = new Cookie("token");
 
             if($field == "phone"){
-                 User::update_phone_number(Token::decode($cookie->get_value())->username, $value);
+                  if(User::update_phone_number(Token::decode($cookie->get_value())->username, $value)){
+                        print(true);
+                  } else {
+                        print(false);
+                  }
             }
 
             if($field == "email"){
-                  User::update_email(Token::decode($cookie->get_value())->username, $value);
+                  if(User::update_email(Token::decode($cookie->get_value())->username, $value)){
+                        print(true);
+                  } else {
+                        print(false);
+                  }
              }
 
             

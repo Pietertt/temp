@@ -54,12 +54,12 @@
                   <h3>Contactgegevens</h3>
                   <div class="swipe_right item">
                         <span><b>Telefoonnummer</b></span><br>
-                        <span><?php print($user->phone_number); ?></span>
+                        <span id="span_phone_number"><?php print($user->phone_number); ?></span>
                         <img id="phone_number" data-popup='{"title" : "Verander je telefoonnummer", "inputs" : [{"description" : "Telefoonnummer", "name" : "phone_number", "id" : "input_phone_number"}], "button" : { "label" : "Verstuur", "id" : "button_change_phone_number" }}' src="../img/pen.png">
                   </div>
                   <div class="swipe_right item">
                         <span><b>E-mailadres</b></span><br>
-                        <span><?php print($user->email); ?></span>
+                        <span id="span_email"><?php print($user->email); ?></span>
                         <img id="email_adress" src="../img/pen.png" data-popup='{"title" : "Verander je e-mailadres", "inputs" : [{"description" : "E-mailadres", "name" : "email_address", "id" : "input_email_adress"}], "button" : {"label" : "Verstuur", "id" : "button_change_email"}}'>
                   </div>
             </div>
