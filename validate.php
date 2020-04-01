@@ -45,23 +45,6 @@
             }
 
             public function validate_user($email, $password) {
-                  // $database = new database();
-                  // $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($email));
-                  // if(!$database->empty($result)){
-                  //       password_verify($password, $database->fetch($result)["password"]);
-                  //       print($password);
-                  //       $result = $database->select("SELECT email, password FROM `user` WHERE ((email = ?) AND (password = ?))", array($email, $password));
-
-                  //       if(!$database->empty($result)){
-                  //             return "true";
-                  //       } else {
-                  //             array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
-                  //             return false;
-                  //       }
-                  // } else {
-                  //       array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
-                  // }
-                  
                   // check whether the email does exists in the database
                   $database = new Database();
                   $result = $database->select("SELECT email FROM `user` WHERE email = ?", array($email));
@@ -69,31 +52,28 @@
                         // checks if the query returns a row. Most likely it does, but it is a good practice to check for it 
                         $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($email));
                         if(!$database->empty($result)){
-                              $hashed_password = $database->fetch($result)["password"];
-                              // $test = password_verify($password, $pwd);
-                              if(password_verify($password, $hashed_password)){
-                                    print("Fuu");
+                              // fetches the hash from the database
+                              $hash = $database->fetch($result)["password"];
+                              // verifies that the password is equal to the decyphered hash
+                              if(password_verify("test", $hash)){
+                                    return true;
+                              } else {
+                                    array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                                    return false;
                               }
                         } else {
                               array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                              return false;
                         }
                   } else {
                         array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                        return false;
                   }
             }
 
             public function validate_code($code) : bool {
                   $database = new database();
-                  $database->connect("127.0.0.1", "root", "", "ritsemabanck");
-                  
-                  $stmt = $database->get_connection()->prepare("SELECT tnumber FROM `user` WHERE tnumber = ?");
-                  $stmt->bind_param("s", $t);
-                  $t = $code;
-                  $stmt->execute();
-
-                  $rows = $stmt->get_result()->num_rows;
-
-                  $database->disconnect();
+                  $rows = $database->select("SELECT tnumber FROM `user` WHERE tnumber = ?", array($code))->num_rows;
 
                   if($rows == 1){
                         return true;

@@ -6,7 +6,6 @@ document.getElementById("submit").addEventListener('click', function(){
                         animate();
                   } else {
                         console.log(this.responseText);
-                        console.log(JSON.parse(this.responseText));
                   }
             }
       }
