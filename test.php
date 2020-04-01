@@ -10,6 +10,9 @@ error_reporting(E_ALL);
 
       $database = new database();
 
-      print_r($database->empty($database->select("SELECT * FROM User WHERE email = ?", array("pieter@boersma.nl"))));
+      $cookie = new Cookie("token");
+      print_r($cookie);
+
+      //print_r($database->empty($database->select("SELECT * FROM User WHERE email = ?", array("pieter@boersma.nl"))));
       
 ?>

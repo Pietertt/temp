@@ -24,33 +24,28 @@
 
             public function select($query, $values) {
                   $this->connect("localhost", "root", "", "ritsemabanck");
-                  // validates that the user is logged in
-                  $cookie = new Cookie("token");
-                  if($cookie->validate_user($cookie->get_value())){
-                        $stmt = $this->get_connection()->prepare($query);
+                  $stmt = $this->get_connection()->prepare($query);
+            
+                  // stores all the types of the values in a variable
+                  $type = "";
+                  for($i = 0; $i < count($values); $i++){
+                        $type = $type . substr(gettype($values[$i]), 0, 1);
+                  }
+
+                  // appends all the values to the arguments
+                  $args = array(&$type);
+                  for ($i=0; $i < count($values); $i++){
+                        $args[] = &$values[$i];
+                  }
+
+                  // binds the values to the prepared query
+                  call_user_func_array( array($stmt, 'bind_param'), $args);
                   
-                        // stores all the types of the values in a variable
-                        $type = "";
-                        for($i = 0; $i < count($values); $i++){
-                              $type = $type . substr(gettype($values[$i]), 0, 1);
-                        }
-
-                        // appends all the values to the arguments
-                        $args = array(&$type);
-                        for ($i=0; $i < count($values); $i++){
-                              $args[] = &$values[$i];
-                        }
-
-                        // binds the values to the prepared query
-                        call_user_func_array( array($stmt, 'bind_param'), $args);
-                        
-                        // excutes the query and returns the results
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        return $result;
-                  } else {
-                        return array("Je bent niet ingelogd");
-                  }     
+                  // excutes the query and returns the results
+                  $stmt->execute();
+                  $result = $stmt->get_result();
+                  return $result;
+                     
                   $this->disconnect();
             }
 
