@@ -46,19 +46,9 @@
 
             public function validate_user($email, $password) : bool {
                   $database = new database();
-                  $database->connect("127.0.0.1", "root", "", "ritsemabanck");
-                  
-                  $stmt = $database->get_connection()->prepare("SELECT email, BSN FROM `user` WHERE ((email = ?) AND (BSN = ?))");
-                  $stmt->bind_param("ss", $e, $p);
-                  $e = $email;
-                  $p = $password;
-                  $stmt->execute();
+                  $result = $database->select("SELECT email, password FROM `user` WHERE ((email = ?) AND (password = ?))", array($email, $password));
 
-                  $rows = $stmt->get_result()->num_rows;
-
-                  $database->disconnect();
-
-                  if($rows == 1){
+                  if(!$database->empty($result)){
                         return true;
                   } else {
                         array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");

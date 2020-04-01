@@ -15,7 +15,7 @@
                   $database = new Database();
                   $database->connect("localhost", "root", "", "ritsemabanck");
                   $cookie = new Cookie("token");
-                  $result = $database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username));
+                  $result = $database->fetch($database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
                   
                   $user = new User();
                   $user->id = $result["id"];

@@ -9,8 +9,7 @@ error_reporting(E_ALL);
       require("database.php");
 
       $database = new database();
-      $database->connect("127.0.0.1", "root", "", "ritsemabanck");
 
-      print_r($database->update("UPDATE User SET partner = ? WHERE email = ?", array(23, "thomas@ziggo.nl")));
+      print_r($database->empty($database->select("SELECT * FROM User WHERE email = ?", array("pieter@boersma.nl"))));
       
 ?>

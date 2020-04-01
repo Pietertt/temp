@@ -23,6 +23,7 @@
             }
 
             public function select($query, $values) {
+                  $this->connect("localhost", "root", "", "ritsemabanck");
                   // validates that the user is logged in
                   $cookie = new Cookie("token");
                   if($cookie->validate_user($cookie->get_value())){
@@ -46,11 +47,11 @@
                         // excutes the query and returns the results
                         $stmt->execute();
                         $result = $stmt->get_result();
-                        return $result->fetch_assoc();
+                        return $result;
                   } else {
-                        return "Je bent niet ingelogd";
+                        return array("Je bent niet ingelogd");
                   }     
-                  
+                  $this->disconnect();
             }
 
             public function update($query, $values) : bool {
@@ -83,6 +84,18 @@
                         }
                   } else {
                         return false;
+                  }
+            }
+
+            public function fetch($result){
+                  return $result->fetch_assoc();
+            }
+
+            public function empty($result) : bool {
+                  if($result->num_rows == 1){
+                        return false;
+                  } else {
+                        return true;
                   }
             }
 
