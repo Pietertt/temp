@@ -7,11 +7,10 @@ error_reporting(E_ALL);
       require("token.php");
       require("tok.php");
       require("database.php");
+      require("validate.php");
 
-      $database = new database();
-
-      $cookie = new Cookie("token");
-      print_r($cookie);
+      $v = new validation();
+      print_r($v->validate_user("pieter@b.nl", "test"));
 
       //print_r($database->empty($database->select("SELECT * FROM User WHERE email = ?", array("pieter@boersma.nl"))));
       

@@ -44,18 +44,42 @@
                   }
             }
 
-            public function validate_user($email, $password) : bool {
-                  $database = new database();
-                  $result = $database->select("SELECT email, password FROM `user` WHERE ((email = ?) AND (password = ?))", array($email, $password));
+            public function validate_user($email, $password) {
+                  // $database = new database();
+                  // $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($email));
+                  // if(!$database->empty($result)){
+                  //       password_verify($password, $database->fetch($result)["password"]);
+                  //       print($password);
+                  //       $result = $database->select("SELECT email, password FROM `user` WHERE ((email = ?) AND (password = ?))", array($email, $password));
 
+                  //       if(!$database->empty($result)){
+                  //             return "true";
+                  //       } else {
+                  //             array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                  //             return false;
+                  //       }
+                  // } else {
+                  //       array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                  // }
+                  
+                  // check whether the email does exists in the database
+                  $database = new Database();
+                  $result = $database->select("SELECT email FROM `user` WHERE email = ?", array($email));
                   if(!$database->empty($result)){
-                        return true;
+                        // checks if the query returns a row. Most likely it does, but it is a good practice to check for it 
+                        $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($email));
+                        if(!$database->empty($result)){
+                              $hashed_password = $database->fetch($result)["password"];
+                              // $test = password_verify($password, $pwd);
+                              if(password_verify($password, $hashed_password)){
+                                    print("Fuu");
+                              }
+                        } else {
+                              array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
+                        }
                   } else {
                         array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
-                        return false;
                   }
-
-                  return $rows;
             }
 
             public function validate_code($code) : bool {
