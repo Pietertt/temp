@@ -11,9 +11,10 @@ error_reporting(E_ALL);
 
       $v = new Cookie("token");
 
-
-      print_r(Token::decode("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlBpZXRlciIsInBhc3N3b3JkIjoidGVzdCIsInRpbWVzdGFtcCI6MTU4NTc0OTYwMSwidmVyaWZpZWQiOjB9.OCzXNwAkOEtL0OZ5V6_Ncp2hcZ3glLDjDlvZsUWa_i4"));
-
+      $db = new Database();
+      $time = time();
+      print_r(Token::encode("Pieter", "test", $time, 0));
+      print("<br>" . $time);
       //print_r($database->empty($database->select("SELECT * FROM User WHERE email = ?", array("pieter@boersma.nl"))));
       
 ?>
