@@ -10,15 +10,20 @@
 
             }
 
-            public function connect($server, $username, $password, $database) {
+            public function connect($server, $username, $password, $database) : bool {
                   $this->server = $server;
                   $this->username = $username;
                   $this->password = $password;
                   $this->database = $database;
                   $this->connection = new mysqli($this->server, $this->username, $this->password, $this->database);
+                  if($this->connection->connect_error){
+                        return false;
+                  } else {
+                        return true;
+                  }
             }
 
-            public function get_connection() {
+            public function get_connection() : object {
                   return $this->connection;
             }
 
