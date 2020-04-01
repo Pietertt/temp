@@ -47,6 +47,7 @@
                   $this->assertTrue($this->cookie->verify($cookie->get_value()), true);
             }
 
+            // testing if the cookie does exist. Of course this returns false
             public function test_does_cookie_exist(){
                   $this->assertFalse($this->cookie->does_cookie_exist(), false);
             }

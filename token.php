@@ -42,9 +42,9 @@
                   return $token;
             }
 
-            public static function verify($json) : Tok {
-                  $json->verified = 1;
-                  return $json;
+            public static function verify($token) : Tok {
+                  $token->verified = 1;
+                  return $token;
             }
       }
 ?>

@@ -27,6 +27,18 @@
                   $tok->timestamp = 1585749601;
                   $tok->verified = 0;
                   $this->assertEquals($t, $tok);
+                  
+                  return $t;
+            }
+
+            /**
+            * @depends test_decode
+            */
+            public function test_verify($token){
+                  // verifies the token the unverified token
+                  Token::verify($token);
+
+                  $this->assertSame($token->verified, 1);
             }
 
             protected function tearDown() : void {
