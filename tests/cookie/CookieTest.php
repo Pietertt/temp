@@ -40,10 +40,15 @@
                   $token = $this->createMock(Token::class);
                   $token->method('decode')->willReturn($tok);
 
+                  // mocks the cookie class because a cookie cannot be created in a test
                   $cookie = $this->createMock(Cookie::class);
                   $cookie->method('get_value')->willReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlBpZXRlciIsInBhc3N3b3JkIjoidGVzdCIsInRpbWVzdGFtcCI6MTU4NTc1MjIxMCwidmVyaWZpZWQiOjF9.5MBtBsZSqUcFTiMLFLamU2H040Pr5oRfFECTlvB6Vog");
 
                   $this->assertTrue($this->cookie->verify($cookie->get_value()), true);
+            }
+
+            public function test_does_cookie_exist(){
+                  $this->assertFalse($this->cookie->does_cookie_exist(), false);
             }
 
             protected function tearDown() : void {
