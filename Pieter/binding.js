@@ -33,7 +33,7 @@ function animate(){
                   if(this.readyState == 4 && this.status == 200){
                         if(this.responseText == "true"){
                               pop.close();
-                              document.location = "../dashboard";
+                              document.location = "../Julian/overview.php";
                         }
                   }
             }
