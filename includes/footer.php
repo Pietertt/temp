@@ -8,6 +8,7 @@
                         <li><a href="http://localhost/temp/login.php">Inloggen</a></li>
                         <li><a href="http://localhost/temp/contact.php">Contact</a></li>
                         <li><a href="http://localhost/temp/about.php">Over ons</a></li>
+                        <li><a href="http://localhost/temp/overview.php">Overzicht</a></li>
                     </ul>
                 </div>
                 <div class="three wide column">
@@ -17,6 +18,8 @@
                         <li><a href="http://localhost/temp/login.php">Inloggen</a></li>
                         <li><a href="http://localhost/temp/contact.php">Contact</a></li>
                         <li><a href="http://localhost/temp/about.php">Over ons</a></li>
+                        <li><a href="http://localhost/temp/overview.php">Overzicht</a></li>
+
                     </ul>
                 </div>
             </div>
