@@ -24,7 +24,7 @@
                   
                   $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, 'fkdj54jgj!$&dfj', true);
                   $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
-                  return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+                  return $base64UrlHeader . "." . password_hash($base64UrlPayload, PASSWORD_BCRYPT) . "." . $base64UrlSignature;
             }
 
             public static function decode($token) : Tok {
