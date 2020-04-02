@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 02 apr 2020 om 13:23
+-- Gegenereerd op: 02 apr 2020 om 15:41
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 

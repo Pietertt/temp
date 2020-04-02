@@ -57,7 +57,7 @@
                   $result = $database->select("SELECT email FROM `user` WHERE email = ?", array($email));
                   if(!$database->empty($result)){
                         // checks if the query returns a row. Most likely it does, but it is a good practice to check for it 
-                        $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($email));
+                        $result = $database->select("SELECT password FROM `user` WHERE email = ?", array($password));
                         if(!$database->empty($result)){
                               // fetches the hash from the database
                               $hash = $database->fetch($result)["password"];
