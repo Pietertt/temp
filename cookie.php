@@ -35,7 +35,7 @@
 
                   // decodes the encoded token string to get the timestamp
                   $timestamp = Token::decode($token)->timestamp;
-                  if(time() - $timestamp > 300){
+                  if(time() - $timestamp > 300000000000){
                         return false;
                   } else {
                         return true;
