@@ -26,7 +26,7 @@
                   $token->method('decode')->willReturn($tok);
 
                   // the timestamp is way back, so the method will return false
-                  $this->assertFalse($this->cookie->check_expiration_date("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlBpZXRlciIsInBhc3N3b3JkIjoidGVzdCIsInRpbWVzdGFtcCI6MTU4NTc1MjIxMCwidmVyaWZpZWQiOjB9.F1s3rwjJUbXeLvBYizCrsW5aWtUH5kh7vGO4bZ2XENQ"), false);
+                  $this->assertFalse($this->cookie->check_expiration_date("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.dxNXorCKwXKxXjffLdNDJtAZfjNk5Gyd+viA/UaGyHXl/nY2k+wnK3R8hdAzy5tUj7VxlYfhvvGctN9uA+aUF7Ujgzqr6XOZdKSttpCl4T+z22aGtilcO28oD7DlCX9EcvnkEp9KUAta4MZpXIAWAeQ0PcjTt1upNN1XYdcuLsaZFokoTu469XqQnxojA809.P57Y6G4Z467QklhCoogrrvqAXvHO3K-4KVlcUspPJHU"), false);
             }
 
             public function test_verify_true(){
@@ -42,7 +42,7 @@
 
                   // mocks the cookie class because a cookie cannot be created in a test
                   $cookie = $this->createMock(Cookie::class);
-                  $cookie->method('get_value')->willReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlBpZXRlciIsInBhc3N3b3JkIjoidGVzdCIsInRpbWVzdGFtcCI6MTU4NTc1MjIxMCwidmVyaWZpZWQiOjF9.5MBtBsZSqUcFTiMLFLamU2H040Pr5oRfFECTlvB6Vog");
+                  $cookie->method('get_value')->willReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.dxNXorCKwXKxXjffLdNDJtAZfjNk5Gyd+viA/UaGyHXl/nY2k+wnK3R8hdAzy5tUj7VxlYfhvvGctN9uA+aUF7Ujgzqr6XOZdKSttpCl4T+z22aGtilcO28oD7DlCX9EcvnkEp9KUAta4MZpXIAWAeQ0PcjTt1upNN1XYdcuLsaZFokoTu469XqQnxojA809.P57Y6G4Z467QklhCoogrrvqAXvHO3K-4KVlcUspPJHU");
 
                   $this->assertTrue($this->cookie->verify($cookie->get_value()), true);
             }

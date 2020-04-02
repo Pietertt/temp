@@ -13,7 +13,8 @@
       // $pdf->Output();
 
       $cookie = new Cookie("token");
-      $cookie->reset();
+      $token = Token::decode($cookie->get_value());
+      print_r(Token::encode($token->username, $token->timestamp, $token->verified));
 
 ?>
 
