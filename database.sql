@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 01 apr 2020 om 11:27
+-- Gegenereerd op: 02 apr 2020 om 13:23
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 
@@ -25,78 +25,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `debt`
---
-
-CREATE TABLE `debt` (
-  `id` int(11) NOT NULL,
-  `user` int(11) DEFAULT NULL,
-  `s` int(11) DEFAULT NULL,
-  `desc` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `genID`
---
-
-CREATE TABLE `genID` (
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `hypotheeken`
---
-
-CREATE TABLE `hypotheeken` (
-  `id` int(11) NOT NULL,
-  `user` int(11) DEFAULT NULL,
-  `status` tinytext DEFAULT NULL,
-  `info` text DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `last_update` date DEFAULT NULL,
-  `notes` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `H_note`
---
-
-CREATE TABLE `H_note` (
-  `id` int(11) NOT NULL,
-  `date` date DEFAULT NULL,
-  `text` text DEFAULT NULL,
-  `read` tinyint(4) DEFAULT NULL,
-  `sender` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `QA`
---
-
-CREATE TABLE `QA` (
-  `id` int(11) NOT NULL,
-  `question` tinytext DEFAULT NULL,
-  `answer` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Tabelstructuur voor tabel `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` tinytext DEFAULT NULL,
   `BSN` int(11) NOT NULL,
   `firstname` tinytext DEFAULT NULL,
@@ -119,74 +54,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`, `banknum`, `income`, `partner`, `residence`, `birth_date`, `house_number`, `postal_code`, `addition`, `street`) VALUES
-(1, 'Pietertje', 'test', 'pieter@boersma.nl', 293829382, 'dsdsdssdsddfdddfdfdf', 'de Groot', 'Mannelijk', '12345678', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
+(1, 'Pietertje', '$2y$10$XsNxJgGmONaw7n1cbwLXlurhS9pJl7OSpRkSZcCMv0kBOlJECgtgy', 'pieter@b.nl', 293829382, 'dsdsdssdsddfdddfdfdf', 'de Groot', 'Mannelijk', '1234', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
 
 --
 -- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexen voor tabel `debt`
---
-ALTER TABLE `debt`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user` (`user`);
-
---
--- Indexen voor tabel `genID`
---
-ALTER TABLE `genID`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `hypotheeken`
---
-ALTER TABLE `hypotheeken`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user` (`user`),
-  ADD KEY `notes` (`notes`);
-
---
--- Indexen voor tabel `H_note`
---
-ALTER TABLE `H_note`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sender` (`sender`);
-
---
--- Indexen voor tabel `QA`
---
-ALTER TABLE `QA`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexen voor tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
-
---
--- Beperkingen voor geëxporteerde tabellen
---
-
---
--- Beperkingen voor tabel `debt`
---
-ALTER TABLE `debt`
-  ADD CONSTRAINT `debt_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`);
-
---
--- Beperkingen voor tabel `hypotheeken`
---
-ALTER TABLE `hypotheeken`
-  ADD CONSTRAINT `hypotheeken_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `hypotheeken_ibfk_2` FOREIGN KEY (`notes`) REFERENCES `H_note` (`id`);
-
---
--- Beperkingen voor tabel `H_note`
---
-ALTER TABLE `H_note`
-  ADD CONSTRAINT `h_note_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
