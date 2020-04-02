@@ -7,8 +7,6 @@
                   }
             }
       }
-
-
 ?>
 
 <div class="row toppad">
@@ -98,9 +96,9 @@
                 <label for="hypotheeken"> Hypotheken : </label>
                 <?php
                   $database = new Database();
-                  $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
+                  $result = $database->select("SELECT status FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
                   $hypotheek = $database->fetch($result);
-                  print_r($hypotheek);
+                  print($hypotheek["status"]);
                 ?>
             </div>
         </div>

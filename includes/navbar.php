@@ -12,9 +12,9 @@
       if($cookie->does_cookie_exist()){
             if($cookie->validate_user($_COOKIE["token"])){
                   $_SESSION["logged_in"] = true;
+                  $cookie->update();
                   $database = new Database();
                   $database->connect("localhost", "root", "", "ritsemabanck");
-                  $cookie = new Cookie("token");
                   $result = $database->fetch($database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
                   
                   $user = new User();
