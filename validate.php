@@ -5,7 +5,9 @@
 
             private $errors = array();
 
+            // returns either true of false based on a regular expression
             public function filter_length($string) : bool {
+                  // a pattern which checks if the entire string is between 1 and 50 characters
                   $pattern = "'^.{1,50}$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -15,7 +17,9 @@
                   }
             }
 
+            // returns either true of false based on a regular expression
             public function filter_characters($string) : bool {
+                  // a patterns which checks if the entire string contains only lowercase- and uppercase characters, numbers between 0 and 9, and some other characters
                   $pattern = "'^[a-zA-Z0-9.|_|-]{1,}$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -25,7 +29,9 @@
                   }
             }
 
+            // returns either true of false based on a regular expression
             public function filter_alphanumeric($string) : bool {
+                  // a regular expression which checks the entire string for numbers
                   $pattern = "'^[0-9]+$'";
                   if(preg_match($pattern, $string)){
                         return true;
@@ -35,6 +41,7 @@
                   }
             }
 
+            // returns true if the email is a valid email
             public function validate_email($email) : bool {
                   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         return true;
@@ -72,9 +79,11 @@
             }
 
             public function validate_code($code) : bool {
+                  // selects the telephone number from the user
                   $database = new database();
                   $rows = $database->select("SELECT tnumber FROM `user` WHERE tnumber = ?", array($code))->num_rows;
 
+                  // return true of false based on the given telephone number
                   if($rows == 1){
                         return true;
                   } else {
@@ -83,6 +92,7 @@
                   }
             }
 
+            // returns the errors as an array
             public function get_errors() : array {
                   return $this->errors;
             }

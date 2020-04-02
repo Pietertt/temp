@@ -93,6 +93,7 @@
                   return $result->fetch_assoc();
             }
 
+            // returns either true or false based on the returned rows from the input
             public function empty($result) : bool {
                   if($result->num_rows == 1){
                         return false;

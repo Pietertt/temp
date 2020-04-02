@@ -11,8 +11,8 @@
             }
            
             public function test_encode(){
-                  $token = Token::encode("Pieter", "test", 1585749601, 0);
-                  $this->assertSame($token, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlBpZXRlciIsInBhc3N3b3JkIjoidGVzdCIsInRpbWVzdGFtcCI6MTU4NTc0OTYwMSwidmVyaWZpZWQiOjB9.OCzXNwAkOEtL0OZ5V6_Ncp2hcZ3glLDjDlvZsUWa_i4");
+                  $token = Token::encode("Pieter", 1585749601, 0);
+                  $this->assertSame($token, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.CNR6gFj5M0G+lKw2Pz/p3uzQ8oZWgDRMFgiqstYTkd1b9dDLhEQMpYGznb9PGsSnS0OoZWZr29naYFQ0Gg+m/FPA+Gq4SNKJM6IhDBlgjuTBnoQsZvFt6DpKoCLZM4mBfjTlQuhaipO22RvXIXc/ahJwKzyOXS23P8IaRwK4gI8=._n8Vbw3fX6aVpuFzbSV1cOLhq-z8t6YlkoyNsvBfqW0");
                   return $token;
             }
 
@@ -23,7 +23,6 @@
                   $t = Token::decode($token);
                   $tok = new Tok();
                   $tok->username = "Pieter";
-                  $tok->password = "test";
                   $tok->timestamp = 1585749601;
                   $tok->verified = 0;
                   $this->assertEquals($t, $tok);

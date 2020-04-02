@@ -12,8 +12,8 @@
       //       $pdf->Cell(0, 10, 'Belangrijke informatie', 0, 1);
       // $pdf->Output();
 
-      $token = Token::encode("Pietertje", time(), 0);
-      print_r(Token::decode($token));
+      $token = Token::encode("Pieter", 1585749601, 0);
+      print_r($token);
 
 ?>
 
