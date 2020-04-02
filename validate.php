@@ -62,7 +62,7 @@
                               // fetches the hash from the database
                               $hash = $database->fetch($result)["password"];
                               // verifies that the password is equal to the decyphered hash
-                              if(password_verify("test", $hash)){
+                              if(password_verify($password, $hash)){
                                     return true;
                               } else {
                                     array_push($this->errors, "De combinatie tussen je gebruikersnaam en je wachtwoord is niet juist");
