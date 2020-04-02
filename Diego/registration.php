@@ -27,7 +27,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="lastName">Achternaam</label>
-                        <input id="lastName" name="lastName" type="password" placeholder="Voer je achternaam in">
+                        <input id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in">
                     </div>
                 </div>
 
