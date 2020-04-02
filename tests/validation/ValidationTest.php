@@ -25,9 +25,7 @@
             public function test_validate_email(){
                   $this->assertTrue($this->validation->validate_email("pietertje@gmail.com"), 1);
             }
-
             
-
             protected function tearDown() : void {
                   $this->validation = NULL;
             }

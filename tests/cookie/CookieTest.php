@@ -34,7 +34,7 @@
                   $tok->username = "Pieter";
                   $tok->password = "test";
                   $tok->timestamp = 1585752210;
-                  $tok->verified = 0;
+                  $tok->verified = 1;
 
                   // mocks the decode method from the token class so it will not interfere
                   $token = $this->createMock(Token::class);
