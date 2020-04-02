@@ -97,7 +97,10 @@
             <div class="twelve wide column">
                 <label for="hypotheeken"> Hypotheken : </label>
                 <?php
-                print_r($_SESSION['hypotheeken']->hypotheek);
+                  $database = new Database();
+                  $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
+                  $hypotheek = $database->fetch($result);
+                  print_r($hypotheek);
                 ?>
             </div>
         </div>
