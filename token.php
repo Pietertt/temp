@@ -16,7 +16,7 @@
             }
 
             public static function encode($username, $time_stamp, $verified): string {
-                  $key = "123";
+                  $key = "2344df98df76df5dfdf54534534v";
 
                   $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
                   $payload = json_encode(['username' => $username, 'timestamp' => $time_stamp, 'verified' => $verified]);
@@ -35,8 +35,8 @@
                   return $base64UrlHeader . "." . $ciphertext . "." . $base64UrlSignature;
             }
 
-            public static function decode($token) {
-                  $key = "123";
+            public static function decode($token) : Tok {
+                  $key = "2344df98df76df5dfdf54534534v";
                   $encoded = explode('.', $token)[1];
                   
                   $c = base64_decode($encoded);

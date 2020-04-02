@@ -1,5 +1,12 @@
-<?php require("../includes/navbar.php");
-
+<?php 
+      require("../includes/navbar.php");
+      if(session::is_private("dashboard")){
+            if(isset($_SESSION["logged_in"])){
+                  if($_SESSION["logged_in"] == false){
+                        header("Location: ../Pieter/index.php");
+                  }
+            }
+      }
 ?>
 
 <div class="row toppad">
