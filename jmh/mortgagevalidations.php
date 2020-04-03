@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
         exit();
     }
     else {
-        header("Location: ../jmh/mortgagerequested.php?mortgagerequest=number&birthdate=$birthdate&gross_anual_income=$gross_anual_income&input_money=$input_money&dept=$dept&purchase_price=$purchase_price&email=$email&mortgage_duration=$mortgage_duration&mortgage=$mortgage");
+        header("Location: ../jmh/index.php?submitted_form=mortgage_request&mortgage=$mortgage");
         exit();
     }
 

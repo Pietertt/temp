@@ -26,7 +26,7 @@ else {
         mail($to, $subject, $message, $headers);
         mail($email, "Kopie mail contactformulier", $message, "From: Ritsema Banck");
 
-        header('Location: http://localhost/temp/jmh/index.php');
+        header('Location: http://localhost/temp/jmh/index.php?submitted_form=contact');
         exit();
     }
 }
