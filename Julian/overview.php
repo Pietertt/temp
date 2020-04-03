@@ -100,7 +100,7 @@
                   $database = new Database();
                   $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
                   $hypotheek = $database->fetch($result);
-                  print_r($hypotheek);
+                  print($hypotheek['date'] . ' , Aantal ongelezen berichten :' . $hypotheek['status'])
                 ?>
             </div>
         </div>
