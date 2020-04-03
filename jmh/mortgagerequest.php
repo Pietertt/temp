@@ -127,7 +127,7 @@ require("../jmh/mortgagevalidations.php");
 
         <?php
         if (!isset($_GET['mortgagerequest'])) {
-            exit();
+            print "";
         }
         else {
             $mortgageCheck = $_GET['mortgagerequest'];
@@ -137,19 +137,15 @@ require("../jmh/mortgagevalidations.php");
             if ($mortgageCheck == 'empty') {
                 echo
                     $errorboxStart . "U heeft niet alle velden ingevuld" . $errorboxEnd;
-                exit();
             } elseif ($mortgageCheck == 'invaliddate') {
                 echo
                     $errorboxStart . "De datum is niet goed ingevuld. Het formaat is dd/mm/jjjj." . $errorboxEnd;
-                exit();
             } elseif ($mortgageCheck == 'invalidemail') {
                 echo
                     $errorboxStart . "Het ingevulde e-mailadres is niet geldig" . $errorboxEnd;
-                exit();
             } elseif ($mortgageCheck == 'number') {
                 echo
                     $errorboxStart . "Voer een bedrag in afgerond op hele euro's" . $errorboxEnd;
-                exit();
             }
         }
         ?>

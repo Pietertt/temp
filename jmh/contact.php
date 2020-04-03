@@ -63,7 +63,7 @@
 
     <?php
     if (!isset($_GET['contact'])) {
-        exit();
+        print "";
     }
     else {
         $contactCheck = $_GET['contact'];
@@ -73,15 +73,12 @@
         if ($contactCheck == 'empty') {
             echo
             $errorboxStart . "You did not fill in all the fields" . $errorboxEnd;
-            exit();
         } elseif ($contactCheck == 'char') {
             echo
                 $errorboxStart . "You used invalid characters" . $errorboxEnd;
-            exit();
         } elseif ($contactCheck == 'invalidemail') {
             echo
                 $errorboxStart . "The e-mail you have used is invalid" . $errorboxEnd;
-            exit();
         }
     }
     ?>
