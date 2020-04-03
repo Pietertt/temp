@@ -1,9 +1,6 @@
 <?php
 
-function _e($string){
-    echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 
-}
 require("../includes/navbar.php");
 
 ?>
@@ -27,4 +24,3 @@ require("../includes/navbar.php");
 
 
 <?php require('../includes/footer.php');?>
-<?php require ('../Julian/query.js');?>
