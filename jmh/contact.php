@@ -88,6 +88,6 @@
 
 </div>
 </div>
-
 <?php
-require('../includes/footer.php');?>
+require('../includes/footer.php');
+?>
