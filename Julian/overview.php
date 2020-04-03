@@ -106,7 +106,7 @@
                   </div>
                   <div class="row">
                         <div class="six wide column">
-                              <button class="twelve wide blue button"><a href="generate.php">Exporteer naar PDF</a></button>
+                              <button class="twelve wide blue button"><a href="../Pieter/generate.php">Exporteer naar PDF</a></button>
                         </div>
                   </div>
         </div>
