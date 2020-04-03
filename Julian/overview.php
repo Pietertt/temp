@@ -101,7 +101,11 @@
                         $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
                         $hypotheek = $database->fetch($result);
                         print($hypotheek['date'] . ' , Aantal ongelezen berichten :' . $hypotheek['status'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update']);
+
                   ?>
+                      <div class="six wide column"></div>
+                      <button class="twelve wide blue button"><a href="../Julian/comment.php">Opmerking plaatsen</a></button>
+
                   </div>
                   </div>
                   <div class="row">

@@ -40,9 +40,6 @@
             $_SESSION["logged_in"] = false;
       }
 
-
-      
-
       $pdf = new PDF();
       $pdf->AliasNbPages();
       $pdf->AddPage();
