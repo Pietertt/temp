@@ -24,6 +24,7 @@
                   $user->gender = $result["gender"];
                   $user->birth_date = $result["birth_date"];
                   $user->residence = $result["residence"];
+                  $user->street = $result["street"];
                   $user->house_number = $result["house_number"];
                   $user->addition = $result["addition"];
                   $user->postal_code = $result["postal_code"];
@@ -45,22 +46,53 @@
       $pdf->AliasNbPages();
       $pdf->AddPage();
 
-      $pdf->SetFont('Arial','',8);
-      $pdf->WriteHTML("<b>Test</b>");
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "Naam\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->firstname . " " . $_SESSION["user"]->lastname . "\n");
 
-      $pdf->Cell(20, 10, 'Title', 1, 1);
       $pdf->Ln();
 
-      $pdf->SetFont('Arial','',8);
-      $pdf->Cell(0, 0, "Testsdsds", 0, 1);
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "Geslacht\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->gender . "\n");
 
-      // $pdf->SetFont('Arial','',8);
-      // $pdf->Write(0.1,"this is not bold, but this ");
-      // $pdf->SetFont('Arial','B',8);
-      // $pdf->Write(0.1,"is bold.");
-      // $pdf->SetFont('Arial','',8);
       $pdf->Ln();
 
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "Geboortedatum\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->birth_date . "\n");
+
+      $pdf->Ln();
+
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "Adres\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->street . " " . $_SESSION["user"]->house_number . " " . $_SESSION["user"]->addition .  "\n");
+      $pdf->write(5, $_SESSION["user"]->postal_code . ", " . $_SESSION["user"]->residence . "\n");
+
+      $pdf->Ln();
+
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "Telefoonnummer\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->phone_number . "\n");
+
+      $pdf->Ln();
+
+      $pdf->setFont("Arial", 'B', 12);
+      $pdf->write(5, "E-mailadres\n");
+      $pdf->setFont("Arial", '', 12);
+      $pdf->write(5, $_SESSION["user"]->email . "\n");
+
+      $pdf->Ln();
+
+      $pdf->setFont("Arial", 'I', 12);
+      $pdf->write(5, "Voor meer informatie over onze gegevensverwerking verwijzen wij u graag door naar onze privacyverklaring.");
+
+      $pdf->Cell(20,8 ,'privacyverklaring','','','',false, "http://localhost/temp/pieter");
 
       $pdf->Output();
 ?>
