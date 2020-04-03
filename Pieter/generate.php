@@ -34,6 +34,7 @@
                   $_SESSION["user"] = $user;
             } else {
                   $_SESSION["logged_in"] = false;
+                  header("Location: ../Pieter/index.php");
             }
       } else {
             $_SESSION["logged_in"] = false;
