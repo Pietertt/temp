@@ -1,6 +1,6 @@
 <?php
 
-class useroverview extends \PHPUnit_Framework_TestCase
+class test_useroverview extends \PHPUnit_Framework_TestCase
 {
     public function testGetFirstName()
     {

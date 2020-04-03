@@ -33,20 +33,22 @@ class popup {
 
             container.appendChild(row);
 
-            for(var i = 0; i < this.json.inputs.length; i++){
-                  var row = document.createElement("DIV");
-                  row.classList.add("row");
+            if ('inputs' in this.json){
+                  for(var i = 0; i < this.json.inputs.length; i++){
+                        var row = document.createElement("DIV");
+                        row.classList.add("row");
 
-                  var label = document.createElement("LABEL");
-                  label.innerHTML = this.json.inputs[i].description;
+                        var label = document.createElement("LABEL");
+                        label.innerHTML = this.json.inputs[i].description;
 
-                  var input = document.createElement("INPUT");
-                  input.name = this.json.inputs[i].name;
-                  input.id = this.json.inputs[i].id;
+                        var input = document.createElement("INPUT");
+                        input.name = this.json.inputs[i].name;
+                        input.id = this.json.inputs[i].id;
 
-                  row.appendChild(label);
-                  row.appendChild(input);
-                  container.appendChild(row);
+                        row.appendChild(label);
+                        row.appendChild(input);
+                        container.appendChild(row);
+                  }
             }
 
             var row = document.createElement("DIV");
@@ -66,8 +68,10 @@ class popup {
             document.body.appendChild(popup);
 
             this.button = document.getElementById(this.json.button.id);
-            for(var i = 0; i < this.json.inputs.length; i++){
-                  this.inputs.push(document.getElementById(this.json.inputs[i].id));
+            if('inputs' in this.json){
+                  for(var i = 0; i < this.json.inputs.length; i++){
+                        this.inputs.push(document.getElementById(this.json.inputs[i].id));
+                  }
             }
       }
 

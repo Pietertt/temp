@@ -361,6 +361,10 @@ input, textarea {
       font-size:30px;
       cursor:pointer
 }
+
+button > a {
+      color: white;
+}
 /* END */
 
 .navbar-logo {

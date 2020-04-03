@@ -6,7 +6,14 @@ document.getElementById("submit").addEventListener('click', function(){
                         animate();
                   } else {
                         console.log(this.responseText);
-                        console.log(JSON.parse(this.responseText));
+                        var json = '{"title" : "$s", "button" : { "label" : "Sluiten", "id" : "button_code" }}'.replace('$s', this.responseText);
+                        console.log(json);
+                        pop = new popup(JSON.parse(json));
+                        pop.generate();
+
+                        pop.button.addEventListener("click", function(){
+                              pop.close();
+                        });
                   }
             }
       }
@@ -26,7 +33,7 @@ function animate(){
                   if(this.readyState == 4 && this.status == 200){
                         if(this.responseText == "true"){
                               pop.close();
-                              document.location = "../dashboard";
+                              document.location = "../Julian/overview.php";
                         }
                   }
             }

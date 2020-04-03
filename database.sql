@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 31 mrt 2020 om 15:36
+-- Gegenereerd op: 02 apr 2020 om 15:50
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 
@@ -61,6 +61,13 @@ CREATE TABLE `hypotheeken` (
   `notes` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `hypotheeken`
+--
+
+INSERT INTO `hypotheeken` (`id`, `user`, `status`, `info`, `date`, `last_update`, `notes`) VALUES
+(1, 1, '1', 'sshdsjdshj', '2020-04-23', '2020-04-09', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +102,8 @@ CREATE TABLE `QA` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` tinytext DEFAULT NULL,
   `BSN` int(11) NOT NULL,
   `firstname` tinytext DEFAULT NULL,
@@ -116,8 +125,8 @@ CREATE TABLE `user` (
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`, `banknum`, `income`, `partner`, `residence`, `birth_date`, `house_number`, `postal_code`, `addition`, `street`) VALUES
-(1, 'pieter@boersma.nl', 293829382, 'dsdsdssdsddfdddfdfdf', 'de Groot', 'Mannelijk', '23', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`, `banknum`, `income`, `partner`, `residence`, `birth_date`, `house_number`, `postal_code`, `addition`, `street`) VALUES
+(1, 'Pietertje', '$2y$10$XsNxJgGmONaw7n1cbwLXlurhS9pJl7OSpRkSZcCMv0kBOlJECgtgy', 'pieter@b.nl', 293829382, 'dsdsdssdsddfdddfdfdf', 'de Groot', 'Mannelijk', '1234', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
 
 --
 -- Indexen voor geëxporteerde tabellen

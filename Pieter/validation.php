@@ -15,22 +15,22 @@
                               if($validation->validate_email($email)){
                                     if($validation->validate_user($email, $password)){
                                           $cookie = new Cookie("token");
-                                          $cookie->create(Token::encode($email, $password, time(), 0));
+                                          $cookie->create(Token::encode($email, time(), 0));
                                           print("true");
                                     } else {
-                                          print_r($validation->get_errors());
+                                          print($validation->get_errors()[0]);
                                     }
                               } else {
-                                    print_r($validation->get_errors());
+                                    print($validation->get_errors()[0]);
                               }
                         } else {
-                              print_r($validation->get_errors());
+                              print($validation->get_errors()[0]);
                         }
                   } else {
-                        print_r($validation->get_errors());
+                        print($validation->get_errors()[0]);
                   }
             } else {
-                  print_r($validation->get_errors());
+                  print($validation->get_errors()[0]);
             }
       }
 
@@ -45,7 +45,7 @@
                                     $token = $cookie->get_value();
                                     $decoded = Token::decode($token);
                                     $verified = Token::verify($decoded);
-                                    $decoded = Token::encode($verified->username, $verified->password, $verified->timestamp, $verified->verified);
+                                    $decoded = Token::encode($verified->username, $verified->timestamp, $verified->verified);
                                     $cookie->create($decoded);
                                     print("true");
                               } else {

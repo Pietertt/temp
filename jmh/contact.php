@@ -89,8 +89,5 @@
 </div>
 </div>
 
-
-<script src="error.js"></script>
-
 <?php
 require('../includes/footer.php');?>

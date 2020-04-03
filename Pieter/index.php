@@ -32,7 +32,7 @@
 
                         <div class="row">
                               <div class="twelve wide column">
-                                    <button class="twelve wide blue button" id="submit">Versturen</div></button>
+                                    <button class="twelve wide blue button" id="submit">Inloggen</div></button>
                               </div>
                         </div>
                   </div>

@@ -12,10 +12,10 @@
       if($cookie->does_cookie_exist()){
             if($cookie->validate_user($_COOKIE["token"])){
                   $_SESSION["logged_in"] = true;
+                  $cookie->update();
                   $database = new Database();
                   $database->connect("localhost", "root", "", "ritsemabanck");
-                  $cookie = new Cookie("token");
-                  $result = $database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username));
+                  $result = $database->fetch($database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
                   
                   $user = new User();
                   $user->id = $result["id"];
@@ -60,7 +60,7 @@
                         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
                         <div class="overlay-content">
                               <a href="http://localhost/temp/jmh/home.php">HOME</a>
-                              <?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/dashboard/index.php">DASHBOARD</a>'; ?>
+                              <?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/Julian/overview.php">MIJN OVERZICHT</a>'; ?>
                               <a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a>
                               <a href="http://localhost/temp/jmh/contact.php">CONTACT</a>
                         </div>
@@ -69,7 +69,7 @@
                   <div class="nav-links">
                         <ul>
                             <li><a href="http://localhost/temp/jmh/home.php">HOME</a></li>
-                            <li><?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/dashboard/index.php">DASHBOARD</a>'; ?></li>
+                            <li><?php echo ($_SESSION["logged_in"] == false) ? '<a href="http://localhost/temp/pieter/index.php">INLOGGEN</a>' : '<a href="http://localhost/temp/Julian/overview.php">MIJN OVERZICHT</a>'; ?></li>
                             <li><a href="http://localhost/temp/sietze/intranet/index.php">INTRANET</a></li>
                             <?php echo ($_SESSION["logged_in"] == true) ? '<li><a href="http://localhost/temp/logout.php">UITLOGGEN</a></li>' : ''; ?>
                             <li><a href="http://localhost/temp/jmh/contact.php">CONTACT</a></li>
