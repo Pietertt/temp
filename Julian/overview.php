@@ -93,16 +93,22 @@
     <div class="five wide centered container">
         <div class="ten wide container">
             <h3>Uw hypotheekaanvragen</h3>
-
-            <div class="twelve wide column">
-                <label for="hypotheeken"> Hypotheken : </label>
-                <?php
-                  $database = new Database();
-                  $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
-                  $hypotheek = $database->fetch($result);
-                  print($hypotheek['date'] . ' , Aantal ongelezen berichten :' . $hypotheek['status'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update']);
-                ?>
-            </div>
+                  <div class="row">
+                  <div class="twelve wide column">
+                  <label for="hypotheeken"> Hypotheken : </label>
+                  <?php
+                        $database = new Database();
+                        $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
+                        $hypotheek = $database->fetch($result);
+                        print($hypotheek['date'] . ' , Aantal ongelezen berichten :' . $hypotheek['status'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update']);
+                  ?>
+                  </div>
+                  </div>
+                  <div class="row">
+                        <div class="six wide column">
+                              <button class="twelve wide blue button"><a href="generate.php">Exporteer naar PDF</a></button>
+                        </div>
+                  </div>
         </div>
     </div>
 </div>
