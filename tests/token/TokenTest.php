@@ -9,18 +9,16 @@
             protected function setUp() : void {
 
             }
-           
-            public function test_encode(){
-                  $token = Token::encode("Pieter", 1585749601, 0);
-                  $this->assertSame($token, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.CNR6gFj5M0G+lKw2Pz/p3uzQ8oZWgDRMFgiqstYTkd1b9dDLhEQMpYGznb9PGsSnS0OoZWZr29naYFQ0Gg+m/FPA+Gq4SNKJM6IhDBlgjuTBnoQsZvFt6DpKoCLZM4mBfjTlQuhaipO22RvXIXc/ahJwKzyOXS23P8IaRwK4gI8=._n8Vbw3fX6aVpuFzbSV1cOLhq-z8t6YlkoyNsvBfqW0");
-                  return $token;
-            }
 
-            /**
-            * @depends test_encode
-            */
-            public function test_decode($token){
+            // Because is it impossible to test the encode method, this tests combines the decode and encode methods. 
+            public function test_decode(){
+                  $username = "Pieter";
+                  $timestamp = 1585749601;
+                  $verified = 0;
+
+                  $token = Token::encode($username, $timestamp, $verified);
                   $t = Token::decode($token);
+
                   $tok = new Tok();
                   $tok->username = "Pieter";
                   $tok->timestamp = 1585749601;

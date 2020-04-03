@@ -12,7 +12,8 @@
       //       $pdf->Cell(0, 10, 'Belangrijke informatie', 0, 1);
       // $pdf->Output();
 
-      $token = Token::encode("Pieter", 1585749601, 0);
+      $cookie = new Cookie("token");
+      $token = Token::decode("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.dxNXorCKwXKxXjffLdNDJtAZfjNk5Gyd+viA/UaGyHXl/nY2k+wnK3R8hdAzy5tUj7VxlYfhvvGctN9uA+aUF7Ujgzqr6XOZdKSttpCl4T+z22aGtilcO28oD7DlCX9EcvnkEp9KUAta4MZpXIAWAeQ0PcjTt1upNN1XYdcuLsaZFokoTu469XqQnxojA809.P57Y6G4Z467QklhCoogrrvqAXvHO3K-4KVlcUspPJHU");
       print_r($token);
 
 ?>
