@@ -88,9 +88,9 @@
       $pdf->Ln();
 
       $pdf->setFont("Arial", 'I', 12);
-      $pdf->write(5, "Voor meer informatie over onze gegevensverwerking verwijzen wij u graag door naar onze privacyverklaring.");
+      $pdf->write(5, "Voor meer informatie over onze gegevensverwerking verwijzen wij u graag door naar onze\n");
 
-      $pdf->Cell(20,8 ,'privacyverklaring','','','',false, "http://localhost/temp/pieter");
-
+      $pdf->SetFont('Arial', 'U', 12);
+      $pdf->Cell(0, 4.3, 'privacyverklaring.', '', '', '', false, "http://localhost/temp/pieter");
       $pdf->Output();
 ?>
