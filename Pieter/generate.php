@@ -6,7 +6,7 @@
       include("../database.php");
       include("../cookie.php");
       include("../user.php");
-      include('PDF.php');
+      include("PDF.php");
 
       $cookie = new Cookie("token");
       if($cookie->does_cookie_exist()){
@@ -44,53 +44,53 @@
       $pdf->AliasNbPages();
       $pdf->AddPage();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "Naam\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->firstname . " " . $_SESSION["user"]->lastname . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "Geslacht\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->gender . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "Geboortedatum\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->birth_date . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "Adres\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->street . " " . $_SESSION["user"]->house_number . " " . $_SESSION["user"]->addition .  "\n");
       $pdf->write(5, $_SESSION["user"]->postal_code . ", " . $_SESSION["user"]->residence . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "Telefoonnummer\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->phone_number . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'B', 12);
+      $pdf->setFont("Arial", "B", 12);
       $pdf->write(5, "E-mailadres\n");
-      $pdf->setFont("Arial", '', 12);
+      $pdf->setFont("Arial", "", 12);
       $pdf->write(5, $_SESSION["user"]->email . "\n");
 
       $pdf->Ln();
 
-      $pdf->setFont("Arial", 'I', 12);
+      $pdf->setFont("Arial", "I", 12);
       $pdf->write(5, "Voor meer informatie over onze gegevensverwerking verwijzen wij u graag door naar onze\n");
 
-      $pdf->SetFont('Arial', 'U', 12);
-      $pdf->Cell(0, 4.3, 'privacyverklaring.', '', '', '', false, "http://localhost/temp/pieter");
+      $pdf->SetFont("Arial", "U", 12);
+      $pdf->Cell(0, 4.3, "privacyverklaring.", "", "", "", false, "http://localhost/temp/terms.php");
       $pdf->Output();
 ?>
