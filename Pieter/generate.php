@@ -44,10 +44,23 @@
       $pdf = new PDF();
       $pdf->AliasNbPages();
       $pdf->AddPage();
-      $pdf->SetFont('Times', '', 12);
-      $pdf->SetFont('Arial', 'B', 15);
-                  $pdf->Cell(80);
-                  $pdf->Cell(30, 10, 'Hypotheekaanvraag', 0, 0, 'C');
-            
+
+      $pdf->SetFont('Arial','',8);
+      $pdf->WriteHTML("<b>Test</b>");
+
+      $pdf->Cell(20, 10, 'Title', 1, 1);
+      $pdf->Ln();
+
+      $pdf->SetFont('Arial','',8);
+      $pdf->Cell(0, 0, "Testsdsds", 0, 1);
+
+      // $pdf->SetFont('Arial','',8);
+      // $pdf->Write(0.1,"this is not bold, but this ");
+      // $pdf->SetFont('Arial','B',8);
+      // $pdf->Write(0.1,"is bold.");
+      // $pdf->SetFont('Arial','',8);
+      $pdf->Ln();
+
+
       $pdf->Output();
 ?>
