@@ -1,12 +1,12 @@
 <?php
       session_start();
       
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/token.php");
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/cookie.php");
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/tok.php");
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/session.php");
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/user.php");
-      include($_SERVER['DOCUMENT_ROOT'] . "/temp/database.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/token.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/cookie.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/tok.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/session.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/user.php");
+      include($_SERVER['DOCUMENT_ROOT'] . "/database.php");
 
       $cookie = new Cookie("token");
       if($cookie->does_cookie_exist()){
@@ -44,13 +44,13 @@
       <head>
             <meta charset="UTF-8">
             <title>Ritsema Banck</title>
-            <link rel='icon' href='http://localhost/temp/img/ritsemabanck-favicon.png' type='image/x-icon'/>
-            <link type="text/css" rel="stylesheet" href="http://localhost/temp/css/style.css"/>
+            <link rel='icon' href='/temp/img/ritsemabanck-favicon.png' type='image/x-icon'/>
+            <link type="text/css" rel="stylesheet" href="/temp/css/style.css"/>
       </head>
 <body>
       <div class="row nopad">
             <nav class="twelve wide centered container">
-                  <a href="http://localhost/temp/jmh/home.php"><img class="navbar-logo" src="http://localhost/temp/img/Ritsema%20Banck%20logo.png"></a>
+                  <a href="/temp/jmh/home.php"><img class="navbar-logo" src="/temp/img/Ritsema%20Banck%20logo.png"></a>
 
                   <div class="navbar-menu-wrapper centered column">
                         <span id="openNav">&#9776;</span>

@@ -1,0 +1,40 @@
+<?php
+
+class testController extends \PHPUnit_Framework_TestCase
+{
+    public function testValidationAll()
+    {
+        require_once __DIR__ . "/../classes/registratieController.php";
+        $user = new classes\registratieController;
+
+        require_once __DIR__ . "/../classes/naamValidation.php";
+        $nameVal = new classes\naamValidation;
+        require_once __DIR__ . "/../classes/geslachtValidation.php";
+        $sexVal = new classes\geslachtValidation;
+        require_once __DIR__ . "/../classes/emailValidation.php";
+        $emailVal = new classes\emailValidation;
+        require_once __DIR__ . "/../classes/telefoonValidation.php";
+        $phoneVal = new classes\telefoonValidation;
+        require_once __DIR__ . "/../classes/wachtwoordValidation.php";
+        $pwVal = new classes\wachtwoordValidation;
+
+
+        $nameVal->checkOnlyLettersFirstName("Diego");
+        $nameVal->checkOnlyLettersLastName("Bencherif");
+
+        $sexVal->checkOnlyLettersSex("Man");
+
+        $emailVal->validateEmail("diego.bencherif@student.nhlstenden.com");
+
+        $phoneVal->checkOnlyNumbers("0123456789");
+
+        $pwVal->testSpecialCharacter("Test123!");
+
+        $this->assertTrue($nameVal->getFirstName() == "Diego");
+        $this->assertTrue($nameVal->getLastName() == "Bencherif");
+        $this->assertTrue($sexVal->getSex() == "Man");
+        $this->assertTrue($emailVal->getEmail() == "diego.bencherif@student.nhlstenden.com");
+        $this->assertTrue($phoneVal->getPhone() == "0123456789");
+        $this->assertTrue($pwVal->getPassword() == "Test123!");
+    }
+}

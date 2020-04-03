@@ -73,7 +73,7 @@ class testWachtwoord extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($user->testSpecialCharacter("Test1234"));
 
-        $user->testNumber("Test123!");
+        $user->testSpecialCharacter("Test123!");
         $this->assertTrue($user->getPassword() == "Test123!");
     }
 }
