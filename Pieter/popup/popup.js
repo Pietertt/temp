@@ -33,6 +33,17 @@ class popup {
 
             container.appendChild(row);
 
+            if('description' in this.json){
+                  var row = document.createElement("DIV");
+                  row.classList.add("row");
+
+                  var description = document.createElement("DIV");
+                  description.innerHTML = this.json.description;
+                  row.appendChild(description);
+                  
+                  container.appendChild(row);
+            }
+
             // checks if there are any inputs given. Creates input fields if that is the case
             if ('inputs' in this.json){
                   for(var i = 0; i < this.json.inputs.length; i++){

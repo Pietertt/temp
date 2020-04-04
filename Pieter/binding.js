@@ -21,7 +21,7 @@ document.getElementById("submit").addEventListener('click', function(){
 });
 
 function animate(){
-      var json = JSON.parse('{"title" : "Twee factor authenticatie", "inputs" : [{"description" : "Voer je code in", "name" : "code", "id" : "input_code"}], "button" : { "label" : "Verstuur", "id" : "button_code" }}');
+      var json = JSON.parse('{"title" : "Twee factor authenticatie", "description" : "Beste gebruiker,<br><br>Omdat wij willen garanderen dat u ook daadwerkelijk de persoon bent die u zegt te zijn, vragen wij om de code in te vullen die u op uw telefoon heeft ontvangen.", "inputs" : [{"description" : "Voer je code in", "name" : "code", "id" : "input_code"}], "button" : { "label" : "Verstuur", "id" : "button_code" }}');
       pop = new popup(json);
       pop.generate();
 
