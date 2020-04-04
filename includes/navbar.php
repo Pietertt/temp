@@ -9,15 +9,24 @@
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/user.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/database.php");
 
+      // creates a new Cookie object
       $cookie = new Cookie("token");
+      // checks if a cookie with a given name exists in the first place
       if($cookie->does_cookie_exist()){
+            // checks if the cookie is verified
             if($cookie->validate_user($_COOKIE["token"])){
+                  // sets the logged_in session to true
                   $_SESSION["logged_in"] = true;
+
+                  // resets the timestamp by updating the cookie
                   $cookie->update();
+
+                  // selects the information of the user based on the values stored in the token 
                   $database = new Database();
                   $database->connect("localhost", "root", "", "ritsemabanck");
                   $result = $database->fetch($database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
                   
+                  // populates the User object with data from the database
                   $user = new User();
                   $user->id = $result["id"];
                   $user->firstname = $result["firstname"];
@@ -31,9 +40,14 @@
                   $user->phone_number = $result["tnumber"];
                   $user->email = $result["email"];
 
+                  // stores the User object in the session
                   $_SESSION["user"] = $user;
             } else {
                   $_SESSION["logged_in"] = false;
+                  
+                  $cookie = new Cookie("token");
+                  $token = $cookie->get_value();
+                  Token::decode($token);
             }
       } else {
             $_SESSION["logged_in"] = false;
