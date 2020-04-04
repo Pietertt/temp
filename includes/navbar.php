@@ -1,7 +1,6 @@
 <?php
       session_start();
       
-      
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/token.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/cookie.php");
       include($_SERVER['DOCUMENT_ROOT'] . "/temp/tok.php");
@@ -42,12 +41,13 @@
 
                   // stores the User object in the session
                   $_SESSION["user"] = $user;
+
+            // the token in the cookie is expired      
             } else {
                   $_SESSION["logged_in"] = false;
-                  
+
                   $cookie = new Cookie("token");
-                  $token = $cookie->get_value();
-                  Token::decode($token);
+                  $cookie->delete();
             }
       } else {
             $_SESSION["logged_in"] = false;

@@ -18,8 +18,8 @@
                   setcookie("token", Token::encode($value->username, $value->timestamp, $value->verified), time() + 86400, "/");
             }
 
-            public function delete(){
-                  setcookie($this->value, "", time() - 3600, "/");
+            public function delete() : void {
+                  setcookie($this->name, "", time() - 3600, "/");
             }
 
             // returns the name of the cookie
@@ -41,7 +41,7 @@
 
                   // decodes the encoded token string to get the timestamp
                   $timestamp = Token::decode($token)->timestamp;
-                  if(time() - $timestamp > 1){
+                  if(time() - $timestamp > 300){
                         return false;
                   } else {
                         return true;
