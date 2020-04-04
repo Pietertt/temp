@@ -16,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     require_once __DIR__ . "/classes/databaseValidation.php";
     $db = new classes\databaseValidation;
 
+    require_once __DIR__ . "/classes/telefoonValidation.php";
+    $phoneVal = new classes\telefoonValidation();
+
 
     $nameVal->checkOnlyLettersFirstName($_POST["firstName"]);
     $nameVal->checkOnlyLettersLastName($_POST["lastName"]);
@@ -24,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $emailVal->validateEmail($_POST["email"]);
 
+    $phoneVal->valPhone($_POST["phoneNumber"]);
+
     $pasVal->testSpecialCharacter($_POST["password"]);
 
 
@@ -31,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $lastNameState = false;
     $sexState = false;
     $emailState = false;
+    $phoneState = false;
     $pasState = false;
     $pasReState = false;
 
@@ -63,6 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         $emailState = true;
     }
+    if ($phoneVal->getPhone() == $_POST["phoneNumber"])
+    {
+        echo $phoneVal->getPhone();
+        echo "<br>";
+
+        $phoneState = true;
+    }
     if ($pasVal->getPassword() == $_POST["password"])
     {
         echo $pasVal->getPassword();
@@ -77,13 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         $pasReState = true;
     }
-
-    if ($firstNameState == true & $lastNameState == true & $sexState == true & $emailState == true & $pasState == true & $pasReState == true)
+    if ($firstNameState == true & $lastNameState == true & $sexState == true & $emailState == true & $pasState == true & $pasReState == true & $phoneState == true)
     {
         echo "<br>";
         echo "validation passed";
 
-        if ($db->insertIntoDB($emailVal->getEmail(), $pasVal->getPassword(), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex()) == true)
+        if ($db->insertIntoDB($nameVal->getFullName(), $pasVal->getPassword(), $emailVal->getEmail(), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex(), $phoneVal->getPhone()) == true)
         {
             header("location: ../Pieter/index.php");
             exit();
