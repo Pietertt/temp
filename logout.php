@@ -1,7 +1,7 @@
 <?php
       include("cookie.php");
       $cookie = new Cookie("token");
-      $cookie->delete();
+      $cookie->remove();
       session_start();
       session_unset(); 
       session_destroy();

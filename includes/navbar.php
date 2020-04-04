@@ -47,7 +47,8 @@
                   $_SESSION["logged_in"] = false;
 
                   $cookie = new Cookie("token");
-                  $cookie->delete();
+                  $_SESSION["logged_out"] = true;
+                  $cookie->remove();
             }
       } else {
             $_SESSION["logged_in"] = false;
@@ -92,4 +93,20 @@
                   </div> 
             </nav>
       </div>
+
+      <?php
+             if(isset($_SESSION["logged_out"])){
+                  print("
+                  <div class='twelve wide container'>
+                        <div class='ten wide container'>
+                              <div class='centered padded row'>
+                                    <div class='twelve wide error column'>
+                                          Oeps! Na een periode van 5 minuten inactiviteit is je sessie verlopen. Log alstublieft opnieuw in.
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  ");
+            }
+      ?>
 
