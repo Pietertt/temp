@@ -24,7 +24,7 @@ class emailValidation
         }
         else
         {
-            return true;
+            return $this->setEmail(@$Email);
         }
     }
 }

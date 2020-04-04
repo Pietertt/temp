@@ -1,5 +1,48 @@
 <?php
 require ('../includes/navbar.php');
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    require_once __DIR__ . "/classes/naamValidation.php";
+    $nameVal = new classes\naamValidation;
+
+    require_once __DIR__ . "/classes/geslachtValidation.php";
+    $sexVal = new classes\geslachtValidation;
+
+    require_once __DIR__ . "/classes/emailValidation.php";
+    $emailVal = new classes\emailValidation;
+
+    require_once  __DIR__ . "/classes/wachtwoordValidation.php";
+    $pasVal = new classes\wachtwoordValidation;
+
+
+    $nameVal->checkOnlyLettersFirstName($_POST["firstName"]);
+    $nameVal->checkOnlyLettersLastName($_POST["lastName"]);
+
+    $sexVal->checkOnlyLettersSex($_POST["sex"]);
+
+    $emailVal->validateEmail($_POST["email"]);
+
+    $pasVal->testSpecialCharacter($_POST["password"]);
+
+
+    echo $nameVal->getFirstName();
+    echo "<br>";
+    echo $nameVal->getLastName();
+    echo "<br>";
+    echo $sexVal->getSex();
+    echo "<br>";
+    echo $emailVal->getEmail();
+    echo "<br>";
+    echo $pasVal->getPassword();
+    echo "<br>";
+    if ($_POST["password"] == $_POST["passwordRepeat"])
+    {
+        echo $_POST["passwordRepeat"];
+    }
+}
 ?>
 
     <div class="five wide white rounded container" >
@@ -20,7 +63,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
-                        <input id="firstName" name="email" type="text" placeholder="Voer je voornaam in">
+                        <input id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in">
                     </div>
                 </div>
 
