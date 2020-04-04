@@ -7,7 +7,7 @@ class databaseValidation
     private $servername = "localhost";
     private $username = "username";
     private $password = "password";
-    private $dbName = "schooltest";
+    private $dbName = "user";
 
     public function connectDB()
     {
@@ -22,10 +22,10 @@ class databaseValidation
         }
     }
 
-    public function insertIntoDB($email, $bsn, $firstName, $lastName, $gender, $tnumber)
+    public function insertIntoDB($email, $password, $bsn, $firstName, $lastName, $gender)
     {
         $conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbName);
-        $sql = "INSERT INTO user (email, BSN, firstname, lastname, gender, tnumber) VALUES ('$email', '$bsn', '$firstName', '$lastName', '$gender', '$tnumber')";
+        $sql = "INSERT INTO user (username, password, email, BSN, firstname, lastname, gender) VALUES ('$email', '$password', '$email', '$bsn', '$firstName', '$lastName', '$gender')";
 
         if ($conn->query($sql) === TRUE)
         {

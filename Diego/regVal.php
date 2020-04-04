@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     require_once  __DIR__ . "/classes/wachtwoordValidation.php";
     $pasVal = new classes\wachtwoordValidation;
 
+    require_once __DIR__ . "/classes/databaseValidation.php";
+    $db = new classes\databaseValidation;
+
 
     $nameVal->checkOnlyLettersFirstName($_POST["firstName"]);
     $nameVal->checkOnlyLettersLastName($_POST["lastName"]);
@@ -75,10 +78,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $pasReState = true;
     }
 
-    if ($firstNameState == true || $lastNameState == true || $sexState == true || $emailState == true || $pasState == true || $pasReState == true)
+    if ($firstNameState == true & $lastNameState == true & $sexState == true & $emailState == true & $pasState == true & $pasReState == true)
     {
         echo "<br>";
         echo "validation passed";
+
+        if ($db->insertIntoDB($emailVal->getEmail(), $pasVal->getPassword(), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex()) == true)
+        {
+            header("location: ../Pieter/index.php");
+            exit();
+        }
     }
 }
 ?>
