@@ -10,7 +10,7 @@
                                     <button class="ten wide blue button">Inloggen</button>
                               </div>
                               <div class="six wide centered column">
-                                    <button class="ten wide blue inverted button"><a href="../Diego/registration.php">Registreren</a></button>
+                                  <a href="../Diego/registration.php"><button class="ten wide blue inverted button">Registreren</button></a>
                               </div>
                         </div>
                   </div>
