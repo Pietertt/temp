@@ -53,16 +53,16 @@
                                     $cookie->create($decoded);
                                     print("true");
                               } else {
-                                    print_r($validation->get_errors());
+                                    print_r(json_encode($validation->get_errors()));
                               }
                         } else {
-                              print_r($validation->get_errors());
+                              print_r(json_encode($validation->get_errors()));
                         }
                   } else {
-                        print_r($validation->get_errors());
+                        print_r(json_encode($validation->get_errors()));
                   }
             } else {
-                  print_r($validation->get_errors());
+                  print_r(json_encode($validation->get_errors()));
             }
       }
 ?>

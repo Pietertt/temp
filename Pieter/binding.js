@@ -5,9 +5,7 @@ document.getElementById("submit").addEventListener('click', function(){
                   if(this.responseText == "true"){
                         animate();
                   } else {
-                        console.log(this.responseText);
                         var json = '{"title" : "$s", "button" : { "label" : "Sluiten", "id" : "button_code" }}'.replace('$s', this.responseText);
-                        console.log(json);
                         pop = new popup(JSON.parse(json));
                         pop.generate();
 
@@ -34,6 +32,8 @@ function animate(){
                         if(this.responseText == "true"){
                               pop.close();
                               document.location = "../Julian/overview.php";
+                        } else {
+                              pop.error(JSON.parse(this.responseText));
                         }
                   }
             }
