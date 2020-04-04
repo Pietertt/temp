@@ -91,7 +91,7 @@
 
 <div class="row toppad">
     <div class="five wide centered container">
-        <div class="ten wide container">
+        <div class="twelve wide container">
             <h3>Uw hypotheekaanvragen</h3>
                   <div class="row">
                   <div class="twelve wide column">
@@ -100,23 +100,26 @@
                         $database = new Database();
                         $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
                         $hypotheek = $database->fetch($result);
-                        print($hypotheek['date'] . ' , Aantal ongelezen berichten :' . $hypotheek['status'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update']);
+                        print($hypotheek['date'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update'] . ' , Status : ' . $hypotheek['status']);
 
                   ?>
+
+
+                      <div class="row"></div>
                       <div class="six wide column"></div>
                       <button class="twelve wide blue button"><a href="../Julian/comment.php">Opmerking plaatsen</a></button>
 
+
+                      <div class="row toppad"
+                           <div class="six wide column"></div>
+                      <button class="twelve wide blue button"><a href="../Pieter/PDF.php">Exporteer naar PDF</a></button>
+
                   </div>
                   </div>
-                  <div class="row">
-                        <div class="six wide column">
-                              <button class="twelve wide blue button"><a href="../Pieter/generate.php">Exporteer naar PDF</a></button>
-                        </div>
-                  </div>
+
         </div>
     </div>
 </div>
-
 
 <?php require('../includes/footer.php');?>
 
