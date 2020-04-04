@@ -112,7 +112,7 @@
 
                       <div class="row toppad"
                            <div class="six wide column"></div>
-                      <button class="twelve wide blue button"><a href="../Pieter/PDF.php">Exporteer naar PDF</a></button>
+                      <button class="twelve wide blue button"><a href="../Pieter/generate.php">Exporteer naar PDF</a></button>
 
                   </div>
                   </div>
