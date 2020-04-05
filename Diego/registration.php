@@ -24,7 +24,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
-                        <input id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in">
+                        <input id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['FN']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -41,7 +41,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="lastName">Achternaam</label>
-                        <input id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in">
+                        <input id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['LN']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -58,7 +58,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="sex">Geslacht:</label>
-                        <select id="sex" name="sex">
+                        <select id="sex" name="sex" value="<?php if(isset($_GET['X'])) {echo $_GET['S']; }?>">
                             <option value="Man">Man</option>
                             <option value="Vrouw">Vrouw</option>
                             <option value="Anders">Anders</option>
@@ -79,7 +79,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" placeholder="Voer je E-mail in">
+                        <input id="email" name="email" type="email" placeholder="Voer je E-mail in" value="<?php if(isset($_GET['X'])) {echo $_GET['E']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -96,7 +96,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="phoneNumber">Telefoon nummer</label>
-                        <input id="phoneNumber" name="phoneNumber" type="number" placeholder="Voer je telefoon nummer in">
+                        <input id="phoneNumber" name="phoneNumber" type="number" placeholder="Voer je telefoon nummer in" value="<?php if(isset($_GET['X'])) {echo $_GET['P']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
