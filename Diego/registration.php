@@ -2,6 +2,10 @@
 require ('../includes/navbar.php');
 ?>
 
+<?php
+
+?>
+
     <div class="five wide white rounded container" >
 
         <div class="ten wide container">
@@ -21,6 +25,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
                         <input id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['FNS'] == 'false')
+                            {
+                                echo 'first name state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -28,6 +42,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="lastName">Achternaam</label>
                         <input id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['LNS'] == 'false')
+                            {
+                                echo 'last name state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -39,6 +63,16 @@ require ('../includes/navbar.php');
                             <option value="Vrouw">Vrouw</option>
                             <option value="Anders">Anders</option>
                         </select>
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['SS'] == 'false')
+                            {
+                                echo 'sex state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -46,6 +80,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="email">E-mail</label>
                         <input id="email" name="email" type="email" placeholder="Voer je E-mail in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['ES'] == 'false')
+                            {
+                                echo 'email state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -53,6 +97,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="phoneNumber">Telefoon nummer</label>
                         <input id="phoneNumber" name="phoneNumber" type="number" placeholder="Voer je telefoon nummer in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['PS'] == 'false')
+                            {
+                                echo 'phone state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -60,6 +114,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="password">Wachtwoord</label>
                         <input id="password" name="password" type="password" placeholder="Voer je wachtwoord in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['PWS'] == 'false')
+                            {
+                                echo 'password state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -67,6 +131,16 @@ require ('../includes/navbar.php');
                     <div class="twelve wide column">
                         <label for="passwordRepeat">Herhaal wachtwoord</label>
                         <input id="passwordRepeat" name="passwordRepeat" type="password" placeholder="Voer je wachtwoord opnieuw in">
+                        <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['PWRS'] == 'false')
+                            {
+                                echo 'password re state';
+                                echo '<br>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
