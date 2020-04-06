@@ -47,17 +47,17 @@ if (isset($_POST['submit'])) {
         header("Location: ../jmh/mortgagerequest.php?mortgagerequest=number&birthdate=$birthdate&gross_anual_income=$gross_anual_income&input_money=$input_money&dept=$dept&purchase_price=$purchase_price&email=$email&mortgage_duration=$mortgage_duration&bank_number=$bank_number");
         exit();
     }
-    elseif (!strlen($bank_number) == 18) {
+    elseif (!(strlen($bank_number) == 18)) {
         header("Location: ../jmh/mortgagerequest.php?mortgagerequest=bank_number_length&birthdate=$birthdate&gross_anual_income=$gross_anual_income&input_money=$input_money&dept=$dept&purchase_price=$purchase_price&email=$email&mortgage_duration=$mortgage_duration&bank_number=$bank_number");
         exit();
     }
     else {
-        $to = "ritsemabanck@gmail.com"; // this is your Email address
+        $bank_mail = "ritsemabanck@gmail.com"; // this is your Email address
         $subject = "Hypotheek aanvraag";
         $message = "Geboortedatum: " . $birthdate . "\n" . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "Email : " . $email . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Bankrekeningnummer: " . $bank_number;
         $headers = "From: " . $email;
-        mail($to, $subject, $message, $headers);
-        mail($email, "Kopie hypotheekaanvraag", $message, "From: " . $to);
+        mail($bank_mail, $subject, $message, $headers);
+        mail($email, "Kopie hypotheekaanvraag", $message, "From: " . $bank_mail);
 
         header("Location: ../jmh/index.php?submitted_form=mortgage_request&mortgage=$mortgage");
         exit();
