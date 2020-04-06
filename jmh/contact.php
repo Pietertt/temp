@@ -3,7 +3,6 @@
       require("../jmh/contactvalidations.php");
 ?>
 
-
 <div class="row toppad">
     <div class="five wide centered container">
         <div class="ten wide container">
@@ -84,6 +83,19 @@
     ?>
 
 </div>
+</div>
+
+<div class="row toppad">
+    <div class="five wide centered container">
+        <div class="ten wide container">
+            <div class="six wide container">
+                <p><b>Telefoonnummer:</b> 06 123 45 678</p>
+            </div>
+            <div class="six wide container">
+                <p><b>E-mailadres:</b> ritsemabanck@gmail.com</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php require('../includes/footer.php');?>
