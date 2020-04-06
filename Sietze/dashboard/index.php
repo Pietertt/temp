@@ -42,9 +42,15 @@
             exit();
       }
 ?>
-<form method="post">
-      <div class="ten wide container">
-            <div class="padded row">
+<div class="ten wide container">
+      <div class="padded row">
+            <div class="six wide column">
+                  <div class="six wide column">
+                  <h3>Gebruiker verwijderen</h3>
+                  <button id="button_remove_user" class="twelve wide red button">Verwijder</button>
+                  </div>
+            </div>
+            <form method="post">
                   <div class="six wide column">
                         <div class="row">
                               <h3>Gebruiker toevoegen</h3>
@@ -80,6 +86,9 @@
                               <button class="twelve wide blue button">Versturen</button>
                         </div>
                   </div>
-            </div>
+            </form>
       </div>
-</form>
+</div>
+
+<script src="../../Pieter/popup/popup.js"></script>
+<script src="dashboard.js"></script>
