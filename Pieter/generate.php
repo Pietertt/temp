@@ -1,6 +1,8 @@
 <?php
       session_start();
 
+      define('EURO',chr(128));
+
       include("../tok.php");
       include("../token.php");
       include("../database.php");
@@ -123,21 +125,21 @@
     $pdf->setFont("Arial", "B", 12);
     $pdf->write(5, "Eigen inbreng\n");
     $pdf->setFont("Arial", "", 12);
-    $pdf->write(5, $_SESSION["user"]->input_money . "\n");
+    $pdf->write(5,  EURO . " " . $_SESSION["user"]->input_money . "\n");
 
     $pdf->Ln();
 
     $pdf->setFont("Arial", "B", 12);
     $pdf->write(5, "Schulden\n");
     $pdf->setFont("Arial", "", 12);
-    $pdf->write(5, $_SESSION["user"]->dept . "\n");
+    $pdf->write(5,  EURO . " " . $_SESSION["user"]->dept . "\n");
 
     $pdf->Ln();
 
     $pdf->setFont("Arial", "B", 12);
     $pdf->write(5, "Koopprijs\n");
     $pdf->setFont("Arial", "", 12);
-    $pdf->write(5, $_SESSION["user"]->purchase_price . "\n");
+    $pdf->write(5,  EURO . " " . $_SESSION["user"]->purchase_price . "\n");
 
     $pdf->Ln();
 
@@ -151,7 +153,7 @@
     $pdf->setFont("Arial", "B", 12);
     $pdf->write(5, "Hypotheek\n");
     $pdf->setFont("Arial", "", 12);
-    $pdf->write(5, $_SESSION["user"]->mortgage . " euro\n");
+    $pdf->write(5, EURO . " " . $_SESSION["user"]->mortgage);
 
     $pdf->Ln();
 

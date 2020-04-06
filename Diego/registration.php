@@ -30,7 +30,9 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['FNS'] == 'false')
                             {
-                                echo 'first name state';
+                                echo 'Hier mogen alleen letters in worden gevuld.';
+                                echo'<br>';
+                                echo 'Dit veld mag niet leeg zijn.';
                                 echo '<br>';
                             }
                         }
@@ -47,7 +49,9 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['LNS'] == 'false')
                             {
-                                echo 'last name state';
+                                echo 'Hier mogen alleen letters in worden gevuld.';
+                                echo'<br>';
+                                echo 'Dit veld mag niet leeg zijn.';
                                 echo '<br>';
                             }
                         }
@@ -93,7 +97,9 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['ES'] == 'false')
                             {
-                                echo 'email state';
+                                echo 'Het door u ingevulde email is niet correct.';
+                                echo '<br>';
+                                echo 'Dit veld mag niet leeg zijn.';
                                 echo '<br>';
                             }
                         }
@@ -110,7 +116,9 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['PS'] == 'false')
                             {
-                                echo 'phone state';
+                                echo 'Hier mogen alleen cijfers in worden gevuld.';
+                                echo'<br>';
+                                echo 'Dit veld mag niet leeg zijn.';
                                 echo '<br>';
                             }
                         }
@@ -127,7 +135,15 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['PWS'] == 'false')
                             {
-                                echo 'password state';
+                                echo 'Uw wachtwoord moet minimaal 8 tekens lang zijn.';
+                                echo '<br>';
+                                echo 'Uw wachtwoord moet minimaal 1 hoofdletter bevatten.';
+                                echo'<br>';
+                                echo 'Uw wachtwoord moet minimaal 1 kleine letter bevatten.';
+                                echo '<br>';
+                                echo 'Uw wachtwoord moet minimaal 1 cijfer bevatten.';
+                                echo'<br>';
+                                echo 'Uw wachtwoord moet minimaal 1 speciaal teken bevatten.';
                                 echo '<br>';
                             }
                         }
@@ -144,7 +160,7 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['PWRS'] == 'false')
                             {
-                                echo 'password re state';
+                                echo 'Het hier door u ingevoerde wachtwoord komt niet overeen met het andere wachtwoord.';
                                 echo '<br>';
                             }
                         }
