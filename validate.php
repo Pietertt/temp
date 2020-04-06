@@ -92,6 +92,17 @@
                   }
             }
 
+            public function does_user_exist_in_database($email) : bool {
+                  $database = new Database();
+                  $result = $database->select("SELECT * FROM user WHERE email = ?", array($email));
+                  if(!$database->empty($result)){
+                        return true;
+                  } else {
+                        array_push($this->errors, "Er bestaat geen gebruiker met het opgegeven e-mailadres");
+                        return false;
+                  }
+            }
+
             // returns the errors as an array
             public function get_errors() : array {
                   return $this->errors;
