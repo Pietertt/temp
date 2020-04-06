@@ -1,6 +1,14 @@
 <?php
 require("../includes/navbar.php");
 
+if(session::is_private("comment")){
+      if(isset($_SESSION["logged_in"])){
+            if($_SESSION["logged_in"] == false){
+                  header("Location: ../error.php");
+            }
+      }
+}
+
 //voorkomt SQL injection naar database
 function ExtendedAddslash(&$params)
 {
