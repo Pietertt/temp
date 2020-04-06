@@ -22,11 +22,11 @@ class databaseValidation
         }
     }
 
-    public function insertIntoDB($user, $email, $password, $bsn, $firstName, $lastName, $gender, $tnumber)
+    public function insertIntoDB($email, $password, $bsn, $firstName, $lastName, $gender, $tnumber)
     {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbName);
-        $sql = "INSERT INTO user (username, password, email, BSN, firstname, lastname, gender, tnumber) VALUES ('$user', '$hash', '$email', '$bsn', '$firstName', '$lastName', '$gender', '$tnumber')";
+        $sql = "INSERT INTO user (username, password, email, BSN, firstname, lastname, gender, tnumber) VALUES ('$email', '$hash', '$email', '$bsn', '$firstName', '$lastName', '$gender', '$tnumber')";
 
         if ($conn->query($sql) === TRUE)
         {
