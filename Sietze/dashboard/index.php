@@ -3,19 +3,37 @@
 
       if(isset($_POST["firstname"])){
 
-         $firstname = $_POST["firstname"];
-         $lastname = $_POST["lastname"];
-         $sex = $_POST["sex"];
-         $email = $_POST["email"];
-         $phone = $_POST["phone"];
-         $password = $_POST["password"];
+            $firstname = $_POST["firstname"];
+            $lastname = $_POST["lastname"];
+            $sex = $_POST["sex"];
+            $email = $_POST["email"];
+            $phone = $_POST["phone"];
+            $password = $_POST["password"];
 
-         $database = new Database();
-         $database->insert("INSERT INTO `user` 
-                        (`username`,                        `password`,       `email`,    `BSN`,      `firstname`,      `lastname`,       `gender`,   `tnumber`) VALUES 
-                        (?,                                 ?,                ?,          ?,          ?,                ?,                ?,          ?);",
-                  array($firstname . " " . $lastname,       $password,         $email,      0,        $firstname,        $lastname,       $sex,       $phone));
-         exit();
+            $database = new Database();
+            $return = $database->insert("INSERT INTO `user` (`username`, `password`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", array($firstname . " " . $lastname, $password, $email, 0, $firstname, $lastname, $sex, $phone));
+            if($return == true){
+            ?>
+                  <div class="twelve wide container">
+            <div class="ten wide container">
+                  <div class="padded row">
+                        <div class="twelve wide column">
+                              <h1>Gelukt!</h1>
+                              <span>Je hebt succesvol een gebruiker aan de database toegevoegd! Ga terug naar het overzicht om meer te doen.</span>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="three wide column">
+                              <button class="ten wide blue button"><a href="index.php">Terug</a></button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+            <?php
+            } else {
+                  
+            }
+            exit();
       }
 ?>
 <form method="post">

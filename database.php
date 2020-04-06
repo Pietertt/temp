@@ -54,7 +54,7 @@
                   $this->disconnect();
             }
 
-            public function insert($query, $values) {
+            public function insert($query, $values) : bool {
                   $cookie = new Cookie("token");
                   if($cookie->validate_user($cookie->get_value())){ // validates that the token stored in the cookie is verified
                         $this->connect("localhost", "root", "", "ritsemabanck");
@@ -77,7 +77,14 @@
 
                         $result = $stmt->execute();
 
-                        print_r($stmt);
+                        $this->disconnect();
+                        if($result){
+                              return true;
+                        } else {
+                              return false;
+                        }
+                  } else {
+                        return false;
                   }
             }
 
@@ -105,7 +112,7 @@
                         call_user_func_array( array($stmt, 'bind_param'), $args);
                         // executes the query and returns either true of false
                         $result = $stmt->execute();
-                        $database->disconnect();
+                        $this->disconnect();
                         if($result){
                               return true;
                         } else {
