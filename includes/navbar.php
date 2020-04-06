@@ -101,7 +101,7 @@
                         <div class='ten wide container'>
                               <div class='centered padded row'>
                                     <div class='twelve wide error column'>
-                                          Oeps! Na een periode van 5 minuten inactiviteit is je sessie verlopen. Log alstublieft opnieuw in.
+                                          Oeps! Na een periode van 5 minuten inactiviteit is uw sessie verlopen. Log alstublieft opnieuw in.
                                     </div>
                               </div>
                         </div>

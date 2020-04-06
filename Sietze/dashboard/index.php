@@ -46,8 +46,9 @@
       <div class="padded row">
             <div class="six wide column">
                   <div class="six wide column">
-                  <h3>Gebruiker verwijderen</h3>
-                  <button id="button_remove_user" class="twelve wide red button">Verwijder</button>
+                        <h3>Gebruiker verwijderen</h3>
+                        <button id="button_remove_user" class="twelve wide red button">Verwijder</button>
+
                   </div>
             </div>
             <form method="post">
