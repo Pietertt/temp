@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 06 apr 2020 om 14:02
+-- Gegenereerd op: 06 apr 2020 om 17:53
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ritsema banck`
+-- Database: `ritsemabanck`
 --
 
 -- --------------------------------------------------------
@@ -36,8 +36,16 @@ CREATE TABLE `hypotheekinfo` (
   `Schulden` int(11) NOT NULL,
   `Koopprijs` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Hypotheek looptijd` int(11) NOT NULL
+  `Hypotheek looptijd` int(11) NOT NULL,
+  `Hypotheek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `hypotheekinfo`
+--
+
+INSERT INTO `hypotheekinfo` (`Geboortedatum`, `Rekeningnummer`, `Bruto jaarinkomen`, `Eigen inbreng`, `Schulden`, `Koopprijs`, `Email`, `Hypotheek looptijd`, `Hypotheek`) VALUES
+('28/07/1998', 'NL20RABO0343331292', 40000, 25000, 0, 380000, 'pieter@b.nl', 15, 165360);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

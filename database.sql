@@ -37,7 +37,8 @@ CREATE TABLE `hypotheekinfo` (
   `Schulden` int(11) NOT NULL,
   `Koopprijs` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Hypotheek looptijd` int(11) NOT NULL
+  `Hypotheek looptijd` int(11) NOT NULL,
+  `Hypotheek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
