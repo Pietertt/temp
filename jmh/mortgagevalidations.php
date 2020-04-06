@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 
         $bank_mail = "ritsemabanck@gmail.com"; // this is your Email address
         $subject = "Hypotheek aanvraag";
-        $message = "Geboortedatum: " . $birthdate . "\n" . "Bankrekeningnummer: " . $bank_number . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "Email : " . $email . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Hypotheek: " . $mortgage;
+        $message = "Geboortedatum: " . $birthdate . "\n" . "Bankrekeningnummer: " . $bank_number . "\n" . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "\n" . "Email : " . $email . "\n" . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Hypotheek: " . $mortgage;
         $headers = "From: " . $email;
         mail($bank_mail, $subject, $message, $headers);
         mail($email, "Kopie hypotheekaanvraag", $message, "From: " . $bank_mail);
