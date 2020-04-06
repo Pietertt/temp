@@ -19,12 +19,12 @@ elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 else {
-        $to = "janminne@gmail.com"; // this is your Email address
+        $to = "ritsemabanck@gmail.com"; // this is your Email address
         $subject = "Contact form: " . $name;
-        $message = "Naam: " . $name . "\n" . "Emailadres: " . $email . "\n" . "Bericht:" . "\n\n" . $message;
+        $message = "Naam: " . $name . "\n" . "Emailadres: " . $email . "\n\n" . "Bericht:" . "\n" . $message;
         $headers = "From: " . $email;
         mail($to, $subject, $message, $headers);
-        mail($email, "Kopie mail contactformulier", $message, "From: Ritsema Banck");
+        mail($email, "Kopie mail contactformulier", $message, "From: " . $to);
 
         header('Location: http://localhost/temp/jmh/index.php?submitted_form=contact');
         exit();

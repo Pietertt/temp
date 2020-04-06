@@ -42,21 +42,5 @@ if (isset($_POST['submit'])) {
         header("Location: ../jmh/index.php?submitted_form=mortgage_request&mortgage=$mortgage");
         exit();
     }
-
-
-//    || empty($gross_anual_income) || empty($input_money) || empty($dept) || empty($purchase_price) || empty($mortgage_duration)
-
-
-//    else {
-//        $to = "janminne@gmail.com"; // this is your Email address
-//        $subject = "Contact form: " . $name;
-//        $message = "Naam: " . $name . "\n" . "Emailadres: " . $email . "\n" . "Bericht:" . "\n\n" . $message;
-//        $headers = "From: " . $email;
-//        mail($to, $subject, $message, $headers);
-//        mail($email, "Kopie mail contactformulier", $message, "From: Ritsema Banck");
-//
-//        header('Location: http://localhost/temp/jmh/index.php');
-//        exit();
-//    }
 }
 

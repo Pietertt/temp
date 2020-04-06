@@ -31,6 +31,19 @@ require("../jmh/mortgagevalidations.php");
 
             <div class="row">
                 <div class="twelve wide column">
+                    <label for="bank_number">Rekeningnummer</label>
+                    <?php if(isset($_GET['bank_number'])){
+                        $bank_number = $_GET['bank_number'];
+                        echo '<input id="bank_number" name="bank_number" type="text" placeholder="Uw rekeningnummer" value="'.$bank_number.'">';
+                    }
+                    else {
+                        echo '<input id="bank_number" name="bank_number" type="text" placeholder="Uw rekeningnummer">';
+                    }?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="twelve wide column">
                     <label for="gross_anual_income">Bruto jaarinkomen</label>
                     <?php if(isset($_GET['gross_anual_income'])){
                         $gross_anual_income = $_GET['gross_anual_income'];
@@ -146,7 +159,11 @@ require("../jmh/mortgagevalidations.php");
             } elseif ($mortgageCheck == 'number') {
                 echo
                     $errorboxStart . "Voer een bedrag in afgerond op hele euro's" . $errorboxEnd;
+            } elseif ($mortgageCheck == "bank_number_length") {
+                echo
+                    $errorboxStart . "Uw rekeningnummer is niet juist ingevoerd." . $errorboxEnd;
             }
+
         }
         ?>
 

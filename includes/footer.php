@@ -11,12 +11,17 @@
                         <li><a href="http://localhost/temp/jmh/contact.php">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="three wide column">
                     <h4>Hypotheken</h4>
                     <ul>
                         <li><a href="http://localhost/temp/jmh/mortgagerequest.php">Hypotheek aanvragen</a></li>
                         <li><a href="http://localhost/temp/jmh/mortgagecalculator.php">Calculator</a></li>
                     </ul>
+                </div>
+
+                <div class="three wide column">
+
                 </div>
             </div>
         </div>
