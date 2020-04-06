@@ -7,7 +7,7 @@
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 
-DROP TABLE IF EXISTS `debt`, `genID`, `hypotheeken`, `H_note`, `QA`, `user`, `HypotheekInfo`, `messages`;
+DROP TABLE IF EXISTS `debt`, `genID`, `hypotheeken`, `H_note`, `QA`, `user`, `HypotheekInfo`, `messages`, `terms`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,22 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Tabelstructuur voor tabel `hypotheekinfo`
+--
 
+CREATE TABLE `hypotheekinfo` (
+  `Geboortedatum` varchar(10) NOT NULL,
+  `Rekeningnummer` varchar(18) NOT NULL,
+  `Bruto jaarinkomen` int(11) NOT NULL,
+  `Eigen inbreng` int(11) NOT NULL,
+  `Schulden` int(11) NOT NULL,
+  `Koopprijs` int(11) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Hypotheek looptijd` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 --
 -- Tabelstructuur voor tabel `debt`
 --
@@ -64,7 +79,7 @@ CREATE TABLE `hypotheeken` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `hypotheeken`
+-- Gegevens worden geÃ«xporteerd voor tabel `hypotheeken`
 --
 
 INSERT INTO `hypotheeken` (`id`, `user`, `status`, `info`, `date`, `last_update`, `notes`) VALUES
@@ -107,7 +122,7 @@ CREATE TABLE `terms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `terms`
+-- Gegevens worden geÃ«xporteerd voor tabel `terms`
 --
 
 INSERT INTO `terms` (`text`) VALUES
@@ -141,14 +156,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `user`
+-- Gegevens worden geÃ«xporteerd voor tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `BSN`, `firstname`, `lastname`, `gender`, `tnumber`, `banknum`, `income`, `partner`, `residence`, `birth_date`, `house_number`, `postal_code`, `addition`, `street`) VALUES
 (1, 'Pietertje', '$2y$10$XsNxJgGmONaw7n1cbwLXlurhS9pJl7OSpRkSZcCMv0kBOlJECgtgy', 'pieter@b.nl', 293829382, 'Johannes', 'de Groot', 'Mannelijk', '4567', 'NL66INGB2382485834', 39843, 23, 'Utrecht', '2020-03-02', 564, '4543HS', 'a', 'Dorpsstraat');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexen voor geÃ«xporteerde tabellen
 --
 
 --
@@ -185,7 +200,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Beperkingen voor geÃ«xporteerde tabellen
 --
 
 --
