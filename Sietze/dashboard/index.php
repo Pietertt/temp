@@ -1,6 +1,14 @@
 <?php
       include("../../includes/navbar.php");
 
+      if(session::is_private("intranet")){
+            if(isset($_SESSION["logged_in"])){
+                  if($_SESSION["logged_in"] == false){
+                        header("Location: ../../error.php");
+                  }
+            }
+      }
+
       if(isset($_POST["firstname"])){
 
             $firstname = $_POST["firstname"];
@@ -30,9 +38,7 @@
             </div>
       </div>
             <?php
-            } else {
-                  
-            }
+            } 
             exit();
       }
 ?>
