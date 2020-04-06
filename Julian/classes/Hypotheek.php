@@ -11,6 +11,8 @@ class Hypotheek
     public $application_date = "02-02-2020";
     public $message = "testing";
     public $edit;
+    public $date = "02-08-2019";
+    public $status = "goedgekeurd";
 
     //validations for Hypotheek
 
@@ -24,6 +26,14 @@ class Hypotheek
 
     public function getEdit(){
         return $this->edit;
+    }
+
+    public function GetDate(){
+        return $this->date;
+    }
+
+    public function GetStatus(){
+        return $this->status;
     }
 
 }
