@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 03 apr 2020 om 20:53
+-- Gegenereerd op: 06 apr 2020 om 12:09
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.2.28
 
@@ -71,15 +71,15 @@ INSERT INTO `hypotheeken` (`id`, `user`, `status`, `info`, `date`, `last_update`
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `H_note`
+-- Tabelstructuur voor tabel `messages`
 --
 
-CREATE TABLE `H_note` (
+CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `date` date DEFAULT NULL,
-  `text` text DEFAULT NULL,
-  `read` tinyint(4) DEFAULT NULL,
-  `sender` int(11) DEFAULT NULL
+  `date` date NOT NULL,
+  `text` longtext NOT NULL,
+  `read` int(11) NOT NULL,
+  `sender` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -171,13 +171,6 @@ ALTER TABLE `hypotheeken`
   ADD KEY `notes` (`notes`);
 
 --
--- Indexen voor tabel `H_note`
---
-ALTER TABLE `H_note`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sender` (`sender`);
-
---
 -- Indexen voor tabel `QA`
 --
 ALTER TABLE `QA`
@@ -205,12 +198,6 @@ ALTER TABLE `debt`
 ALTER TABLE `hypotheeken`
   ADD CONSTRAINT `hypotheeken_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `hypotheeken_ibfk_2` FOREIGN KEY (`notes`) REFERENCES `H_note` (`id`);
-
---
--- Beperkingen voor tabel `H_note`
---
-ALTER TABLE `H_note`
-  ADD CONSTRAINT `h_note_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

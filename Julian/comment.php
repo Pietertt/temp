@@ -13,11 +13,43 @@ function ExtendedAddslash(&$params)
 
       if(isset($_POST["message"])){
             $message = $_POST["message"];
-            
-            $database = new Database();
-            $database-
-      }
 
+            $database = new Database();
+            $database->connect("localhost", "root", "", "Ritsemabanck");
+            
+            $stmt = $database->get_connection()->prepare("INSERT INTO `messages` (`id`, `date`, `text`, `read`, `sender`) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $id, $date, $text, $read, $sender);
+
+            $id = 1;
+            $date = date("Y-m-d");
+            $text = $message;
+            $read = 0;
+            $sender = $_SESSION["user"]->id;
+
+            $stmt->execute();
+
+            $stmt->close();
+            $database->disconnect();
+
+?>
+      <div class="twelve wide container">
+            <div class="ten wide container">
+                  <div class="padded row">
+                        <div class="twelve wide column">
+                              <h1>Gelukt!</h1>
+                              <span>Je bericht is succesvol in de database geplaatst! Ga terug naar het overzicht om meer te doen.</span>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="three wide column">
+                              <button class="ten wide blue button"><a href="overview.php">Terug</a></button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+<?php
+            exit();
+      }
 ?>
 
 <form method="post" action="">

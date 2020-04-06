@@ -58,7 +58,7 @@
                   // creates a new instance of the Cookie class
                   $cookie = new Cookie("token");
                   if($cookie->validate_user($cookie->get_value())){ // validates that the token stored in the cookie is verified
-                        $database->connect("localhost", "root", "", "ritsemabanck");
+                        $this->connect("localhost", "root", "", "ritsemabanck");
                         // prepares the query
                         $stmt = $this->get_connection()->prepare($query);
                         
