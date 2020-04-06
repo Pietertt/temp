@@ -99,8 +99,10 @@
                   <?php
                         $database = new Database();
                         $result = $database->select("SELECT * FROM `hypotheeken` WHERE user = ?", array($_SESSION["user"]->id));
+                        $note = $database->fetch($database->select("SELECT * FROM `messages` WHERE sender = ?", array($_SESSION["user"]->id)));
                         $hypotheek = $database->fetch($result);
-                        print($hypotheek['date'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update'] . ' , Status : ' . $hypotheek['status']);
+
+                        print($hypotheek['date'] . ' , Laatst bijgewerkt :' . $hypotheek['last_update'] . ' , Status : ' . $hypotheek['status'] . ' , Uw bericht : ' . $note['text']);
 
                   ?>
 
