@@ -20,7 +20,7 @@ require ('../includes/navbar.php');
         </div>
 
         <div id="container" class="ten wide container">
-            <form method="post" action="regVal.php">
+            <form method="post" action="../Diego/regVal.php">
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
