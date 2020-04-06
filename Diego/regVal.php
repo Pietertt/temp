@@ -95,13 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         echo "<br>";
         echo "validation passed";
 
-        if ($db->insertIntoDB($nameVal->getFullName(), htmlspecialchars($pasVal->getPassword()), $emailVal->getEmail(), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex(), $phoneVal->getPhone()) == true)
+        if ($db->insertIntoDB($emailVal->getEmail(), htmlspecialchars($pasVal->getPassword()), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex(), $phoneVal->getPhone()) == true)
         {
             header("location: ../Pieter/index.php");
             exit();
-        }
-        else{
-            echo "test";
         }
     }
     else
