@@ -100,6 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             header("location: ../Pieter/index.php");
             exit();
         }
+        else{
+            echo "test";
+        }
     }
     else
     {
