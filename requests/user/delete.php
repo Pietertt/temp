@@ -12,12 +12,16 @@
             if($validation->filter_length($email)){
                   if($validation->filter_characters($email)){
                         if($validation->validate_email($email)){
-                              $database = new Database();
-                              $result = $database->delete("DELETE FROM User WHERE email = ?", array($email));
-                              if($result == true){
-                                    print("true");
+                              if($validation->does_user_exist_in_database($email)){
+                                    $database = new Database();
+                                    $result = $database->delete("DELETE FROM User WHERE email = ?", array($email));
+                                    if($result == true){
+                                          print("true");
+                                    } else {
+                                          print("false");
+                                    }
                               } else {
-                                    print("false");
+                                    print(json_encode($validation->get_errors()[0]));
                               }
                         } else {
                               print(json_encode($validation->get_errors()[0]));
