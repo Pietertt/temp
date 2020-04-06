@@ -24,7 +24,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="firstName">Voornaam</label>
-                        <input id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['FN']; }?>">
+                        <input title="Veld mag niet leeg zijn" id="firstName" name="firstName" type="text" placeholder="Voer je voornaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['FN']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -41,7 +41,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="lastName">Achternaam</label>
-                        <input id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['LN']; }?>">
+                        <input title="Veld mag niet leeg zijn" id="lastName" name="lastName" type="text" placeholder="Voer je achternaam in" value="<?php if(isset($_GET['X'])) {echo $_GET['LN']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -79,8 +79,16 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" placeholder="Voer je E-mail in" value="<?php if(isset($_GET['X'])) {echo $_GET['E']; }?>">
+                        <input title="Veld mag niet leeg zijn" id="email" name="email" type="email" placeholder="Voer je E-mail in" value="<?php if(isset($_GET['X'])) {echo $_GET['E']; }?>">
                         <?php
+                        if(isset($_GET['X']))
+                        {
+                            if ($_GET['EDBS'] == 'false')
+                            {
+                                echo 'Kies a.u.b. een ander email';
+                                echo '<br>';
+                            }
+                        }
                         if(isset($_GET['X']))
                         {
                             if ($_GET['ES'] == 'false')
@@ -96,7 +104,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="phoneNumber">Telefoon nummer</label>
-                        <input id="phoneNumber" name="phoneNumber" type="number" placeholder="Voer je telefoon nummer in" value="<?php if(isset($_GET['X'])) {echo $_GET['P']; }?>">
+                        <input title="Veld mag niet leeg zijn"id="phoneNumber" name="phoneNumber" type="number" placeholder="Voer je telefoon nummer in" value="<?php if(isset($_GET['X'])) {echo $_GET['P']; }?>">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -113,7 +121,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="password">Wachtwoord</label>
-                        <input id="password" name="password" type="password" placeholder="Voer je wachtwoord in">
+                        <input title="Veld mag niet leeg zijn" id="password" name="password" type="password" placeholder="Voer je wachtwoord in">
                         <?php
                         if(isset($_GET['X']))
                         {
@@ -130,7 +138,7 @@ require ('../includes/navbar.php');
                 <div class="row">
                     <div class="twelve wide column">
                         <label for="passwordRepeat">Herhaal wachtwoord</label>
-                        <input id="passwordRepeat" name="passwordRepeat" type="password" placeholder="Voer je wachtwoord opnieuw in">
+                        <input title="Veld mag niet leeg zijn" id="passwordRepeat" name="passwordRepeat" type="password" placeholder="Voer je wachtwoord opnieuw in">
                         <?php
                         if(isset($_GET['X']))
                         {

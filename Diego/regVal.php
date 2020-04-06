@@ -19,17 +19,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     require_once __DIR__ . "/classes/telefoonValidation.php";
     $phoneVal = new classes\telefoonValidation();
 
+    require_once __DIR__ . "/classes/databaseValidation.php";
+    $db = new classes\databaseValidation;
 
-    $nameVal->checkOnlyLettersFirstName($_POST["firstName"]);
-    $nameVal->checkOnlyLettersLastName($_POST["lastName"]);
 
-    $sexVal->checkOnlyLettersSex($_POST["sex"]);
+    if ($_POST["firstName"] != '') {
+        $nameVal->checkOnlyLettersFirstName($_POST["firstName"]);
+        echo "shits going wrong";
+    }
+    if ($_POST["lastName"] != '') {
+        $nameVal->checkOnlyLettersLastName($_POST["lastName"]);
+    }
 
-    $emailVal->validateEmail($_POST["email"]);
+    if ($_POST["sex"] != '') {
+        $sexVal->checkOnlyLettersSex($_POST["sex"]);
+    }
 
-    $phoneVal->valPhone($_POST["phoneNumber"]);
+    if ($_POST["email"] != '') {
+        $emailVal->validateEmail($_POST["email"]);
+    }
 
-    $pasVal->testSpecialCharacter($_POST["password"]);
+    if ($_POST["phoneNumber"] != ''){
+        $phoneVal->valPhone($_POST["phoneNumber"]);
+    }
+
+    if ($_POST["password"] != ''){
+        $pasVal->testSpecialCharacter($_POST["password"]);
+    }
 
 
     $firstNameState = 'false';
@@ -40,62 +56,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $pasState = 'false';
     $pasReState = 'false';
 
+    $emailDBState = 'false';
 
-    if ($nameVal->getFirstName() == $_POST["firstName"])
+
+    if ($nameVal->getFirstName() == $_POST["firstName"] & $_POST["firstName"] != '')
     {
         echo $nameVal->getFirstName();
         echo "<br>";
 
         $firstNameState = 'true';
     }
-    if ($nameVal->getLastName() == $_POST["lastName"])
+    if ($nameVal->getLastName() == $_POST["lastName"] & $_POST["lastName"] != '')
     {
         echo $nameVal->getLastName();
         echo "<br>";
 
         $lastNameState = 'true';
     }
-    if ($sexVal->getSex() == $_POST["sex"])
+    if ($sexVal->getSex() == $_POST["sex"] & $_POST["sex"] != '')
     {
         echo $sexVal->getSex();
         echo "<br>";
 
         $sexState = 'true';
     }
-    if ($emailVal->getEmail() == $_POST["email"])
+    if ($emailVal->getEmail() == $_POST["email"] & $_POST["email"] != '')
     {
         echo $emailVal->getEmail();
         echo "<br>";
 
         $emailState = 'true';
     }
-    if ($phoneVal->getPhone() == $_POST["phoneNumber"])
+    if ($db->checkEmail(htmlspecialchars($_POST["email"])))
+    {
+        $emailDBState = 'true';
+    }
+    if ($phoneVal->getPhone() == $_POST["phoneNumber"] & $_POST["phoneNumber"] != '')
     {
         echo $phoneVal->getPhone();
         echo "<br>";
 
         $phoneState = 'true';
     }
-    if ($pasVal->getPassword() == $_POST["password"])
+    if ($pasVal->getPassword() == $_POST["password"] & $_POST["password"] != '')
     {
         echo $pasVal->getPassword();
         echo "<br>";
 
         $pasState = 'true';
     }
-    if ($_POST["password"] == $_POST["passwordRepeat"])
+    if ($_POST["password"] == $_POST["passwordRepeat"] & $_POST["passwordRepeat"] != '')
     {
         echo $_POST["passwordRepeat"];
         echo "<br>";
 
         $pasReState = 'true';
     }
-    if ($firstNameState == 'true' & $lastNameState == 'true' & $sexState == 'true' & $emailState == 'true' & $pasState == 'true' & $pasReState == 'true' & $phoneState == 'true')
+    if ($firstNameState == 'true' & $lastNameState == 'true' & $sexState == 'true' & $emailState == 'true' & $pasState == 'true' & $pasReState == 'true' & $phoneState == 'true' & $emailDBState == 'true')
     {
         echo "<br>";
         echo "validation passed";
 
-        if ($db->insertIntoDB($emailVal->getEmail(), htmlspecialchars($pasVal->getPassword()), "012346789", $nameVal->getFirstName(), $nameVal->getLastName(), $sexVal->getSex(), $phoneVal->getPhone()) == true)
+        if ($db->insertIntoDB(htmlspecialchars($emailVal->getEmail()), htmlspecialchars($pasVal->getPassword()), "012346789", htmlspecialchars($nameVal->getFirstName()), htmlspecialchars($nameVal->getLastName()), htmlspecialchars($sexVal->getSex()), htmlspecialchars($phoneVal->getPhone())) == true)
         {
             header("location: ../Pieter/index.php");
             exit();
@@ -103,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     else
     {
-            header("location: ../Diego/registration.php?X=1&FNS=".$firstNameState."&FN=".$_POST["firstName"]."&LNS=".$lastNameState."&LN=".$_POST["lastName"]."&SS=".$sexState."&S=".$_POST["sex"]."&ES=".$emailState."&E=".$_POST["email"]."&PS=".$phoneState."&P=".$_POST["phoneNumber"]."&PWS=".$pasState."&PWRS=".$pasState);
+            header("location: ../Diego/registration.php?X=1&FNS=".$firstNameState."&FN=".$_POST["firstName"]."&LNS=".$lastNameState."&LN=".$_POST["lastName"]."&SS=".$sexState."&S=".$_POST["sex"]."&ES=".$emailState."&E=".$_POST["email"]."&PS=".$phoneState."&P=".$_POST["phoneNumber"]."&PWS=".$pasState."&PWRS=".$pasState."&EDBS=".$emailDBState);
             exit();
     }
 }
