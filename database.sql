@@ -203,19 +203,6 @@ ALTER TABLE `user`
 -- Beperkingen voor geÃ«xporteerde tabellen
 --
 
---
--- Beperkingen voor tabel `debt`
---
-ALTER TABLE `debt`
-  ADD CONSTRAINT `debt_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`);
-
---
--- Beperkingen voor tabel `hypotheeken`
---
-ALTER TABLE `hypotheeken`
-  ADD CONSTRAINT `hypotheeken_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `hypotheeken_ibfk_2` FOREIGN KEY (`notes`) REFERENCES `H_note` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
