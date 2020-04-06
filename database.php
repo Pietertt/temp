@@ -54,6 +54,33 @@
                   $this->disconnect();
             }
 
+            public function insert($query, $values) {
+                  $cookie = new Cookie("token");
+                  if($cookie->validate_user($cookie->get_value())){ // validates that the token stored in the cookie is verified
+                        $this->connect("localhost", "root", "", "ritsemabanck");
+                        // prepares the query
+                        $stmt = $this->get_connection()->prepare($query);
+
+                        $type = "";
+                        for($i = 0; $i < count($values); $i++){
+                              $type = $type . substr(gettype($values[$i]), 0, 1);
+                        }
+
+                        // appends the values to the array
+                        $args = array(&$type);
+                        for ($i=0; $i < count($values); $i++){
+                              $args[] = &$values[$i];
+                        }
+
+                        // binds the parameters to the prepared query
+                        call_user_func_array( array($stmt, 'bind_param'), $args);
+
+                        $result = $stmt->execute();
+
+                        print_r($stmt);
+                  }
+            }
+
             public function update($query, $values) : bool {
                   // creates a new instance of the Cookie class
                   $cookie = new Cookie("token");
