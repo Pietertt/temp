@@ -67,10 +67,10 @@ if (isset($_POST['submit'])) {
     }
     else {
         $database = new Database();
-        $database->connect("localhost", "root", "", "ritsema banck");
+        $database->connect("localhost", "root", "", "ritsemabanck");
 
-        $stmt = $database->get_connection()->prepare("INSERT INTO `HypotheekInfo` (`Geboortedatum`, `Rekeningnummer`, `Bruto jaarinkomen`, `Eigen inbreng`, `Schulden`, `Koopprijs`, `Email`, `Hypotheek looptijd`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssiiiisi", $birthdate, $bank_number, $gross_anual_income, $input_money, $dept, $purchase_price, $email, $mortgage_duration);
+        $stmt = $database->get_connection()->prepare("INSERT INTO `HypotheekInfo` (`Geboortedatum`, `Rekeningnummer`, `Bruto jaarinkomen`, `Eigen inbreng`, `Schulden`, `Koopprijs`, `Email`, `Hypotheek looptijd`, `Hypotheek`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssiiiisii", $birthdate, $bank_number, $gross_anual_income, $input_money, $dept, $purchase_price, $email, $mortgage_duration, $mortgage);
 
         $id = 1;
         $read = 0;
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 
         $bank_mail = "ritsemabanck@gmail.com"; // this is your Email address
         $subject = "Hypotheek aanvraag";
-        $message = "Geboortedatum: " . $birthdate . "\n" . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "Email : " . $email . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Bankrekeningnummer: " . $bank_number;
+        $message = "Geboortedatum: " . $birthdate . "\n" . "Bankrekeningnummer: " . $bank_number . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "Email : " . $email . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Hypotheek: " . $mortgage;
         $headers = "From: " . $email;
         mail($bank_mail, $subject, $message, $headers);
         mail($email, "Kopie hypotheekaanvraag", $message, "From: " . $bank_mail);

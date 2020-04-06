@@ -107,21 +107,29 @@
                   ?>
 
 
-                      <div class="row"></div>
-                      <div class="six wide column"></div>
-                      <button class="twelve wide blue button"><a href="../Julian/comment.php">Opmerking plaatsen</a></button>
-
-
-                      <div class="row toppad"
-                           <div class="six wide column"></div>
-                      <button class="twelve wide blue button"><a href="../Pieter/generate.php">Exporteer naar PDF</a></button>
-
-                  </div>
+                  <div class="row toppad">
+                     <button class="six wide blue button"><a href="../Julian/comment.php">Opmerking plaatsen</a></button>
+                      </div>
                   </div>
 
+                      <?php
+                      $mortgage_result = $database->fetch($database->select("SELECT * FROM HypotheekInfo WHERE Email = ?", array(Token::decode($cookie->get_value())->username)));
+                      if (!empty($mortgage_result)) {
+                        echo
+                        '<div class="row toppad">
+                                <button class="six wide blue button">
+                                    <a href="../Pieter/generate.php">Exporteer naar PDF</a>
+                                 </button>
+                         </div>';
+                      }
+                      ?>
+                  </div>
         </div>
     </div>
 </div>
+
+
+
 
 <?php require('../includes/footer.php');?>
 
