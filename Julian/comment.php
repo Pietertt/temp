@@ -18,21 +18,23 @@ function ExtendedAddslash(&$params)
     //function for every POST variable.
     ExtendedAddslash($_POST);
 }
-
+    // maakt verbinding met database
       if(isset($_POST["message"])){
             $message = $_POST["message"];
 
             $database = new Database();
             $database->connect("localhost", "root", "", "Ritsemabanck");
-            
-            $stmt = $database->get_connection()->prepare("INSERT INTO `messages` (`id`, `date`, `text`, `read`, `sender`) VALUES (?, ?, ?, ?, ?)");
+
+          $id = 1;
+          $date = date("Y-m-d");
+          $text = $message;
+          $read = 0;
+          $sender = $_SESSION["user"]->id;
+
+
+          $stmt = $database->get_connection()->prepare("INSERT INTO `messages` (`id`, `date`, `text`, `read`, `sender`) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $id, $date, $text, $read, $sender);
 
-            $id = 1;
-            $date = date("Y-m-d");
-            $text = $message;
-            $read = 0;
-            $sender = $_SESSION["user"]->id;
 
             $stmt->execute();
 
