@@ -72,7 +72,7 @@ require ('../includes/navbar.php');
                         {
                             if ($_GET['SS'] == 'false')
                             {
-                                echo 'sex state';
+                                echo 'Het aanpassen van de html met het doel dit veld leeg te maken is niet toegestaan';
                                 echo '<br>';
                             }
                         }
