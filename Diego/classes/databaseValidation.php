@@ -37,4 +37,18 @@ class databaseValidation
             return false;
         }
     }
+
+    public function checkEmail($email)
+    {
+        $conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbName);
+        $sql = "SELECT `email` FROM `user` WHERE `email`='$email'";
+
+        if ($conn->query($sql)->num_rows === 0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
