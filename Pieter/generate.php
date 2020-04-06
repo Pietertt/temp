@@ -15,6 +15,18 @@
                   $cookie->update();
                   $database = new Database();
                   $database->connect("localhost", "root", "", "ritsemabanck");
+                $mortgage_result = $database->fetch($database->select("SELECT * FROM HypotheekInfo WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
+
+                $user = new User();
+                $user->birthdate = $mortgage_result["Geboortedatum"];
+                $user->bank_number = $mortgage_result["Rekeningnummer"];
+                $user->gross_anual_income = $mortgage_result["Bruto jaarinkomen"];
+                $user->input_money = $mortgage_result["Eigen inbreng"];
+                $user->dept = $mortgage_result["Schulden"];
+                $user->purchase_price = $mortgage_result["Koopprijs"];
+                $user->email = $mortgage_result["Email"];
+                $user->mortgage_duration = $mortgage_result["Hypotheek looptijd"];
+
                   $result = $database->fetch($database->select("SELECT * FROM User WHERE email = ?", array(Token::decode($cookie->get_value())->username)));
                   
                   $user = new User();

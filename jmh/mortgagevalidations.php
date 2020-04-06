@@ -1,16 +1,30 @@
 <?php
 
 
+//voorkomt SQL injection naar database
+function ExtendedAddslash(&$params)
+{
+    foreach ($params as &$var) {
+        is_array($var) ? ExtendedAddslash($var) : $var = addslashes($var);
+    }
+    //function for every POST variable.
+    ExtendedAddslash($_POST);
+}
+
+
 if (isset($_POST['submit'])) {
 
+    include("../database.php");
+
     $birthdate = $_POST['birthdate'];
+    $bank_number = $_POST['bank_number'];
     $gross_anual_income = $_POST['gross_anual_income'];
     $input_money = $_POST['input_money'];
     $dept = $_POST['dept'];
     $purchase_price = $_POST['purchase_price'];
     $email = $_POST['email'];
     $mortgage_duration = $_POST['mortgage_duration'];
-    $bank_number = $_POST['bank_number'];
+
 
     //calculationvariables
 
@@ -32,7 +46,7 @@ if (isset($_POST['submit'])) {
 
     $mortgage = $maximum_gross_mortgage_burden * $mortgage_duration * $key_interest;
 
-    if (empty($birthdate) || empty($email) || empty($gross_anual_income) || empty($input_money) || empty($dept) || empty($purchase_price) || empty($mortgage_duration) || empty($bank_number)) {
+    if (empty($birthdate) || empty($email) || empty($gross_anual_income) || empty($purchase_price) || empty($mortgage_duration) || empty($bank_number)) {
         header("Location: ../jmh/mortgagerequest.php?mortgagerequest=empty&birthdate=$birthdate&gross_anual_income=$gross_anual_income&input_money=$input_money&dept=$dept&purchase_price=$purchase_price&email=$email&mortgage_duration=$mortgage_duration&bank_number=$bank_number");
         exit();
     }
@@ -52,6 +66,21 @@ if (isset($_POST['submit'])) {
         exit();
     }
     else {
+        $database = new Database();
+        $database->connect("localhost", "root", "", "ritsema banck");
+
+        $stmt = $database->get_connection()->prepare("INSERT INTO `HypotheekInfo` (`Geboortedatum`, `Rekeningnummer`, `Bruto jaarinkomen`, `Eigen inbreng`, `Schulden`, `Koopprijs`, `Email`, `Hypotheek looptijd`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssiiiisi", $birthdate, $bank_number, $gross_anual_income, $input_money, $dept, $purchase_price, $email, $mortgage_duration);
+
+        $id = 1;
+        $read = 0;
+        $sender = $_SESSION["user"]->id;
+
+        $stmt->execute();
+
+        $stmt->close();
+        $database->disconnect();
+
         $bank_mail = "ritsemabanck@gmail.com"; // this is your Email address
         $subject = "Hypotheek aanvraag";
         $message = "Geboortedatum: " . $birthdate . "\n" . "Bruto jaarlijks inkomen: " . $gross_anual_income . "\n" . "Eigen inbreng: " . "\n" . $input_money . "\n" . "Schulden: " . $dept . "\n" . "Koopprijs : " . $purchase_price . "Email : " . $email . "Hypotheek duratie : " . $mortgage_duration . "\n" . "Bankrekeningnummer: " . $bank_number;
