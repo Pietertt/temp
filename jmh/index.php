@@ -24,9 +24,11 @@ elseif ($submitted_form == "mortgage_request") {
 }
 ?>
 '<div class="row toppad">
-    <button class="six wide blue button">
+    <div class="twelve wide centered column">
+    <button class="two wide blue button">
         <a href="../jmh/home.php">Terug naar de homepagina</a>
     </button>
+    </div>
 </div>';
 
 <?php require('../includes/footer.php');?>
